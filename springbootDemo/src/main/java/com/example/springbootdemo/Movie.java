@@ -10,11 +10,14 @@ import org.springframework.data.mongodb.core.mapping.DocumentReference;
 
 import java.util.List;
 
-@Document(collection = "movies")
+@Document(collection = "clothes")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Movie {
+    /**
+     * We do not want to expose the id to the client. We would prefer imdbId to be the url
+     */
     @Id
     private ObjectId id;
     private String imdbId;
