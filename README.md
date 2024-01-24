@@ -15,6 +15,10 @@ maintainers: Zhikai, Chenglong
 * [Text tutorial](https://reflectoring.io/build-responsive-web-apps-with-springboot-and-react-tutorial/)
 * [Introduction to React](https://react.dev/learn)
 
+## *HTML code* reference for the frontend pages
+
+[Click to view the frontend view](https://projects.animaapp.com/?mode=code&layer=78%3A1031&utm_source=copylink)
+
 ---
 
 ## Appendix
