@@ -12,8 +12,9 @@ maintainers: Zhikai, Chenglong
 ## Reference
 
 * [Introduction to create a web application with MongoDB, spring boot and ReactJS(video)](https://www.youtube.com/watch?v=5PdEmeopJVQ)
-* [Text tutorial](https://reflectoring.io/build-responsive-web-apps-with-springboot-and-react-tutorial/)
+  [Text tutorial](https://reflectoring.io/build-responsive-web-apps-with-springboot-and-react-tutorial/)
 * [Introduction to React](https://react.dev/learn)
+* [React in VS Code(Configuring Linting extension)](https://code.visualstudio.com/docs/nodejs/reactjs-tutorial#:~:text=You%20can%20open%20the%20preview,syntax%20highlighting%20in%20code%20blocks.)
 
 ## *HTML code* reference for the frontend pages
 
