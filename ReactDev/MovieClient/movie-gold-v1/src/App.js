@@ -1,7 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
 import api from './api/axiosConfig';
 import {useState, useEffect} from 'react';
+import React from 'react';
+import Layout from './components/Layout';
+import {Routes, Route} from 'react-router-dom';
+import Home from './components/home/Home';
 
 function App() {
 
@@ -32,6 +35,12 @@ function App() {
   return (
     <div className="App">
       
+      <Routes>
+          <Route path="/" element={<Layout/>}>
+              {/* here sets all the child route elements */}
+              <Route path="/" element={<Home movies={movies}/>} ></Route>
+          </Route>
+      </Routes>
     </div>
   );
 }
