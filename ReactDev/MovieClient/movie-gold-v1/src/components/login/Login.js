@@ -1,11 +1,13 @@
 import React, { useState } from "react";
+import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
 import api from "../../api/axiosConfig";
+import UploadImage from "../uploadimage/UploadImage";
 
 const Login = () => {
   // 使用 useState 创建 state 变量来管理输入的用户名和密码
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
+  const navigate = useNavigate();
   // 处理用户名输入变化
   const handleUsernameChange = (e) => {
     setUsername(e.target.value);
@@ -29,7 +31,10 @@ const Login = () => {
     try{
       const response = await api.post("/api/v1/login", loginInfo);
       console.log(response.data)
-      
+      if(response.data == true) {
+        console.log("Login success!Redirecting to upload image page");
+        navigate("/uploadimage");
+      }
     } catch(err) {
       console.log(err);
     }
