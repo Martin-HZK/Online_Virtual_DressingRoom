@@ -2,9 +2,10 @@ import './App.css';
 import api from './api/axiosConfig';
 import {useState, useEffect} from 'react';
 import Layout from './components/Layout';
-import {Routes, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
 import Home from './components/home/Home';
-
+import Login from './components/login/Login';
+import UploadImage from './components/uploadimage/UploadImage';
 function App() {
 
   const [movies, setMovies] = useState();
@@ -33,13 +34,13 @@ function App() {
   
   return (
     <div className="App">
-      
-      <Routes>
-          <Route path="/" element={<Layout/>}>
-              {/* here sets all the child route elements */}
-              <Route path="/" element={<Home movies={movies}/>} ></Route>
-          </Route>
-      </Routes>
+      <h1>React routing base</h1>
+        <Routes>
+            <Route path="/" element={<Layout/>}>
+              <Route path="/" element={<Login/>}></Route>
+              <Route path="/uploadimage" element={<UploadImage/>}></Route>
+            </Route>
+        </Routes>
     </div>
   );
 }

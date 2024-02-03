@@ -1,9 +1,9 @@
-package com.example.springbootdemo;
+package com.example.springbootdemo.controller;
 
-import org.bson.types.ObjectId;
+import com.example.springbootdemo.model.Movie;
+import com.example.springbootdemo.repository.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
