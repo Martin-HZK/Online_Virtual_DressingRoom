@@ -31,16 +31,10 @@ function App() {
   useEffect(() => {
     getMovies();
   },[])
-
-  // useEffect(() => {
-  //   navigate('/login');
-  // }, [navigate]);
-
   
   return (
     <div className="App">
       <h1>React routing base</h1>
-      <Link to="/">Home</Link>
         <Routes>
             <Route path="/" element={<Layout/>}>
               <Route path="/" element={<Login/>}></Route>
