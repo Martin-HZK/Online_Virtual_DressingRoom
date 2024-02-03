@@ -15,6 +15,7 @@ maintainers: Zhikai, Chenglong
   [Text tutorial](https://reflectoring.io/build-responsive-web-apps-with-springboot-and-react-tutorial/)
 * [React reference Overview](https://react.dev/reference/react) [Introduction to React](https://react.dev/learn)
 * [React in VS Code(Configuring Linting extension)](https://code.visualstudio.com/docs/nodejs/reactjs-tutorial#:~:text=You%20can%20open%20the%20preview,syntax%20highlighting%20in%20code%20blocks.)
+* [Tutorial of creating a side navigation bar](https://www.youtube.com/watch?v=bFvfqUMjvsA&list=PLImJ3umGjxdCjoBGj1eGQwcopR0P0edAK)
 
 ## *HTML code* reference for the frontend pages
 
