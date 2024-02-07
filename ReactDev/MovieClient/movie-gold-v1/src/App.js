@@ -35,7 +35,7 @@ function App() {
   
   return (
     <div className="App">
-      {/* <Navigator/> */}
+      <Navigator/>
       <h1>React routing base</h1>
         <Routes>
             <Route path="/" element={<Layout/>}>
