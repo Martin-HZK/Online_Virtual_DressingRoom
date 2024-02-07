@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
 import api from "../../api/axiosConfig";
-import UploadImage from "../uploadimage/UploadImage";
 
 const Login = () => {
   // 使用 useState 创建 state 变量来管理输入的用户名和密码

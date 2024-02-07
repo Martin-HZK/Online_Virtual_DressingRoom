@@ -1,0 +1,10 @@
+.button {
+    width: 100px; /* 按钮宽度 */
+    height: 40px; /* 按钮高度 */
+    border: 2px solid black; /* 黑色边框 */
+    border-radius: 10px; /* 弧形边角 */
+    background-color: transparent; /* 透明背景 */
+    color: black; /* 黑色字体颜色 */
+    padding: 10px 20px; /* 可根据需要调整内边距 */
+    cursor: pointer; /* 鼠标悬停时显示手型 */
+}
