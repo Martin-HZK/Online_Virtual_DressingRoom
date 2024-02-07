@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
 import Home from './components/home/Home';
 import Login from './components/login/Login';
 import UploadImage from './components/uploadimage/UploadImage';
+import Navigator from './components/navigator/Navigator';
 function App() {
 
   const [movies, setMovies] = useState();
@@ -34,6 +35,7 @@ function App() {
   
   return (
     <div className="App">
+      {/* <Navigator/> */}
       <h1>React routing base</h1>
         <Routes>
             <Route path="/" element={<Layout/>}>
