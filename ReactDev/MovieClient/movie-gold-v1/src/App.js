@@ -6,6 +6,11 @@ import { BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
 import Home from './components/home/Home';
 import Login from './components/login/Login';
 import UploadImage from './components/uploadimage/UploadImage';
+import Navigator from './components/navigator/Navigator';
+import ShoppingCart from './components/shoppingCart/ShoppingCart';
+import DressingRoom from './components/dressingRoom/DressingRoom';
+import BodyFeature from './components/bodyFeature/BodyFeature';
+import AIRecommendation from './components/aiRecommendation/AIRecommendation';
 function App() {
 
   const [movies, setMovies] = useState();
@@ -34,11 +39,16 @@ function App() {
   
   return (
     <div className="App">
+      <Navigator/>
       <h1>React routing base</h1>
         <Routes>
             <Route path="/" element={<Layout/>}>
               <Route path="/" element={<Login/>}></Route>
               <Route path="/uploadimage" element={<UploadImage/>}></Route>
+              <Route path='/bodyfeature' element={<BodyFeature/>}></Route>
+              <Route path='/dressingroom' element={<DressingRoom/>}></Route>
+              <Route path='/shoppingcart' element={<ShoppingCart/>}></Route>
+              <Route path='/airecommendation' element={<AIRecommendation/>}></Route>
             </Route>
         </Routes>
     </div>
