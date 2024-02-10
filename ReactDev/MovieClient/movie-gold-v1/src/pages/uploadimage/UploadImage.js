@@ -2,7 +2,7 @@ import { Button } from '@mui/material';
 import './UploadImage.css';
 import { useState, useRef } from 'react'
 import React from 'react'
-
+import WebCam from '../../components/webCam/WebCam';
 const UploadImage = () => {
 
 
@@ -64,7 +64,8 @@ console.log("imageimage", image);
 
 
 return (
-<div>
+<form className='form'>
+<WebCam/>
 <input
   style={{ display: "none" }}
   // accept=".zip,.rar"
@@ -75,7 +76,7 @@ return (
 <div className="button" onClick={onButtonClick}>
   Upload
 </div>
-</div>
+</form>
 
 )
 }

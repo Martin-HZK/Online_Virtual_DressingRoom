@@ -4,13 +4,13 @@ import {useState, useEffect} from 'react';
 import Layout from './components/Layout';
 import { BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
 import Home from './components/home/Home';
-import Login from './components/login/Login';
-import UploadImage from './components/uploadimage/UploadImage';
+import Login from './pages/login/Login';
+import UploadImage from './pages/uploadimage/UploadImage';
 import Navigator from './components/navigator/Navigator';
-import ShoppingCart from './components/shoppingCart/ShoppingCart';
-import DressingRoom from './components/dressingRoom/DressingRoom';
-import BodyFeature from './components/bodyFeature/BodyFeature';
-import AIRecommendation from './components/aiRecommendation/AIRecommendation';
+import ShoppingCart from './pages/shoppingCart/ShoppingCart';
+import DressingRoom from './pages/dressingRoom/DressingRoom';
+import BodyFeature from './pages/bodyFeature/BodyFeature';
+import AIRecommendation from './pages/aiRecommendation/AIRecommendation';
 function App() {
 
   const [movies, setMovies] = useState();
