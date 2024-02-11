@@ -1,15 +1,15 @@
 import React, { useCallback, useRef, useState } from 'react'
 import Webcam from 'react-webcam';
-import './WebCam.css'
+// import './WebCam.css'
 
 const videoConstraints = {
-    width: 220,
-    height: 200,
+    width: 450,
+    height: 400,
     facingMode: "user"
   };
 
 const WebCam = () => {
-    const [image, setImage] = useState();
+    const [image, setImage] = useState('');
     const webcamRef = useRef(null);
     const capture = useCallback(
         () => {
@@ -23,14 +23,14 @@ const WebCam = () => {
 
 
   return (
-    <div>
-        <div className="webcam">
+    <div className='webcam-container'>
+        <div className="webcam-img">
             {image==''?<Webcam
                 audio={false}
-                height={200}
+                height={400}
                 ref={webcamRef}
                 screenshotFormat="image/jpeg"
-                width={220}
+                width={450}
                 videoConstraints={videoConstraints}
             />:<img src={image} />}
         </div>

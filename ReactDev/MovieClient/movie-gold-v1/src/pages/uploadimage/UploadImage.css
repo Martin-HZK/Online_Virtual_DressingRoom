@@ -8,3 +8,23 @@
     padding: 10px 20px; /* 可根据需要调整内边距 */
     cursor: pointer; /* 鼠标悬停时显示手型 */
 }
+
+/* .uploadimage-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 10px 0;
+} */
+
+.homecmp-container .webcam-container
+{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding:10px 0;
+}
+.homecmp-container .webcam-container .webcam-btn
+{
+    margin-top: 10px;
+    width:30%;
+}
