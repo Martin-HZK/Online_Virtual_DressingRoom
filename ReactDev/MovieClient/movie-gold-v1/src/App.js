@@ -40,7 +40,7 @@ function App() {
   return (
     <div className="App">
       <Navigator/>
-      <h1>React routing base</h1>
+      {/* <h1>React routing base</h1> */}
         <Routes>
             <Route path="/" element={<Layout/>}>
               <Route path="/" element={<Login/>}></Route>
