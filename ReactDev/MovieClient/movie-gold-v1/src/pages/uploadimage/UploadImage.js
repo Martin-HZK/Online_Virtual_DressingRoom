@@ -3,11 +3,13 @@ import './UploadImage.css';
 import { useState, useRef } from 'react'
 import React from 'react'
 import WebCam from '../../components/webCam/WebCam';
+import { useNavigate } from 'react-router';
 const UploadImage = () => {
     console.log("UploadImage component");
   
   const [image, setImage] = useState("");
   const inputFile = useRef(null);
+  const navigate = useNavigate();
 
   const uploadImage = e => {
     const { files } = e.target;
@@ -25,6 +27,14 @@ const UploadImage = () => {
   const onButtonClick = () => {
     inputFile.current.click();
   };
+
+  const submitForm = (e) => {
+    e.preventDefault();
+    console.log("submitForm");
+    // TODO: submit the form
+
+    navigate("/bodyfeature");
+  }
 
 
 
@@ -52,6 +62,7 @@ const UploadImage = () => {
         <div className="button" onClick={onButtonClick}>
           Upload
         </div> */}
+        <button type='submit' id='login-button' onClick={(e) => submitForm(e)}>Submit</button>
         </form>
       </div>
     </div>
