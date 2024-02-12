@@ -47,7 +47,6 @@ const WebCam = () => {
                     capture();
                 }}
                 className='webcam-btn'>Capture</button>
-
             }
         </div>
     </div>
