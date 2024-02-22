@@ -11,6 +11,7 @@ import ShoppingCart from './pages/shoppingCart/ShoppingCart';
 import DressingRoom from './pages/dressingRoom/DressingRoom';
 import BodyFeature from './pages/bodyFeature/BodyFeature';
 import AIRecommendation from './pages/aiRecommendation/AIRecommendation';
+// import UploadGoods from './pages/retailer_pages/upload_goods/UploadGoods';
 function App() {
 
   const [movies, setMovies] = useState();
