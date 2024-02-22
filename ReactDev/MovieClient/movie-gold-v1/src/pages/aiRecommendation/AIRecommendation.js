@@ -1,8 +1,10 @@
 import React from 'react'
+import UploadGoods from '../retailer_pages/upload_goods/UploadGoods'
 
 const AIRecommendation = () => {
   return (
-    <div>AIRecommendation</div>
+    // <div>AIRecommendation</div>
+    <UploadGoods/>
   )
 }
 
