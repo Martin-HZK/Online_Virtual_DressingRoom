@@ -1,5 +1,6 @@
 import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 import { useNavigate } from 'react-router-dom';
+import React from 'react';
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import './Navigator.css'
 const Navigator = () => {
