@@ -18,7 +18,7 @@ public class UploadImageController {
     private ClothesService clothesService;
 
     @PostMapping
-    public ResponseEntity<Clothes> createAd(@RequestParam("file") MultipartFile adsImages) {
+    public ResponseEntity<Clothes> createAd(@RequestParam("file") MultipartFile adsImages, @RequestParam("goodName") String name, @RequestParam("description") String description, @RequestParam("category") String category, @RequestParam("brand") String brand) {
         String uploadDirectory = "src/main/resources/static/clothes/";
         String adsImagesString = "";
 
@@ -35,9 +35,6 @@ public class UploadImageController {
 
         // Save the adsImagesString in your database
         // You can also associate it with other data in your Ads object
-
-        return new ResponseEntity<Clothes>(clothesService.createClothes("clothes name", adsImagesString), HttpStatus.CREATED);
-
-
+        return new ResponseEntity<Clothes>(clothesService.createClothes(name, adsImagesString, description,category,brand), HttpStatus.CREATED);
     }
 }

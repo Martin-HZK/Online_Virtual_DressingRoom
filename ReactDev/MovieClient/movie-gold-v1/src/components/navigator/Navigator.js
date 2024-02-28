@@ -16,6 +16,14 @@ const Navigator = () => {
     }}
     className="sidenav"
     >
+        {/* 用户信息展示区域 */}
+      {/* <div className="user-profile">
+        <img src="user-avatar.jpg" alt="User Avatar" className="user-avatar" />
+        <span className="user-name">John Doe</span>
+        <button className="logout-button" onClick={() => console.log('Logout')}>
+          Logout
+        </button>
+      </div> */}
 
     <SideNav.Toggle />
     <SideNav.Nav defaultSelected="home">

@@ -1,0 +1,12 @@
+.upload-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 水平居中 */
+  justify-content: center; /* 垂直居中 */
+  height: 100vh; /* 设置容器高度为视口的100%，使容器占据整个视口 */
+}
+
+.upload-container input,
+.upload-container button {
+  margin-bottom: 10px;
+}

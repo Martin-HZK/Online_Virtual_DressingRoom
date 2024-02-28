@@ -67,8 +67,8 @@ public class ClothesService {
     }
 
 
-    public Clothes createClothes(String clothes_name, String link) {
-        Clothes clothes = new Clothes(clothes_name, link);
+    public Clothes createClothes(String clothes_name, String link, String description, String category, String brand) {
+        Clothes clothes = new Clothes(clothes_name, link, description, category, brand);
         clothesRepository.save(clothes);
         return clothes;
     }

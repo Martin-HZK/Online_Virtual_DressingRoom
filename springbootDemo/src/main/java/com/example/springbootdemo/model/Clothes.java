@@ -15,6 +15,9 @@ public class Clothes {
     @Id
     private ObjectId id;
     private String clothes_name;
+    private String description;
+    private String category;
+    private String brand;
     private String link;
 
     /**
@@ -22,9 +25,12 @@ public class Clothes {
      * @param clothes_name
      * @param link
      */
-    public Clothes(String clothes_name, String link) {
+    public Clothes(String clothes_name, String link, String description, String category, String brand) {
         this.clothes_name = clothes_name;
         this.link = link;
+        this.description = description;
+        this.category = category;
+        this.brand = brand;
     }
 
 }
