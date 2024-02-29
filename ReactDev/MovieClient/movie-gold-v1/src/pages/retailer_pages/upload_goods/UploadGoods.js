@@ -70,28 +70,28 @@ const UploadGoods = () => {
 
         <input 
             type="text" 
-            placeholder='Goods Name'
+            placeholder="Goods Name"
             value={goodName} // 将输入框的值绑定到状态中的 inputValue
             onChange={handleGoodsNameChange} // 当输入框的值发生变化时调用 handleChange 函数
         />
 
         <input
             type="text"
-            placeholder='Description'
+            placeholder="Description"
             value={description}
             onChange={handleGoodsDescriptionChange}
         />
 
         <input
             type="text"
-            placeholder='Category'
+            placeholder="Category"
             value={category}
             onChange={handleGoodsCategoryChange}
         />
 
         <input
             type='text'
-            placeholder='Brand'
+            placeholder="Brand"
             value={brand}
             onChange={handleGoodsBrandChange}
         />
