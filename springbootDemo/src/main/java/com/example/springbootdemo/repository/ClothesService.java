@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
+import java.util.List;
 import java.util.UUID;
 
 //@Service
@@ -25,6 +26,10 @@ public class ClothesService {
 
     @Autowired
     private ClothesRepository clothesRepository;
+
+    public List<Clothes> allClothes() {
+        return clothesRepository.findAll();
+    }
 
     // Save image in a local directory
     public String saveImageToStorage(String uploadDirectory, MultipartFile imageFile) throws IOException {

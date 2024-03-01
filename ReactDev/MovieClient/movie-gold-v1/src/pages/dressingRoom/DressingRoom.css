@@ -1,0 +1,22 @@
+.dressingroom_container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex:1;
+    justify-content: space-between;
+
+    text-align: center;
+    padding:100px 50px;
+}
+
+.items_container{
+    width: 40%;
+    height: 70%;
+    margin-right: 10px;
+}
+
+.model_container{
+    width: 40%;
+    height: 70%;
+    margin-left: 10px;
+}
