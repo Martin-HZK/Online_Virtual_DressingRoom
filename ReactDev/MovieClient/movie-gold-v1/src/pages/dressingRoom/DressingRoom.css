@@ -1,4 +1,4 @@
-.dressingroom_container{
+/* .dressingroom_container{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -19,4 +19,28 @@
     width: 40%;
     height: 70%;
     margin-left: 10px;
+} */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+}
+ 
+.App-header {
+    background-color: #6cc24a;
+    padding: 20px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+ 
+.App-main {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
 }
