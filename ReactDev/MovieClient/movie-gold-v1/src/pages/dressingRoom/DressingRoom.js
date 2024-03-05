@@ -74,10 +74,34 @@ const DressingRoom = () => {
 
   return (
         
-    <div className='dressingroom_container'>
-      <div className='items_container'>
-        <SearchBar/>
-        <main className="App-main">
+    // <div className='dressingroom_container'>
+    //   <div className='items_container'>
+    //     <SearchBar/>
+    //     <main className="App-main">
+    //             <ShowCourse
+    //                 courses={courses}
+    //                 filterCourseFunction={filterCourseFunction}
+    //                 addCourseToCartFunction={addCourseToCartFunction}
+    //             />
+ 
+    //             <UserCart
+    //                 cartCourses={cartCourses}
+    //                 deleteCourseFromCartFunction={deleteCourseFromCartFunction}
+    //                 totalAmountCalculationFunction={
+    //                     totalAmountCalculationFunction
+    //                 }
+    //                 setCartCourses={setCartCourses}
+    //             />
+    //         </main>
+    //     </div>
+
+    //   <div className='model_container'>This is model</div>
+    // </div>
+    <div className="App">
+            <SearchBar searchCourse={searchCourse} 
+                             courseSearchUserFunction=
+                                 {courseSearchUserFunction} />
+            <main className="App-main">
                 <ShowCourse
                     courses={courses}
                     filterCourseFunction={filterCourseFunction}
@@ -94,9 +118,6 @@ const DressingRoom = () => {
                 />
             </main>
         </div>
-
-      <div className='model_container'>This is model</div>
-    </div>
   )
 }
 
