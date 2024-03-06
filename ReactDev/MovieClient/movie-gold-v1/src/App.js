@@ -41,7 +41,7 @@ function App() {
   
   return (
     <div className="App">
-      <Navigator/>
+      {/* <Navigator/> */}
         <Routes>
             <Route path="/" element={<LoginLayout/>}>
               <Route index element={<Login/>}></Route>

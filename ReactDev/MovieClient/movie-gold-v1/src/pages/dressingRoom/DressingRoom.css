@@ -6,6 +6,9 @@
     justify-content: space-between;
     background-color: #F5F5F5;
     text-align: center;
+ 
+    height: 100%;
+
     /* padding:100px 50px; */
 }
 
@@ -30,6 +33,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #ffffff;
+    height: 100%;
 }
  
 .App-header {

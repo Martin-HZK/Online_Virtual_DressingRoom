@@ -6,25 +6,42 @@ import './Navigator.css'
 const Navigator = () => {
     const navigator = useNavigate();
 
+    const handleLogoutClick = (e) => {
+        // e.preventDefault(); // prevent the default form submission
+        const confirmLogout = window.confirm("Are you sure you want to exit?");
+        if (confirmLogout) {
+            // Perform logout action here
+            console.log("User confirmed logout");
+            navigator('/');
+            // Add your logout logic, such as redirecting or updating state
+        } else {
+            console.log("User canceled logout");
+            // Do nothing or handle cancellation
+        }
+    };
+
+    const handleNavigation = (selected) => {
+
+        if (selected === '') {
+            handleLogoutClick();
+        }
+        else {
+            console.log(selected);
+            navigator(selected);
+        }
+
+       
+    
+
+    }
+
+    
 
 
     return <SideNav
-    onSelect={(selected) => {
-        console.log(selected);
-        navigator(selected);
-
-    }}
+    onSelect={handleNavigation}
     className="sidenav"
-    >
-        {/* 用户信息展示区域 */}
-      {/* <div className="user-profile">
-        <img src="user-avatar.jpg" alt="User Avatar" className="user-avatar" />
-        <span className="user-name">John Doe</span>
-        <button className="logout-button" onClick={() => console.log('Logout')}>
-          Logout
-        </button>
-      </div> */}
-
+    >e
     <SideNav.Toggle />
     <SideNav.Nav defaultSelected="home">
         <NavItem eventKey="home">
@@ -74,6 +91,15 @@ const Navigator = () => {
             </NavIcon>
             <NavText>
                 AI recommendation
+            </NavText>
+        </NavItem>
+
+        <NavItem eventKey="">
+            <NavIcon>
+                <i className="fa fa-fw fa-sign-out" style={{ fontSize: '1.5em' }} />
+            </NavIcon>
+            <NavText>
+                Logout
             </NavText>
         </NavItem>
         </SideNav.Nav>
