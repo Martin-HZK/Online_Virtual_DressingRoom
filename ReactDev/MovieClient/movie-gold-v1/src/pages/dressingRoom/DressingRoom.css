@@ -54,3 +54,13 @@ body {
     justify-content: center;
     padding: 20px;
 }
+
+.shopping-venue {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    /* background-color: #F5F5F5;
+    text-align: center;
+    padding:100px 50px; */
+}

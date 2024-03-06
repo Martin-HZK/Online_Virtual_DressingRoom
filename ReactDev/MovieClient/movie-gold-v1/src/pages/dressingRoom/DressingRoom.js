@@ -3,6 +3,9 @@ import './DressingRoom.css'
 import SearchBar from '../../components/searchBar/SearchBar'
 import UserCart from '../../components/userCart/UserCart'
 import ShowCourse from '../../components/showCourseComponent/ShowCourse'
+import 'rsuite/dist/rsuite.min.css'
+import { Button, Modal } from "rsuite";
+
 
 const DressingRoom = () => {
 
@@ -96,6 +99,12 @@ const DressingRoom = () => {
   );
 
 
+  const [open, setOpen] = useState(false); 
+    const [overflow, setOverflow] = useState(false); 
+    const handleOpen = () => setOpen(true); 
+    const handleClose = () => setOpen(false);
+
+
 
 
 
@@ -139,15 +148,41 @@ const DressingRoom = () => {
                     addCourseToCartFunction={addCourseToCartFunction}
                 />
  
-                <UserCart
-                    cartCourses={cartCourses}
-                    deleteCourseFromCartFunction={deleteCourseFromCartFunction}
-                    totalAmountCalculationFunction={
-                        totalAmountCalculationFunction
-                    }
-                    setCartCourses={setCartCourses}
-                />
+              
+
             </main>
+
+            <div className='Shopping-venue' > 
+                    {/* <span>Modal with Overflow </span>  */}
+                    <i className="fa fa-fw fa-shopping-cart" style={{ fontSize: '1.5em' }} />
+                    <Button onClick={handleOpen}>Open</Button> 
+
+  
+                    <Modal overflow={overflow} 
+                         open={open} onClose={handleClose}> 
+                        <Modal.Header> 
+                            <Modal.Title>GeeksforGeeks</Modal.Title> 
+                        </Modal.Header> 
+                        <Modal.Body> 
+                          <UserCart
+                            cartCourses={cartCourses}
+                            deleteCourseFromCartFunction={deleteCourseFromCartFunction}
+                            totalAmountCalculationFunction={
+                                totalAmountCalculationFunction
+                            }
+                            setCartCourses={setCartCourses}
+                          />
+                        </Modal.Body> 
+                        <Modal.Footer> 
+                            <Button onClick={handleClose} appearance="primary"> 
+                                Ok 
+                            </Button> 
+                            <Button onClick={handleClose} appearance="subtle"> 
+                                Cancel 
+                            </Button> 
+                        </Modal.Footer> 
+                    </Modal> 
+                </div> 
       </div>
 
       <div className='model_container'>This is model</div>
