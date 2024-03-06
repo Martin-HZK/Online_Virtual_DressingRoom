@@ -6,17 +6,14 @@ import './Navigator.css'
 const Navigator = () => {
     const navigator = useNavigate();
 
-    const handleLogoutClick = (e) => {
-        // e.preventDefault(); // prevent the default form submission
+    const handleLogoutClick = () => {
         const confirmLogout = window.confirm("Are you sure you want to exit?");
         if (confirmLogout) {
             // Perform logout action here
             console.log("User confirmed logout");
             navigator('/');
-            // Add your logout logic, such as redirecting or updating state
         } else {
             console.log("User canceled logout");
-            // Do nothing or handle cancellation
         }
     };
 

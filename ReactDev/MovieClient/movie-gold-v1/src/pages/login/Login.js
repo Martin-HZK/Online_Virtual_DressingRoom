@@ -78,11 +78,24 @@ const Login = () => {
       
       {/* 登录按钮，点击时触发 handleLogin 函数 */}
       <button onClick={handleLogin}>Login</button>
+      <div className="login-footer">
+
+        <div className="login-footer-left">
+
+          <button className="login-footer-button" onClick={() => {window.location.href = 'https://g202319.github.io/project/';}}>About Us</button>
+          <button className="login-footer-button">Privacy Policy</button>
+        </div>
+
+
+        <div className="all-rights">
+        2023 GRPTeam. All Rights Reserved
+        </div>
+
+      </div>
       </div>
 
-      <div className="all-rights">
-      2023 GRPTeam. All Rights Reserved
-      </div>
+
+      
     </div>
 
 // {/* <div className="login-container">
