@@ -23,7 +23,37 @@ const DressingRoom = () => {
       name: 'GFG Hoodie', 
       price: 799, 
       image: 'https://media.geeksforgeeks.org/wp-content/uploads/20230823165623/gfg3.jpg'
-    }
+    },
+    { id: 4, 
+      name: 'Test clothes', 
+      price: 799, 
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPren7APkmhMhZHhpgoXocDcDvhsiIqO4iog&usqp=CAU'
+    },
+    {
+    name: 'Test clothes', 
+    price: 799, 
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPren7APkmhMhZHhpgoXocDcDvhsiIqO4iog&usqp=CAU'
+    },
+    {
+      name: 'Test clothes', 
+      price: 799, 
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPren7APkmhMhZHhpgoXocDcDvhsiIqO4iog&usqp=CAU'
+      },
+      {
+        name: 'Test clothes', 
+        price: 799, 
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPren7APkmhMhZHhpgoXocDcDvhsiIqO4iog&usqp=CAU'
+        },
+        {
+          name: 'Test clothes', 
+          price: 799, 
+          image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPren7APkmhMhZHhpgoXocDcDvhsiIqO4iog&usqp=CAU'
+          },
+          {
+            name: 'Test clothes', 
+            price: 799, 
+            image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPren7APkmhMhZHhpgoXocDcDvhsiIqO4iog&usqp=CAU'
+            }
   ]);
 
   const [cartCourses, setCartCourses] = useState([]);
@@ -97,7 +127,8 @@ const DressingRoom = () => {
 
     //   <div className='model_container'>This is model</div>
     // </div>
-    <div className="App">
+    <div className="dressingroom_container">
+      <div className='items_container'>
             <SearchBar searchCourse={searchCourse} 
                              courseSearchUserFunction=
                                  {courseSearchUserFunction} />
@@ -117,7 +148,10 @@ const DressingRoom = () => {
                     setCartCourses={setCartCourses}
                 />
             </main>
-        </div>
+      </div>
+
+      <div className='model_container'>This is model</div>
+    </div>
   )
 }
 

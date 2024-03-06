@@ -1,25 +1,29 @@
-/* .dressingroom_container{
+.dressingroom_container{
     display: flex;
     flex-direction: row;
     align-items: center;
     flex:1;
     justify-content: space-between;
-
+    background-color: #F5F5F5;
     text-align: center;
-    padding:100px 50px;
+    /* padding:100px 50px; */
 }
 
 .items_container{
-    width: 40%;
+    width: 60%;
     height: 70%;
-    margin-right: 10px;
+    margin-right: 20px;
+    margin-left: 64px;
+    margin-top: 0px;
+    display: flex;
+    flex-direction: column; /* 设置主轴方向为垂直（从上到下） */
 }
 
 .model_container{
     width: 40%;
     height: 70%;
     margin-left: 10px;
-} */
+} 
 
 body {
     font-family: Arial, sans-serif;
@@ -29,11 +33,17 @@ body {
 }
  
 .App-header {
-    background-color: #6cc24a;
+    /* background-color: #6cc24a; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     padding: 20px;
-    color: white;
+    color: rgb(0, 0, 0);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     text-align: center;
+    max-width: 499px;
+    height: 175px;
 }
  
 .App-main {

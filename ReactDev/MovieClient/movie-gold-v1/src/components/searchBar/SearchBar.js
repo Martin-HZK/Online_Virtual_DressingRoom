@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import api from "../../api/axiosConfig";
+import "./SearchBar.css";
 
 const SearchBar = ({ searchCourse, courseSearchUserFunction }) => {
    //  const [myOptions, setMyOptions] = useState([]);
@@ -55,6 +56,8 @@ const SearchBar = ({ searchCourse, courseSearchUserFunction }) => {
                      value={searchCourse}
                      onChange={courseSearchUserFunction}
                  />
+             <i class="fa fa-search" aria-hidden="true"></i>
+
              </div>
          </header>
      
