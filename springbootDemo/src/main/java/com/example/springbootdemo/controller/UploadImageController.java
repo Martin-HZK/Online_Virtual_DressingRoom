@@ -18,26 +18,26 @@ public class UploadImageController {
     @Autowired
     private ClothesService clothesService;
 
-    @PostMapping("/clothes")
-    public ResponseEntity<Clothes> createAd(@RequestParam("file") MultipartFile adsImages, @RequestParam("goodName") String name, @RequestParam("description") String description, @RequestParam("category") String category, @RequestParam("brand") String brand) {
-        String uploadDirectory = "src/main/resources/static/clothes/";
-        String adsImagesString = "";
-
-//        for (MultipartFile imageFile : adsImages) {
-            try {
-                adsImagesString += clothesService.saveImageToStorage(uploadDirectory, adsImages) + ",";
-                System.out.println(adsImagesString);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            adsImagesString = uploadDirectory + adsImagesString;
-//        }
-
-        // Save the adsImagesString in your database
-        // You can also associate it with other data in your Ads object
-        return new ResponseEntity<Clothes>(clothesService.createClothes(name, adsImagesString, description,category,brand), HttpStatus.CREATED);
-    }
+//    @PostMapping("/clothes")
+//    public ResponseEntity<Clothes> createAd(@RequestParam("file") MultipartFile adsImages, @RequestParam("goodName") String name, @RequestParam("description") String description, @RequestParam("category") String category, @RequestParam("brand") String brand) {
+//        String uploadDirectory = "src/main/resources/static/clothes/";
+//        String adsImagesString = "";
+//
+////        for (MultipartFile imageFile : adsImages) {
+//            try {
+//                adsImagesString += clothesService.saveImageToStorage(uploadDirectory, adsImages) + ",";
+//                System.out.println(adsImagesString);
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//
+//            adsImagesString = uploadDirectory + adsImagesString;
+////        }
+//
+//        // Save the adsImagesString in your database
+//        // You can also associate it with other data in your Ads object
+//        return new ResponseEntity<Clothes>(clothesService.createClothes(name, retailer_name, adsImagesString, description,category,brand), HttpStatus.CREATED);
+//    }
 
     @GetMapping("/getAllClothes")
     public ResponseEntity<List<Clothes>> getAllClothes() {

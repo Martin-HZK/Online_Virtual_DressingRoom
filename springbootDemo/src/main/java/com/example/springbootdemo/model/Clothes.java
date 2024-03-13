@@ -15,6 +15,7 @@ public class Clothes {
     @Id
     private ObjectId id;
     private String clothes_name;
+    private String retailer_name;
     private String description;
     private String category;
     private String brand;
@@ -25,8 +26,9 @@ public class Clothes {
      * @param clothes_name
      * @param link
      */
-    public Clothes(String clothes_name, String link, String description, String category, String brand) {
+    public Clothes(String clothes_name, String retailer_name, String link, String description, String category, String brand) {
         this.clothes_name = clothes_name;
+        this.retailer_name = retailer_name; // this retailer info need to be further passed in
         this.link = link;
         this.description = description;
         this.category = category;
