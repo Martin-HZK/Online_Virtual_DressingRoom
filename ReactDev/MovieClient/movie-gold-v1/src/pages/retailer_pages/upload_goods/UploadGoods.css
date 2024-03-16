@@ -6,6 +6,19 @@
   height: 100vh; /* 设置容器高度为视口的100%，使容器占据整个视口 */
   gap: 20px; /* 设置容器内子元素之间的间隔 */
 }
+.show-goods-container {
+  width:60%;
+  margin-top: 100px;
+  
+  /* display: flex; */
+  /* flex-wrap: wrap; */
+  /* gap: 20px; */
+  /* max-height: 500px; */
+  /* overflow: scroll; */
+  /* font-size: large; */
+  /* padding-right: 5px; */
+
+}
 
 .upload-container input,
 .upload-container button {
@@ -22,4 +35,11 @@
   border-radius: 10px;
   backdrop-filter: blur(10px);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
+}
+
+label {
+  width: '150px';
+  display: 'flex';
+  align-items: left;
+  margin-right: 10px;
 }
