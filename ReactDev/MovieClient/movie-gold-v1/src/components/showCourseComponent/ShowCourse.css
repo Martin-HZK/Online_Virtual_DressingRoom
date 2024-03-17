@@ -76,3 +76,31 @@
     font-size: 0.6rem;
     /* width: 100px; */
 }
+
+.custom-modal {
+    /* display: flex; */
+    position: relative;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    margin-top: 100px;
+    width: 70%;
+    height: 70%;
+    margin: auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+}
+.custom-modal img {
+
+max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.footer-container {
+    position: absolute;
+  bottom: 10px; /* 距离底部的距离 */
+  right: 10px; /* 距离右侧的距离 */
+  padding: 10px; /* 设置内边距 */
+  background-color: #f0f0f0; /* 设置背景色 */
+  }
