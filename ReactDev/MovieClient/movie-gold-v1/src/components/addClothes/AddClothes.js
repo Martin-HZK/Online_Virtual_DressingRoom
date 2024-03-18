@@ -95,7 +95,7 @@ const AddClothes = () => {
                                 name="file"
                                 type="file"
                                 style={{ display: "none" }}
-                                accept=".PNG,.JPG,.JPEG,.GIF,.BMP,.TIFF,.SVG,.PSD,.PDF,.EPS,.AI,.INDD,.RAW,.NEF,.CR2,.SR2,.ORF,.RW2,.RAF,.PEF,.X3F,.ARW,.DNG,.CRW"
+                                accept=".jpg" // accepting only the jpg file
                                 onChange={onFileChange}
                             />
                             <button className='select-button' onClick={() => document.getElementById('fileInput').click()}>Select File</button>

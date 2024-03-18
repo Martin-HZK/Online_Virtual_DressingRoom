@@ -65,7 +65,7 @@ public class ClothesService {
 
         if (Files.exists(imagePath)) {
             Files.delete(imagePath);
-            return "Success";
+            return  "Success";
         } else {
             return "Failed"; // Handle missing images
         }
