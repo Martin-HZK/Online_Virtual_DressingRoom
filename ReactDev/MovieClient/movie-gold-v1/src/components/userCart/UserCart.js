@@ -1,11 +1,37 @@
 import React from 'react'
 import './UserCart.css'
+import axios from 'axios'
+import {useState} from 'react'
 const UserCart = ({
     cartCourses,
     deleteCourseFromCartFunction,
     totalAmountCalculationFunction,
     setCartCourses,
 })  => {
+
+
+    const [file, setFile] = useState(null);
+
+    const onFileChange = (event) => {
+        setFile(event.target.files[0]);
+        console.log("selected");
+    }
+
+    const handleClothesUpload = async() => {
+        const formData = new FormData();
+        formData.append('file', file);
+            
+        try {
+            const response = await axios.post('http://localhost:8000/uploadImage', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+            });
+            console.log( response.data);
+        } catch (error) {
+            console.error(error);
+        }
+    }
 
 
 
@@ -87,6 +113,28 @@ const UserCart = ({
         >
             Proceed to Payment
         </button>
+
+        <input
+            id="fileInput"
+            name="fileInput"
+            type="file"
+            style={{ display: "none" }}
+            accept=".jpg" // accepting only jpg
+            onChange={onFileChange}
+            ></input>
+
+        <button
+            className="select-button"
+            onClick={() => {
+                document.getElementById("fileInput").click();
+            }}
+            >Select file</button>
+        <button
+            className="upload-button"
+            onClick={handleClothesUpload}
+            >Upload</button>
+
+
     </div>
 </div>
             )}
