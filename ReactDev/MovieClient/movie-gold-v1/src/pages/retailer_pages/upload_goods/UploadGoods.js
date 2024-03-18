@@ -6,59 +6,11 @@ import 'rsuite/dist/rsuite.min.css'
 import { Button, Modal } from "rsuite";
 import RetailerShowGoods from '../../../components/retailerShowGoods/RetailerShowGoods';
 import ShowCourse from '../../../components/showCourseComponent/ShowCourse';
-
+import SearchBar from '../../../components/searchBar/SearchBar';
+import AddClothes from '../../../components/addClothes/AddClothes';
 const UploadGoods = () => {
   
-    const [file, setFile] = useState();
-    const [goodName, setGoodName] = useState("");
-    const [description, setDescription] = useState("");
-    const [category, setCategory] = useState("");
-    const [brand, setBrand] = useState("");
-    const [retailer_name, setRetailerName] = useState("user3");
-
-
-    const onFileChange = (event) => {
-        // Updating the state
-        
-        setFile(event.target.files[0]);
-        console.log(event.target.files[0]);
-    //   setFile({ file: event.target.files[0] });
-    //   console.log(event.target.files[0]);
-    };
-
-  const onFileUpload = async () => {
-    const formData = new FormData();
-
-    formData.append("file", file);
-    formData.append("retailer_name", retailer_name);
-    formData.append("goodName", goodName);
-    formData.append("description", description);
-    formData.append("category", category);
-    formData.append("brand", brand);
-    try{
-        const response = await api.post("/api/v1/retailer/upload_clothes", formData);
-        console.log(response);
-    } catch(err) {
-        console.log(err);
-        alert("Failed to upload goods");
-    }
-};
-
-    const handleGoodsNameChange = async(event) => {
-        setGoodName(event.target.value);
-    }
-
-    const handleGoodsDescriptionChange = async(event) => {
-        setDescription(event.target.value);
-    }
-
-    const handleGoodsCategoryChange = async(event) => {
-        setCategory(event.target.value);
-    }
     
-    const handleGoodsBrandChange = async(event) => {
-        setBrand(event.target.value);
-    }
 
     const [open, setOpen] = useState(false); 
     const [overflow, setOverflow] = useState(false); 
@@ -160,6 +112,10 @@ const UploadGoods = () => {
   
   return (
       <div className='upload-container'>
+
+        <div className='items_container'>
+         <SearchBar searchCourse={searchCourse} 
+                    courseSearchUserFunction={courseSearchUserFunction} />
             <div className='show-goods-container'>
                 <RetailerShowGoods
                     courses={courses}
@@ -167,101 +123,11 @@ const UploadGoods = () => {
                     addCourseToCartFunction={addCourseToCartFunction}
                 />
             </div>
+        </div>
 
-            {/* <ShowCourse
-                courses={courses}
-                filterCourseFunction={filterCourseFunction}
-                addCourseToCartFunction={addCourseToCartFunction}
-            /> */}
-
-            <div className='upload-goods-container' > 
-                    {/* <span>Modal with Overflow </span>  */}
-                    <i className="fa fa-fw fa-shopping-cart" style={{ fontSize: '1.5em' }} />
-                    <Button onClick={handleOpen}>Open</Button> 
-
-  
-                    <Modal overflow={overflow} 
-                         open={open} onClose={handleClose}> 
-                        <Modal.Header> 
-                            <Modal.Title>Upload Your Goods!</Modal.Title> 
-                        </Modal.Header> 
-                        <Modal.Body className='modal-body'>
-                          {/* <input
-                                name="file"
-                                type="file"
-                                style={{ display: "none" }}// accept=".zip,.rar"
-                                onChange={onFileChange}
-                            /> */}
-                            
-                            <input
-                                id="fileInput"
-                                name="file"
-                                type="file"
-                                style={{ display: "none" }}
-                                accept=".zip,.rar"
-                                onChange={onFileChange}
-                            />
-                            <button onClick={() => document.getElementById('fileInput').click()}>Select File</button>
-                         
-                         <div className='chunck'>
-                        <label>Goods Name</label>
-
-                            <input 
-                                type="text" 
-                                placeholder="Goods Name"
-                                value={goodName} // 将输入框的值绑定到状态中的 inputValue
-                                onChange={handleGoodsNameChange} // 当输入框的值发生变化时调用 handleChange 函数
-                            />
-
-                        </div>
-
-                        <div className='chunck'>
-                        <label>Description</label>
-                            <input
-                                type="text"
-                                placeholder="Description"
-                                value={description}
-                                onChange={handleGoodsDescriptionChange}
-                            />
-                        
-                        </div>
-
-                        <div className='chunk'>
-                        <label>Category</label>
-                            <input
-                                type="text"
-                                placeholder="Category"
-                                value={category}
-                                onChange={handleGoodsCategoryChange}
-                            />
-                            
-                        </div>
-                            
-                        <div className='chunk'>
-                        <label>Brand</label>
-                            <input
-                                type='text'
-                                placeholder='Brand'
-                                value={brand}
-                                onChange={handleGoodsBrandChange}
-                            />
-                        
-                        </div>
-
-                            <button onClick={onFileUpload}>Upload</button>
-
-                        </Modal.Body> 
-                        <Modal.Footer> 
-                            <Button onClick={handleClose} appearance="primary"> 
-                                Ok 
-                            </Button> 
-                            <Button onClick={handleClose} appearance="subtle"> 
-                                Cancel 
-                            </Button> 
-                        </Modal.Footer> 
-                    </Modal> 
-                </div> 
-      
+        <div className='add_container'>
+            <AddClothes />
+        </div>
       </div>
       
       

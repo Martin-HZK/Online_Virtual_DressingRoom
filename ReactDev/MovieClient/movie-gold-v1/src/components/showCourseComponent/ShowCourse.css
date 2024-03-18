@@ -99,8 +99,8 @@ max-width: 100%;
 
 .footer-container {
     position: absolute;
-  bottom: 10px; /* 距离底部的距离 */
-  right: 10px; /* 距离右侧的距离 */
-  padding: 10px; /* 设置内边距 */
-  background-color: #f0f0f0; /* 设置背景色 */
+    bottom: 10px; /* 距离底部的距离 */
+    right: 10px; /* 距离右侧的距离 */
+    padding: 10px; /* 设置内边距 */
+    background-color: #f0f0f0; /* 设置背景色 */
   }

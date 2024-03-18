@@ -2,6 +2,8 @@ import React, {useEffect, useRef, useState} from 'react'
 import './Home.css'
 import OriginAvatar from '../../avatar.png'
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import { Button, Modal } from "rsuite";
+
 const Home = () => {
   const hiddenFileInput = useRef(null);
   const [avatar, setAvatar] = useState("https://media.geeksforgeeks.org/img-practice/user_web-1598433228.svg");
@@ -11,7 +13,9 @@ const Home = () => {
   }
 
   const handleAvatarChange = (e) => {
-    const file = e.target.files[0];
+    const file = e.target.files[0]; // TODO: this image should send an post request to the backend!!!
+
+    alert("Would you like to take a photo or choose one from the gallery?");
     if(file) {
       console.log(file);
       // handle the changed avatar
@@ -22,6 +26,11 @@ const Home = () => {
   // useEffect(() => {
   //   console.log("Home component");
   // },[])
+
+  const [open, setOpen] = useState(false); 
+    const [overflow, setOverflow] = useState(false); 
+    const handleOpen = () => setOpen(true); 
+    const handleClose = () => setOpen(false);
 
 
 
@@ -73,6 +82,27 @@ const Home = () => {
           <button type="button" className="passive-button-style">Delete account</button>
         </section>
       </div>
+
+
+
+
+      <Modal overflow={overflow} 
+            open={open} onClose={handleClose}> 
+          <Modal.Header> 
+              <Modal.Title>GeeksforGeeks</Modal.Title> 
+          </Modal.Header> 
+          <Modal.Body> 
+            This is the place to place the photo taker!
+          </Modal.Body> 
+          <Modal.Footer> 
+              <Button onClick={handleClose} appearance="primary"> 
+                  Ok 
+              </Button> 
+              <Button onClick={handleClose} appearance="subtle"> 
+                  Cancel 
+              </Button> 
+          </Modal.Footer> 
+      </Modal> 
     </div>
   )
 }

@@ -55,7 +55,7 @@
   
     
   .login-container button {
-    width: 500px;
+    width: 300px;
     
     font-size: 16px; /* 按钮文字大小 */
     padding: 15px 20px; /* 按钮内的填充 */
@@ -69,6 +69,12 @@
   
   .login-container button:hover {
     background-color: #b3002a; /* 鼠标悬停时按钮的背景颜色 */
+  }
+  .login-button-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  
   }
 
 .checkbox-container  {

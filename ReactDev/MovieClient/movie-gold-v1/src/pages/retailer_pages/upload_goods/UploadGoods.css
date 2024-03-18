@@ -1,23 +1,47 @@
 .upload-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center; /* 水平居中 */
   justify-content: center; /* 垂直居中 */
   height: 100vh; /* 设置容器高度为视口的100%，使容器占据整个视口 */
   gap: 20px; /* 设置容器内子元素之间的间隔 */
+  margin-left: 10px;
 }
-.show-goods-container {
+/* .search-bar-container {
+  margin-top: 150px;
   width:60%;
-  margin-top: 100px;
-  
-  /* display: flex; */
-  /* flex-wrap: wrap; */
-  /* gap: 20px; */
-  /* max-height: 500px; */
-  /* overflow: scroll; */
-  /* font-size: large; */
-  /* padding-right: 5px; */
+} */
 
+.items_container{
+  width: 60%;
+  height: 100%;
+  margin-right: 20px;
+  margin-left: 64px;
+  margin-top: 0px;
+  display: flex;
+  flex-direction: column; /* 设置主轴方向为垂直（从上到下） */
+}
+
+.add_container{
+  width: 40%;
+  height: 100%;
+  margin-left: 10px;
+} 
+
+/* .show-goods-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+} */
+
+.upload-goods-container {
+    /* display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between; */
 }
 
 .upload-container input,

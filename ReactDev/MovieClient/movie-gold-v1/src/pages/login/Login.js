@@ -44,7 +44,7 @@ const Login = () => {
       console.log(response.data)
       if(response.data == true) {
         console.log("Login success!Redirecting to upload image page");
-        navigate("/uploadimage");
+        navigate("/home", { state: { propToPass: username} });
       } else {
         console.log("Login failed! Please check your username and password!");
         alert("Login failed! Please check your username and password!");
@@ -53,6 +53,39 @@ const Login = () => {
       console.log(err);
     }
   };
+
+  const handleRetailerLogin = async() => {
+    // 在这里可以处理登录逻辑，使用 username 和 password 的值
+    console.log("Username:", username);
+    console.log("Password:", password);
+    const loginInfo = {
+      username: username,
+      password: password
+    }
+
+    if (!checked) {
+      console.log("Please confirm the Ethical issue");
+      alert("Please confirm the Ethical issue!");
+      return;
+    }
+
+    try{
+      const response = await api.post("/api/v1/retailer/login", loginInfo);
+      console.log(response.data)
+      if(response.data == true) {
+        console.log("Login success!Redirecting to upload image page");
+        navigate("/retailer/home", { state: { propToPass: username} });
+      } else {
+        console.log("Login failed! Please check your username and password!");
+        alert("Login failed! Please check your username and password!");
+      }
+    }
+    catch(err) {
+      console.log(err);
+    }
+  }
+
+
 
   return (
     <div className="login-page-container">
@@ -77,7 +110,11 @@ const Login = () => {
       </div>
       
       {/* 登录按钮，点击时触发 handleLogin 函数 */}
-      <button onClick={handleLogin}>Login</button>
+      <div className="login-button-container">
+        <button onClick={handleLogin}>User Login</button>
+        <button onClick={handleRetailerLogin}>Retailer Login</button>
+      </div>
+
       <div className="login-footer">
 
         <div className="login-footer-left">

@@ -14,7 +14,7 @@
 
 .items_container{
     width: 60%;
-    height: 70%;
+    height: 100%;
     margin-right: 20px;
     margin-left: 64px;
     margin-top: 0px;
@@ -24,7 +24,7 @@
 
 .model_container{
     width: 40%;
-    height: 70%;
+    height: 100%;
     margin-left: 10px;
 } 
 
@@ -46,7 +46,9 @@ body {
     color: rgb(0, 0, 0);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     text-align: center;
-    max-width: 499px;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
     height: 175px;
 }
  

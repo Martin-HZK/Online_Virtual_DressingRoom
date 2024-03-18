@@ -48,7 +48,7 @@ const SearchBar = ({ searchCourse, courseSearchUserFunction }) => {
 
       
          <header className="App-header">
-             <h1>GeeksforGeeks Shopping Cart</h1>
+             <h1>Select Your Clothes!</h1>
              <div className="search-bar">
                  <input
                      type="text"
@@ -56,7 +56,7 @@ const SearchBar = ({ searchCourse, courseSearchUserFunction }) => {
                      value={searchCourse}
                      onChange={courseSearchUserFunction}
                  />
-             <i class="fa fa-search" aria-hidden="true"></i>
+             <i className="fa fa-search" aria-hidden="true"></i>
 
              </div>
          </header>

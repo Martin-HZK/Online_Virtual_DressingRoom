@@ -1,0 +1,109 @@
+.product-list {
+    flex: 2;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-height: 650px;
+    padding-top: 5px;
+    overflow: scroll; 
+    background-color: white;
+    /* height: 8%;  */
+    /* background-color: aqua;  */
+    /* border: 1px black solid;  */
+    /* padding: 2%;  */
+    /* width: 300px;  */
+    /* margin: 0 auto;  */
+    /* white-space: nowrap;  */
+    font-size: large; 
+    
+    /* padding-right: 5px */
+}
+ 
+.product {
+    /* background-color: rgb(255, 245, 245); */
+    background-color: #D9D9D9;
+    border: 1px solid #1b4e1f;
+    border-radius: 10%;
+    padding: 10px 40px;
+    text-align: center;
+    width: 20%;
+    height: 10%;
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+}
+ 
+.product:hover {
+    transform: translateY(-5px) scale(1.03);
+}
+ 
+.product img {
+    max-width: 50px;
+    max-height: 50px; 
+    /*150px before*/
+    /* Increased image size */
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 50%;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+    /* Enhanced box shadow */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    /* Added box shadow transition */
+}
+ 
+.product:hover img {
+    transform: scale(1.1);
+    z-index: 1;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+    /* Enhanced box shadow on hover */
+}
+ 
+.product h2 {
+    font-size: 1rem;
+    margin: 10px 0;
+    width: 100px;
+    color: #323754;
+}
+ 
+.product p {
+    font-size: 0.8rem;
+    color: #777;
+    margin: 5px 0;
+}
+
+.product button {
+    font-size: 0.6rem;
+    background-color: #5D7285;
+    /* width: 100px; */
+}
+
+.custom-modal {
+    /* display: flex; */
+    position: relative;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    margin-top: 100px;
+    width: 70%;
+    height: 70%;
+    margin: auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+}
+.custom-modal img {
+
+max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.footer-container {
+    position: absolute;
+    bottom: 10px; /* 距离底部的距离 */
+    right: 10px; /* 距离右侧的距离 */
+    padding: 10px; /* 设置内边距 */
+    background-color: #f0f0f0; /* 设置背景色 */
+  }

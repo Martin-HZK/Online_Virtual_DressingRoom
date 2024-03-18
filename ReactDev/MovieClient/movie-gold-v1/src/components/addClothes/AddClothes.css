@@ -1,0 +1,55 @@
+.upload-goods-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.chunk {
+    display: flex;
+    align-items: center; /* 垂直居中对齐 */
+    margin-bottom: 10px; /* 行与行之间的间距 */
+}
+.chunk input {
+    border-radius: 20px;
+    border-color: #5D7285;
+}
+.chunk label {
+    width: 120px; /* 设置 label 的宽度 */
+    margin-right: 20px; /* 设置 label 和 input box 的间距 */
+}
+
+.upload-button {
+    background-color: #5D7285;
+    color: white;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-weight: bold;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    width: 350px; /* 设置最大宽度 */
+    height: 220px;
+    margin: 0 auto; /* 水平居中 */
+    padding: 20px; /* 设置内边距 */
+    border: 1px solid #ccc; /* 添加边框 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 添加阴影 */
+  }
+  
+  .image-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* 图片适应容器大小，保持原始比例 */
+  }
+.select-button {
+    background-color: #7c858d;
+    color: white;
+    border-radius: 5px;
+    padding: 5px 13px;
+    font-weight:lighter;
+    margin-top: 20px;
+    font-size: small;
+}

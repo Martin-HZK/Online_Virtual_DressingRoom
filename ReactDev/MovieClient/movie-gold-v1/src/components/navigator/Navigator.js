@@ -38,7 +38,7 @@ const Navigator = () => {
     return <SideNav
     onSelect={handleNavigation}
     className="sidenav"
-    >e
+    >
     <SideNav.Toggle />
     <SideNav.Nav defaultSelected="home">
         <NavItem eventKey="home">
@@ -49,14 +49,14 @@ const Navigator = () => {
                 Home
             </NavText>
         </NavItem>
-        <NavItem eventKey="uploadimage">
+        {/* <NavItem eventKey="uploadimage">
             <NavIcon>
                 <i className="fa-solid fa-image-portrait" style={{ fontSize: '1.5em' }} />
             </NavIcon>
             <NavText>
                 Upload Image
             </NavText>
-        </NavItem>
+        </NavItem> */}
         <NavItem eventKey="bodyfeature">
             <NavIcon>
                 <i className="fa fa-fw fa-male" style={{ fontSize: '1.75em' }} />
@@ -74,14 +74,14 @@ const Navigator = () => {
                 Dressing Room
             </NavText>
         </NavItem>
-        <NavItem eventKey="shoppingcart">
+        {/* <NavItem eventKey="shoppingcart">
             <NavIcon>
                 <i className="fa fa-fw fa-shopping-cart" style={{ fontSize: '1.5em' }} />
             </NavIcon>
             <NavText>
                 Shopping Cart
             </NavText>
-        </NavItem>
+        </NavItem> */}
         <NavItem eventKey="airecommendation">
             <NavIcon>
                 <i className="fa-solid fa-robot" style={{ fontSize: '1.5em' }} />
