@@ -1,6 +1,6 @@
 # Online Virtual Dressing Room
 
-Virtual Dressing Room is a web application, aiming at enabling customers to try-on clothes before buying them online. The traditional shopping experience often involves visiting physical stores and trying on multiple clothing items to find the right fit and style. However, this process can be time‑consuming, inconvenient, and limited by factors such as store availability and fitting room spaces. The concept of a virtual dressing room software stems from the desire to provide users with a convenient and immersive way to try on different outfits without physically wearing them. This technology has gained popularity.
+Virtual Dressing Room is a web application, aiming at enabling customers to try-on clothes before buying them online. <br><br>The traditional shopping experience often involves visiting physical stores and trying on multiple clothing items to find the right fit and style. However, this process can be time‑consuming, inconvenient, and limited by factors such as store availability and fitting room spaces. The concept of a virtual dressing room software stems from the desire to provide users with a convenient and immersive way to try on different outfits without physically wearing them. This technology has gained popularity.
 
 ## Development Tools
 
@@ -12,9 +12,9 @@ Virtual Dressing Room is a web application, aiming at enabling customers to try-
 
 * Backend Springboot Project
 
-Before you start to try anything with the frontend page, please run the backend project first.
+Before you start to try anything with the frontend page, please run the backend project first.<br>
 
-Make sure you are in the root directory. Direct to the directory of the springboot jar file.
+*Make sure you are in the root directory*. Direct to the directory of the springboot jar file.
 
 ``` text
 cd springbootDemo\target
@@ -28,9 +28,9 @@ java -jar springbootDemo-0.0.1-SNAPSHOT.jar
 
 * Configure your MongoDB 'cetificate'
 
-This will enable your backend to successfully connect to the database.
+This will enable your backend to successfully connect to the database.<br>
 
-Make sure you are in the base root
+*Make sure you are in the base root*
 
 ```text
 cd springbootDemo\src\main\resources
@@ -46,6 +46,12 @@ MONGO_CLUSTER="cluster0.vlgriap.mongodb.net"
 ```
 
 * Frontend React Project
+
+*Make sure you are in the base root*
+
+```text
+cd ReactDev\MovieClient\movie-gold-v1>
+```
 Use package manager `npm` to install the frontend projects
 
 ``` text
@@ -76,11 +82,11 @@ npm start
 
 ## Contributions
 
-Zhikai Hu: Frontend page, backend(other than the face/clothes changing part), database
-Yee Yang Tan: 2D Clothes swapping backend
-Zheyuan Jiang: 3D Clothes/Face swapping
-Chenglong Xia: Face swapping
-Elkin: clothes recommendation system
+Zhikai Hu: Frontend page, backend(other than the face/clothes changing part), database<br>
+Yee Yang Tan: 2D Clothes swapping backend<br>
+Zheyuan Jiang: 3D Clothes/Face swapping<br>
+Chenglong Xia: Face swapping<br>
+Elkin: clothes recommendation system<br>
 
 ---
 
