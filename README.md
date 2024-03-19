@@ -1,13 +1,65 @@
-# Virtual Dressing
+# Online Virtual Dressing Room
 
+Virtual Dressing Room is a web application, aiming at enabling customers to try-on clothes before buying them online. The traditional shopping experience often involves visiting physical stores and trying on multiple clothing items to find the right fit and style. However, this process can be time‑consuming, inconvenient, and limited by factors such as store availability and fitting room spaces. The concept of a virtual dressing room software stems from the desire to provide users with a convenient and immersive way to try on different outfits without physically wearing them. This technology has gained popularity.
 
-
-maintainers: Zhikai, Chenglong
-
-## Useful Tools
+## Development Tools
 
 * Testing API: *Postman*
 * GUI for managing MongoDB Database: *MongoDB Compass*
+* Grammar Checker: eslint
+
+## Installation
+
+* Backend Springboot Project
+
+Before you start to try anything with the frontend page, please run the backend project first.
+
+Make sure you are in the root directory. Direct to the directory of the springboot jar file.
+
+``` text
+cd springbootDemo\target
+```
+
+Then run the .jar file to start the backend project.
+
+```text
+java -jar springbootDemo-0.0.1-SNAPSHOT.jar
+```
+
+* Configure your MongoDB 'cetificate'
+
+This will enable your backend to successfully connect to the database.
+
+Make sure you are in the base root
+
+```text
+cd springbootDemo\src\main\resources
+```
+
+Create the `.env` file in this directory using vim or other text editor. Paste the configuration and save.
+
+``` text
+MONGO_DATABASE="vdr-api-db"
+MONGO_USER="manunitedhzk7"
+MONGO_PASSWORD="p3JmLIQEnnHoFrR4"
+MONGO_CLUSTER="cluster0.vlgriap.mongodb.net"
+```
+
+* Frontend React Project
+Use package manager `npm` to install the frontend projects
+
+``` text
+npm install
+```
+
+If you haven't install nodejs on your computer, you will not be able to use the package manager `npm`, please install it via the link: [NodeJS Install](https://nodejs.org/en)(*Version:20.11.1*)
+
+Run the app
+
+``` text
+npm start
+```
+
 
 ## Reference
 
@@ -21,6 +73,14 @@ maintainers: Zhikai, Chenglong
 ## *HTML code* reference for the frontend pages
 
 [Click to view the frontend view](https://projects.animaapp.com/?mode=code&layer=78%3A1031&utm_source=copylink)
+
+## Contributions
+
+Zhikai Hu: Frontend page, backend(other than the face/clothes changing part), database
+Yee Yang Tan: 2D Clothes swapping backend
+Zheyuan Jiang: 3D Clothes/Face swapping
+Chenglong Xia: Face swapping
+Elkin: clothes recommendation system
 
 ---
 
