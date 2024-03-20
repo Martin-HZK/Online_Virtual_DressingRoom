@@ -76,6 +76,7 @@ npm start
 * [Tutorial of creating a side navigation bar](https://www.youtube.com/watch?v=bFvfqUMjvsA&list=PLImJ3umGjxdCjoBGj1eGQwcopR0P0edAK)
 * [Reference for the font icons for fontawesome library](https://fontawesome.com/v4/icons/)
 * [Reference for Animated Icons](https://loading.io/)
+* [React Loading using `react-loader-spinner`](https://mhnpd.github.io/react-loader-spinner/)
 
 <!-- ## *HTML code* reference for the frontend pages
 
