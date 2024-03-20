@@ -75,10 +75,11 @@ npm start
 * [React in VS Code(Configuring Linting extension)](https://code.visualstudio.com/docs/nodejs/reactjs-tutorial#:~:text=You%20can%20open%20the%20preview,syntax%20highlighting%20in%20code%20blocks.)
 * [Tutorial of creating a side navigation bar](https://www.youtube.com/watch?v=bFvfqUMjvsA&list=PLImJ3umGjxdCjoBGj1eGQwcopR0P0edAK)
 * [Reference for the font icons for fontawesome library](https://fontawesome.com/v4/icons/)
+* [Reference for Animated Icons](https://loading.io/)
 
-## *HTML code* reference for the frontend pages
+<!-- ## *HTML code* reference for the frontend pages
 
-[Click to view the frontend view](https://projects.animaapp.com/?mode=code&layer=78%3A1031&utm_source=copylink)
+[Click to view the frontend view](https://projects.animaapp.com/?mode=code&layer=78%3A1031&utm_source=copylink) -->
 
 ## Contributions
 
@@ -92,7 +93,7 @@ Elkin: clothes recommendation system<br>
 
 ## Appendix
 
-### Usage of installed node.js dependencies
+### Usage of installed node.js dependencies(Partly)
 
 ***Install command***: `npm install dependency_name`(*Hint*: `install` is the same as `i`)
 
