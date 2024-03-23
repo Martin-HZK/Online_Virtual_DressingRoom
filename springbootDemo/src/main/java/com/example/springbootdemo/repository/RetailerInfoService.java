@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 /**
  * The RetailerInfoService class to handle the business logic
+ * @author Zhikai Hu
  */
 @Service
 public class RetailerInfoService {
@@ -29,8 +30,8 @@ public class RetailerInfoService {
 
     /**
      * The method to check if the retailer can successfully log in
-     * @param username
-     * @param password
+     * @param username the username of the retailer
+     * @param password the password of the retailer
      * @return boolean variable to indicate if the retailer can successfully log in
      */
     public boolean checkLogin(String username, String password) {
@@ -44,9 +45,9 @@ public class RetailerInfoService {
 
     /**
      * The method to update the retailer's clothes
-     * @param retailer_name
-     * @param clothes_name
-     * @param adsImagesString
+     * @param retailer_name the name of the retailer
+     * @param clothes_name the name of the clothes
+     * @param adsImagesString the source path of the clothes
      */
     public void updateRetailerClothes(String retailer_name, String clothes_name, String adsImagesString) {
 

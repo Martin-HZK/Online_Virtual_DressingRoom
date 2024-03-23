@@ -13,7 +13,8 @@ import java.io.IOException;
 import java.util.Map;
 
 /**
- * The RetailerInfoController class to handle the retailer request to login and upload clothes
+ * The RetailerInfoController class to handle the retailer request to log in and upload clothes
+ * @author Zhikai Hu
  */
 @RestController
 @CrossOrigin
@@ -33,8 +34,8 @@ public class RetailerInfoController {
 
     /**
      * The PostMapping to check if the retailer can successfully log in
-     * @param loginInfo
-     * @return ResponseEntity<Boolean>
+     * @param loginInfo the username and password mapping
+     * @return boolean variable to indicate if the retailer can successfully log in
      */
     @PostMapping("/login")
     public ResponseEntity<Boolean> login(@RequestBody Map<String, String> loginInfo) {
@@ -43,13 +44,13 @@ public class RetailerInfoController {
 
     /**
      * The PostMapping to check if the retailer can successfully register
-     * @param adsImages
-     * @param retailer_name
-     * @param name
-     * @param description
-     * @param category
-     * @param brand
-     * @return ResponseEntity<Clothes>
+     * @param adsImages the image of the clothes
+     * @param retailer_name the name of the retailer
+     * @param name the name of the clothes
+     * @param description the description of the clothes
+     * @param category the category of the clothes
+     * @param brand the brand of the clothes
+     * @return updated clothes
      */
     @PostMapping("/upload_clothes")
     public ResponseEntity<Clothes> createAd(@RequestParam("file") MultipartFile adsImages, @RequestParam("retailer_name") String retailer_name, @RequestParam("goodName") String name, @RequestParam("description") String description, @RequestParam("category") String category, @RequestParam("brand") String brand) {

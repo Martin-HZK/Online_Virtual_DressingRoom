@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 /**
  * The UserInfoService class to handle the business logic
+ * @author Zhikai Hu
  */
 @Service
 public class UserInfoService {
@@ -18,9 +19,9 @@ public class UserInfoService {
 
     /**
      * The method to check if the user can successfully log in
-     * @param username
-     * @param password
-     * @return
+     * @param username the username
+     * @param password the password
+     * @return boolean variable to indicate if the user can successfully log in
      */
     public boolean checkLogin(String username, String password) {
         UserInfo userInfo = userInfoRepository.findUserInfoByUsername(username).orElse(null);

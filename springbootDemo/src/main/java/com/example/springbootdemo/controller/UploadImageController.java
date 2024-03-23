@@ -12,6 +12,7 @@ import java.util.Optional;
 /**
  * The UploadImageController class to deal with the request to get all clothes
  * (The upload clothes are set in the retailerInfoController)
+ * @author Zhikai Hu
  */
 @CrossOrigin
 @RestController
@@ -26,7 +27,7 @@ public class UploadImageController {
 
     /**
      * The GetMapping to get all clothes
-     * @return ResponseEntity<List<Clothes>>
+     * @return the list of clothes
      */
     @GetMapping("/getAllClothes")
     public ResponseEntity<List<Clothes>> getAllClothes() {
@@ -35,8 +36,8 @@ public class UploadImageController {
 
     /**
      * The GetMapping to get all clothes for certain retailer
-     * @param retailer_name
-     * @return ResponseEntity<List<Optional<Clothes>>>
+     * @param retailer_name name of the retailer
+     * @return the list of clothes for certain retailer
      */
     @GetMapping("/getAllClothesByRetailer/{retailer_name}")
     public ResponseEntity<List<Optional<Clothes>>> getAllClothesByRetailer(@PathVariable String retailer_name) {

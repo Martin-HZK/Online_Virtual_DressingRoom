@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"com.example.springbootdemo"},{"l":"com.example.springbootdemo.controller"},{"l":"com.example.springbootdemo.model"},{"l":"com.example.springbootdemo.repository"},{"l":"所有程序包","u":"allpackages-index.html"}];updateSearchResults();

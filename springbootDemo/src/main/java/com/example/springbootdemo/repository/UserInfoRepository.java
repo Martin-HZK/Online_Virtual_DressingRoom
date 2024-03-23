@@ -8,8 +8,14 @@ import java.util.Optional;
 
 /**
  * The UserInfoRepository class to handle the database operation
+ * @author Zhikai Hu
  */
 @Repository
 public interface UserInfoRepository extends MongoRepository<UserInfo, ObjectId> {
+    /**
+     * This method is used to find user information by username
+     * @param username username
+     * @return user information
+     */
     Optional<UserInfo> findUserInfoByUsername(String username);
 }

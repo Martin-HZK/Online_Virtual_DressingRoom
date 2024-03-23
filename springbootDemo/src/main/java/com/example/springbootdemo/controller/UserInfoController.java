@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
 /**
- * The UserInfoController class to handle the user request to login
+ * The UserInfoController class to handle the user request to log in
+ * @author Zhikai Hu
  */
 @RestController
 @CrossOrigin
@@ -23,8 +24,8 @@ public class UserInfoController {
 
     /**
      * The PostMapping to check if the user can successfully log in
-     * @param loginInfo
-     * @return ResponseEntity<Boolean>
+     * @param loginInfo username and password in mapping
+     * @return boolean variable to indicate if the user can successfully log in
      */
     @PostMapping
     public ResponseEntity<Boolean> login(@RequestBody Map<String, String> loginInfo) {

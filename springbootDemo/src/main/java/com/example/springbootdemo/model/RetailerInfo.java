@@ -10,6 +10,8 @@ import java.util.Map;
 
 /**
  * Represents a retailer's profile information including username, password, and clothes.
+ * This class is used to store the retailer's profile information to the database
+ * @author Zhikai Hu
  */
 @Document(collection = "retailerProfile")
 @Data
@@ -41,9 +43,9 @@ public class RetailerInfo {
 
     /**
      * This constructor is used to create a retailer
-     * @param username
-     * @param password
-     * @param clothes
+     * @param username username
+     * @param password password
+     * @param clothes the clothes of the retailer
      */
     public RetailerInfo(String username, String password, Map<String, String> clothes) {
         this.username = username;

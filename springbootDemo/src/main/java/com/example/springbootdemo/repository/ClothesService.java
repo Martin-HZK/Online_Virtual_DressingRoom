@@ -14,6 +14,7 @@ import java.util.UUID;
 
 /**
  * The ClothesService class to handle the business logic
+ * @author Zhikai Hu
  */
 @Service
 public class ClothesService {
@@ -26,7 +27,7 @@ public class ClothesService {
 
     /**
      * The method to get all clothes
-     * @return List<Clothes>
+     * @return list of all clothes
      */
     public List<Clothes> allClothes() {
         return clothesRepository.findAll();
@@ -34,8 +35,8 @@ public class ClothesService {
 
     /**
      * The method to get all clothes for certain retailer
-     * @param retailer_name
-     * @return List<Optional<Clothes>>
+     * @param retailer_name name of the retailer
+     * @return list of clothes for certain retailer
      */
     public List<Optional<Clothes>> allClothesByCertainRetailer(String retailer_name) {
         return clothesRepository.findClothesByRetailerName(retailer_name);
@@ -43,9 +44,9 @@ public class ClothesService {
 
     /**
      * This is the method to store an image to the local machine
-     * @param uploadDirectory
-     * @param imageFile
-     * @return
+     * @param uploadDirectory the directory to store the image
+     * @param imageFile the image file
+     * @return the unique file name
      * @throws IOException
      */
     public String saveImageToStorage(String uploadDirectory, MultipartFile imageFile) throws IOException {
@@ -90,12 +91,12 @@ public class ClothesService {
 
     /**
      * The method to create a Clothes object
-     * @param clothes_name
-     * @param retailer_name
-     * @param link
-     * @param description
-     * @param category
-     * @param brand
+     * @param clothes_name the name of the clothes
+     * @param retailer_name the name of the retailer
+     * @param link the link to the clothes
+     * @param description the description of the clothes
+     * @param category the category of the clothes
+     * @param brand the brand of the clothes
      * @return Clothes
      */
     public Clothes createClothes(String clothes_name, String retailer_name, String link, String description, String category, String brand) {

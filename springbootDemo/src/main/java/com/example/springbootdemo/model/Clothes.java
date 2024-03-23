@@ -9,6 +9,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
  * Represents a clothes information including clothes name, retailer name, description, category, brand, and link.
+ * This class is used to store the clothes information to the database
+ * @author Zhikai Hu
  */
 @Document(collection = "sample_clothes")
 @Data
@@ -53,8 +55,8 @@ public class Clothes {
 
     /**
      * This constructor is used to create a clothes
-     * @param clothes_name
-     * @param link
+     * @param clothes_name clothes name
+     * @param link the path to the clothes
      */
     public Clothes(String clothes_name, String retailer_name, String link, String description, String category, String brand) {
         this.clothes_name = clothes_name;

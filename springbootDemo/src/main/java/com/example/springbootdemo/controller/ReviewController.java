@@ -9,18 +9,26 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
+/**
+ * The ReviewController class to handle the review request to create a review
+ * @author Zhikai Hu
+ */
 @RestController
 @CrossOrigin
 @RequestMapping("/api/v1/reviews") // endpoint depends on the user preference
 public class ReviewController {
-     @Autowired
+
+    /**
+     * The ReviewService class to handle the business logic
+     */
+    @Autowired
     private ReviewService reviewService;
 
     /**
      * What we get as the request body
      * The name of the key should be the same as the POST request body and vice versa
-     * @param payload
-     * @return
+     * @param payload the review body and the imdbId
+     * @return the review
      */
      @PostMapping
     public ResponseEntity<Review> createReview(@RequestBody Map<String, String> payload) {

@@ -9,6 +9,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
  * Represents a user's profile information including username and password.
+ * This class is used to store the user's profile information to the database
+ * @author Zhikai Hu
  */
 @Document(collection = "userProfile")
 @Data
@@ -33,8 +35,8 @@ public class UserInfo {
 
     /**
      * This constructor is used to create a user
-     * @param username
-     * @param password
+     * @param username username
+     * @param password password
      */
     public UserInfo(String username, String password) {
         this.username = username;

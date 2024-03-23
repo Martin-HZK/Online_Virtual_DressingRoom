@@ -11,7 +11,7 @@ public class SpringbootDemoApplication {
 
 	/**
 	 * Start point of the application.
-	 * @param args
+	 * @param args the arguments
 	 */
 	public static void main(String[] args) {
 		SpringApplication.run(SpringbootDemoApplication.class, args);

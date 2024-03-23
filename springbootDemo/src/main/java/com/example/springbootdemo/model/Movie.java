@@ -7,9 +7,12 @@ import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.DocumentReference;
-
 import java.util.List;
 
+/**
+ * Represents a movie information including imdbId, title, releaseDate, trailerLink, poster, genres, backdrops, and reviewIds.
+ * @author Zhikai Hu
+ */
 @Document(collection = "clothes")
 @Data
 @AllArgsConstructor
@@ -20,13 +23,45 @@ public class Movie {
      */
     @Id
     private ObjectId id;
+
+    /**
+     * imdbId of the movie
+     */
     private String imdbId;
+
+    /**
+     * The title of the movie
+     */
     private String title;
+
+    /**
+     * The release date of the movie
+     */
     private String releaseDate;
+
+    /**
+     * The trailer link of the movie
+     */
     private String trailerLink;
+
+    /**
+     * The poster of the movie
+     */
     private String poster;
+
+    /**
+     * The genres of the movie
+     */
     private List<String> genres;
+
+    /**
+     * The backdrops of the movie
+     */
     private List<String> backdrops;
+
+    /**
+     * The list of review ids of the movie
+     */
     @DocumentReference
     private List<Review> reviewIds;
 

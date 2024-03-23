@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 /**
  * The ReviewRepository class to handle the database operation
+ * @author Zhikai Hu
  */
 @Repository
 public interface ReviewRepository extends MongoRepository<Review, ObjectId> {
