@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState, useRef} from 'react'
+import React, { useState, useRef, useEffect, createContext, useContext} from 'react'
 import api from '../../../api/axiosConfig';
 import './UploadGoods.css'
 import 'rsuite/dist/rsuite.min.css'
@@ -8,9 +8,13 @@ import RetailerShowGoods from '../../../components/retailerShowGoods/RetailerSho
 import ShowCourse from '../../../components/showCourseComponent/ShowCourse';
 import SearchBar from '../../../components/searchBar/SearchBar';
 import AddClothes from '../../../components/addClothes/AddClothes';
+import SpinLoader from '../../../components/spinLoader/SpinLoader';
+import {ProgressBar} from 'react-loader-spinner';
+
+const MyContext = createContext();
+
 const UploadGoods = () => {
   
-    
 
     const [open, setOpen] = useState(false); 
     const [overflow, setOverflow] = useState(false); 
@@ -72,6 +76,30 @@ const UploadGoods = () => {
 
     const [cartCourses, setCartCourses] = useState([]);
     const [searchCourse, setSearchCourse] = useState('');
+    
+    const [actualGoods, setActualGoods] = useState([]);
+    const [retailer_name, setRetailerName] = useState('Zhangqian') // we temporarily set the retailer name as Zhangqian
+    // TODO: get the retailer name from the session!!!
+
+    useEffect(() => {
+
+      const fetchData = async () => {
+        try {
+          console.log('useEffect');
+          const response = await api.get(`/api/v1/getAllClothesByRetailer/${retailer_name}`);
+          setActualGoods(response.data);
+          console.log(response.data);
+        } catch (error) {
+          console.error('Error fetching data:', error);
+        }
+      };
+    
+      fetchData(); 
+    }, []);
+  
+    const addClothes = (clothes) => {
+      setActualGoods([...actualGoods, clothes]);
+    }
 
     const filterCourseFunction = courses.filter((course) =>
     course.name.toLowerCase().includes(searchCourse.toLowerCase())
@@ -126,8 +154,22 @@ const UploadGoods = () => {
         </div>
 
         <div className='add_container'>
+          <MyContext.Provider value={{actualGoods, setActualGoods}}>
             <AddClothes />
+          </MyContext.Provider>
+            <ProgressBar
+              visible={true}
+              height="80"
+              width="80"
+              color="#4fa94d"
+              ariaLabel="progress-bar-loading"
+              wrapperStyle={{}}
+              wrapperClass=""
+            />
+            {/* <SpinLoader /> */}
+
         </div>
+
       </div>
       
       
@@ -146,4 +188,5 @@ const UploadGoods = () => {
   );
 }
 
-export default UploadGoods
+export { MyContext, UploadGoods };
+// export default UploadGoods
