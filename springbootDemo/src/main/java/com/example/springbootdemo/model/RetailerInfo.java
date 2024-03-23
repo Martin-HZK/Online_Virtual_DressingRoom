@@ -23,6 +23,13 @@ public class RetailerInfo {
     private Map<String, String> clothes;
 
 
+
+    /**
+     * This constructor is used to create a retailer
+     * @param username
+     * @param password
+     * @param clothes
+     */
     public RetailerInfo(String username, String password, Map<String, String> clothes) {
         this.username = username;
         this.password = password;

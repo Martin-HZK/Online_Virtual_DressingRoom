@@ -2,6 +2,7 @@ package com.example.springbootdemo.controller;
 
 
 import com.example.springbootdemo.model.Clothes;
+import com.example.springbootdemo.model.RetailerInfo;
 import com.example.springbootdemo.repository.ClothesService;
 import com.example.springbootdemo.repository.RetailerInfoService;
 import com.example.springbootdemo.repository.UserInfoService;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -49,6 +51,11 @@ public class RetailerInfoController {
         // Save the adsImagesString in your database
         // You can also associate it with other data in your Ads object
         return new ResponseEntity<Clothes>(clothesService.createClothes(name, retailer_name, adsImagesString, description,category,brand), HttpStatus.CREATED);
+    }
+
+    @GetMapping("/getAllClothes")
+    public ResponseEntity<List<RetailerInfo>> getAllRetailerClothes() {
+        return new ResponseEntity<List<RetailerInfo>>(retailerInfoService.allClothes(), HttpStatus.OK);
     }
 
 }

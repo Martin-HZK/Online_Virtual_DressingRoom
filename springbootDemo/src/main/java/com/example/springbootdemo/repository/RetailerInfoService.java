@@ -11,6 +11,8 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 import static org.springframework.data.mongodb.core.query.Criteria.where;
 import static org.springframework.data.mongodb.core.query.Query.query;
 
@@ -28,6 +30,10 @@ public class RetailerInfoService {
         } else {
             return retailerInfo.getPassword().equals(password);
         }
+    }
+
+    public List<RetailerInfo> allClothes() {
+        return retailerInfoRepository.findAll();
     }
 
     public void updateRetailerClothes(String retailer_name, String clothes_name, String adsImagesString) {
