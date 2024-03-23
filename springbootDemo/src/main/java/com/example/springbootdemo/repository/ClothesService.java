@@ -2,10 +2,8 @@ package com.example.springbootdemo.repository;
 
 import com.example.springbootdemo.model.Clothes;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -14,29 +12,42 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-//@Service
-//public class ClothesService {
-//    @Autowired
-//    private ClothesRepository clothesRepository;
-//
-////    public void
-//}
-
+/**
+ * The ClothesService class to handle the business logic
+ */
 @Service
 public class ClothesService {
 
+    /**
+     * The ClothesRepository class to handle the database operation
+     */
     @Autowired
     private ClothesRepository clothesRepository;
 
+    /**
+     * The method to get all clothes
+     * @return List<Clothes>
+     */
     public List<Clothes> allClothes() {
         return clothesRepository.findAll();
     }
 
+    /**
+     * The method to get all clothes for certain retailer
+     * @param retailer_name
+     * @return List<Optional<Clothes>>
+     */
     public List<Optional<Clothes>> allClothesByCertainRetailer(String retailer_name) {
         return clothesRepository.findClothesByRetailerName(retailer_name);
     }
 
-    // Save image in a local directory
+    /**
+     * This is the method to store an image to the local machine
+     * @param uploadDirectory
+     * @param imageFile
+     * @return
+     * @throws IOException
+     */
     public String saveImageToStorage(String uploadDirectory, MultipartFile imageFile) throws IOException {
         String uniqueFileName = UUID.randomUUID().toString() + "_" + imageFile.getOriginalFilename();
 
@@ -77,6 +88,16 @@ public class ClothesService {
     }
 
 
+    /**
+     * The method to create a Clothes object
+     * @param clothes_name
+     * @param retailer_name
+     * @param link
+     * @param description
+     * @param category
+     * @param brand
+     * @return Clothes
+     */
     public Clothes createClothes(String clothes_name, String retailer_name, String link, String description, String category, String brand) {
         Clothes clothes = new Clothes(clothes_name, retailer_name, link, description, category, brand);
         clothesRepository.save(clothes);

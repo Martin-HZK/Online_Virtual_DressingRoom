@@ -7,13 +7,37 @@ import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+/**
+ * Represents a user's profile information including username and password.
+ */
 @Document(collection = "userProfile")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserInfo {
+    /**
+     * We do not want to expose the id to the client. We would prefer username to be the url
+     */
     @Id
     private ObjectId id;
+
+    /**
+     * The username of the user
+     */
     private String username;
+
+    /**
+     * The password of the user
+     */
     private String password;
+
+    /**
+     * This constructor is used to create a user
+     * @param username
+     * @param password
+     */
+    public UserInfo(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
 }

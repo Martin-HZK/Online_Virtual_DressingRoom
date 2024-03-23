@@ -1,8 +1,6 @@
 package com.example.springbootdemo.repository;
 
-import com.example.springbootdemo.model.Clothes;
 import com.example.springbootdemo.model.RetailerInfo;
-import com.example.springbootdemo.model.UserInfo;
 import io.micrometer.common.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -11,19 +9,30 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
-
-import static org.springframework.data.mongodb.core.query.Criteria.where;
-import static org.springframework.data.mongodb.core.query.Query.query;
-
+/**
+ * The RetailerInfoService class to handle the business logic
+ */
 @Service
 public class RetailerInfoService {
+    /**
+     * The retailerInfoRepository is used to store the retailer information to the database
+     */
     @Autowired
     private RetailerInfoRepository retailerInfoRepository;
 
+    /**
+     * Template is another way to access the database other than repository
+     * This is for forming a dynamic query to do job in the database without using repository
+     */
     @Autowired
     private MongoTemplate mongoTemplate;
+
+    /**
+     * The method to check if the retailer can successfully log in
+     * @param username
+     * @param password
+     * @return boolean variable to indicate if the retailer can successfully log in
+     */
     public boolean checkLogin(String username, String password) {
         RetailerInfo retailerInfo = retailerInfoRepository.findRetailerInfoByUsername(username).orElse(null);
         if (retailerInfo == null) {
@@ -33,21 +42,17 @@ public class RetailerInfoService {
         }
     }
 
-
-//    public List<RetailerInfo> allClothes(String retailer_name) {
-//        Optional<RetailerInfo> retailerInfo =  retailerInfoRepository.findRetailerInfoByUsername(retailer_name);
-//
-//    }
-
+    /**
+     * The method to update the retailer's clothes
+     * @param retailer_name
+     * @param clothes_name
+     * @param adsImagesString
+     */
     public void updateRetailerClothes(String retailer_name, String clothes_name, String adsImagesString) {
 
         Query query = new Query(Criteria.where("username").is(retailer_name));
-
-        // 检查 clothesName 和 clothesURL 是否为空
         if (!StringUtils.isEmpty(clothes_name) && !StringUtils.isEmpty(adsImagesString)) {
-            // 构建更新操作
             Update update = new Update().set("clothes." + clothes_name, adsImagesString);
-            // 执行更新操作
             mongoTemplate.updateFirst(query, update, RetailerInfo.class);
         }
     }

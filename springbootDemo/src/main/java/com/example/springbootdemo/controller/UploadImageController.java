@@ -1,50 +1,43 @@
 package com.example.springbootdemo.controller;
+
 import com.example.springbootdemo.model.Clothes;
 import com.example.springbootdemo.repository.ClothesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-
-import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * The UploadImageController class to deal with the request to get all clothes
+ * (The upload clothes are set in the retailerInfoController)
+ */
 @CrossOrigin
 @RestController
 @RequestMapping(("api/v1"))
 public class UploadImageController {
 
+    /**
+     * The ClothesService class to handle the business logic
+     */
     @Autowired
     private ClothesService clothesService;
 
-//    @PostMapping("/clothes")
-//    public ResponseEntity<Clothes> createAd(@RequestParam("file") MultipartFile adsImages, @RequestParam("goodName") String name, @RequestParam("description") String description, @RequestParam("category") String category, @RequestParam("brand") String brand) {
-//        String uploadDirectory = "src/main/resources/static/clothes/";
-//        String adsImagesString = "";
-//
-////        for (MultipartFile imageFile : adsImages) {
-//            try {
-//                adsImagesString += clothesService.saveImageToStorage(uploadDirectory, adsImages) + ",";
-//                System.out.println(adsImagesString);
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//
-//            adsImagesString = uploadDirectory + adsImagesString;
-////        }
-//
-//        // Save the adsImagesString in your database
-//        // You can also associate it with other data in your Ads object
-//        return new ResponseEntity<Clothes>(clothesService.createClothes(name, retailer_name, adsImagesString, description,category,brand), HttpStatus.CREATED);
-//    }
-
+    /**
+     * The GetMapping to get all clothes
+     * @return ResponseEntity<List<Clothes>>
+     */
     @GetMapping("/getAllClothes")
     public ResponseEntity<List<Clothes>> getAllClothes() {
         return new ResponseEntity<List<Clothes>>(clothesService.allClothes(), HttpStatus.OK);
     }
 
+    /**
+     * The GetMapping to get all clothes for certain retailer
+     * @param retailer_name
+     * @return ResponseEntity<List<Optional<Clothes>>>
+     */
     @GetMapping("/getAllClothesByRetailer/{retailer_name}")
     public ResponseEntity<List<Optional<Clothes>>> getAllClothesByRetailer(@PathVariable String retailer_name) {
         return new ResponseEntity<List<Optional<Clothes>>>(clothesService.allClothesByCertainRetailer(retailer_name), HttpStatus.OK);

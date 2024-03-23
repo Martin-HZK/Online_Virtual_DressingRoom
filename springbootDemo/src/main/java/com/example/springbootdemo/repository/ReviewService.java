@@ -8,6 +8,9 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
 
+/**
+ * The ReviewService class to handle the business logic
+ */
 @Service
 public class ReviewService {
     /**
@@ -35,7 +38,6 @@ public class ReviewService {
 
         Review review = new Review(reviewBody);
         reviewRepository.insert(review);
-//        Review review = reviewRepository.insert(new Review(reviewBody));
         // make an update call on the movie class
         mongoTemplate.update(Movie.class)
                 .matching(Criteria.where("imdbId").is(imdbId))

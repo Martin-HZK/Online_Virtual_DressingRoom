@@ -7,18 +7,48 @@ import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+/**
+ * Represents a clothes information including clothes name, retailer name, description, category, brand, and link.
+ */
 @Document(collection = "sample_clothes")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Clothes {
+    /**
+     * We do not want to expose the id to the client. We would prefer clothes_name to be the url
+     */
     @Id
     private ObjectId id;
+
+    /**
+     * The clothes name
+     */
     private String clothes_name;
+
+    /**
+     * The name of the retailer who uploaded the clothes
+     */
     private String retailerName;
+
+    /**
+     * The description of the clothes
+     */
     private String description;
+
+    /**
+     * The category of the clothes
+     */
     private String category;
+
+    /**
+     * The brand of the clothes
+     */
     private String brand;
+
+    /**
+     * The link of the clothes
+     */
     private String link;
 
     /**
@@ -34,5 +64,4 @@ public class Clothes {
         this.category = category;
         this.brand = brand;
     }
-
 }
