@@ -53,9 +53,9 @@ public class RetailerInfoController {
         return new ResponseEntity<Clothes>(clothesService.createClothes(name, retailer_name, adsImagesString, description,category,brand), HttpStatus.CREATED);
     }
 
-    @GetMapping("/getAllClothes")
-    public ResponseEntity<List<RetailerInfo>> getAllRetailerClothes() {
-        return new ResponseEntity<List<RetailerInfo>>(retailerInfoService.allClothes(), HttpStatus.OK);
-    }
+//    @GetMapping("/getAllClothes")
+//    public ResponseEntity<List<RetailerInfo>> getAllRetailerClothes(String retailerName) {
+//        return new ResponseEntity<List<RetailerInfo>>(retailerInfoService.allClothes(retailerName), HttpStatus.OK);
+//    }
 
 }

@@ -12,6 +12,7 @@ import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 import static org.springframework.data.mongodb.core.query.Criteria.where;
 import static org.springframework.data.mongodb.core.query.Query.query;
@@ -32,15 +33,13 @@ public class RetailerInfoService {
         }
     }
 
-    public List<RetailerInfo> allClothes() {
-        return retailerInfoRepository.findAll();
-    }
+
+//    public List<RetailerInfo> allClothes(String retailer_name) {
+//        Optional<RetailerInfo> retailerInfo =  retailerInfoRepository.findRetailerInfoByUsername(retailer_name);
+//
+//    }
 
     public void updateRetailerClothes(String retailer_name, String clothes_name, String adsImagesString) {
-//        mongoTemplate.update(RetailerInfo.class)
-//                .matching(query(where("username").is(retailer_name)))
-//                .apply(new Update().push("clothes", new Clothes(clothes_name, adsImagesString)))
-//                .first();
 
         Query query = new Query(Criteria.where("username").is(retailer_name));
 
@@ -53,19 +52,4 @@ public class RetailerInfoService {
         }
     }
 
-
-//    /**
-//     * Add clothes to the database
-//     * Hint: the retailer name should be passed in by the user
-//     * @param clothes_name
-//     * @param retailer_name
-//     * @param description
-//     * @param category
-//     * @param brand
-//     * @return
-//     */
-//    public boolean addClothes(String clothes_name, String retailer_name, String description, String category, String brand) {
-//
-//        Clothes clothes = new Clothes(clothes_name, retailer_name, description, category, brand);
-//    }
 }

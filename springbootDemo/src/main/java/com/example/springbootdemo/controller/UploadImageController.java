@@ -9,6 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin
 @RestController
@@ -42,5 +43,10 @@ public class UploadImageController {
     @GetMapping("/getAllClothes")
     public ResponseEntity<List<Clothes>> getAllClothes() {
         return new ResponseEntity<List<Clothes>>(clothesService.allClothes(), HttpStatus.OK);
+    }
+
+    @GetMapping("/getAllClothesByRetailer/{retailer_name}")
+    public ResponseEntity<List<Optional<Clothes>>> getAllClothesByRetailer(@PathVariable String retailer_name) {
+        return new ResponseEntity<List<Optional<Clothes>>>(clothesService.allClothesByCertainRetailer(retailer_name), HttpStatus.OK);
     }
 }

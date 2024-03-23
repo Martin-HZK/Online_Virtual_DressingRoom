@@ -11,6 +11,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 //@Service
@@ -29,6 +30,10 @@ public class ClothesService {
 
     public List<Clothes> allClothes() {
         return clothesRepository.findAll();
+    }
+
+    public List<Optional<Clothes>> allClothesByCertainRetailer(String retailer_name) {
+        return clothesRepository.findClothesByRetailerName(retailer_name);
     }
 
     // Save image in a local directory
