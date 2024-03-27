@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
 import api from "../../api/axiosConfig";
 import "./Login.css";
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import { UserContext } from "../../userContextProvider/UserContextProvider";
+
 const Login = () => {
   // 使用 useState 创建 state 变量来管理输入的用户名和密码
+  const { setGlobUsername } = useContext(UserContext);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [checked, setChecked] = useState(false);
@@ -45,6 +48,7 @@ const Login = () => {
       if(response.data == true) {
         console.log("Login success!Redirecting to upload image page");
         navigate("/home", { state: { propToPass: username} });
+        setGlobUsername(username);
       } else {
         console.log("Login failed! Please check your username and password!");
         alert("Login failed! Please check your username and password!");
@@ -75,6 +79,7 @@ const Login = () => {
       if(response.data == true) {
         console.log("Login success!Redirecting to upload image page");
         navigate("/retailer/home", { state: { propToPass: username} });
+        setGlobUsername(username);
       } else {
         console.log("Login failed! Please check your username and password!");
         alert("Login failed! Please check your username and password!");

@@ -16,6 +16,7 @@ import RetailerHome from './pages/retailer_pages/retailer_home/RetailerHome';
 import RetailerNonLoginLayout from './components/RetailerNonLoginLayout';
 import {UploadGoods} from './pages/retailer_pages/upload_goods/UploadGoods';
 import SignUp from './pages/signUp/SignUp';
+import { UserContextProvider } from './userContextProvider/UserContextProvider';
 // import UploadGoods from './pages/retailer_pages/upload_goods/UploadGoods';
 function App() {
 
@@ -44,8 +45,10 @@ function App() {
   },[])
   
   return (
+    <UserContextProvider>
     <div className="App">
       {/* <Navigator/> */}
+      
         <Routes>
             <Route path="/" element={<LoginLayout/>}>
               <Route index element={<Login/>}></Route>
@@ -66,6 +69,7 @@ function App() {
             </Route>
         </Routes>
     </div>
+    </UserContextProvider>
   );
 }
 
