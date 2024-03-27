@@ -54,16 +54,28 @@ public class Clothes {
     private String link;
 
     /**
+     * The price of the clothes
+     */
+    private int price;
+
+    /**
+     * The advised gender suitable the clothes
+     */
+    private String gender;
+
+    /**
      * This constructor is used to create a clothes
      * @param clothes_name clothes name
      * @param link the path to the clothes
      */
-    public Clothes(String clothes_name, String retailer_name, String link, String description, String category, String brand) {
+    public Clothes(String clothes_name, String retailer_name, String link, String description, String category, String brand, int price, String gender) {
         this.clothes_name = clothes_name;
         this.retailerName = retailer_name; // this retailer info need to be further passed in
         this.link = link;
         this.description = description;
         this.category = category;
         this.brand = brand;
+        this.price = price;
+        this.gender = gender;
     }
 }

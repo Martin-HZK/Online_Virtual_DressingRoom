@@ -31,4 +31,23 @@ public class UserInfoService {
             return userInfo.getPassword().equals(password);
         }
     }
+
+    /**
+     * The method to check if the user can successfully sign up
+     * @param username the username
+     * @param password the password
+     * @return boolean variable to indicate if the user can successfully sign up
+     */
+    public boolean checkSignUp(String username, String password) {
+        UserInfo userInfo = userInfoRepository.findUserInfoByUsername(username).orElse(null);
+        if (userInfo == null) {
+            UserInfo newUserInfo = new UserInfo();
+            newUserInfo.setUsername(username);
+            newUserInfo.setPassword(password);
+            userInfoRepository.save(newUserInfo);
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

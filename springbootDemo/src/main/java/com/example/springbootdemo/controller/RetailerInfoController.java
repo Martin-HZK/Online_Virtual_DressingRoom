@@ -44,6 +44,16 @@ public class RetailerInfoController {
 
     /**
      * The PostMapping to check if the retailer can successfully register
+     * @param signUpInfo the username and password mapping
+     * @return boolean variable to indicate if the retailer can successfully register
+     */
+    @PostMapping("/signup")
+    public ResponseEntity<Boolean> signup(@RequestBody Map<String, String> signUpInfo) {
+        return new ResponseEntity<Boolean>(retailerInfoService.checkSignUp(signUpInfo.get("username"), signUpInfo.get("password")), HttpStatus.CREATED);
+    }
+
+    /**
+     * The PostMapping to check if the retailer can successfully register
      * @param adsImages the image of the clothes
      * @param retailer_name the name of the retailer
      * @param name the name of the clothes
@@ -53,7 +63,7 @@ public class RetailerInfoController {
      * @return updated clothes
      */
     @PostMapping("/upload_clothes")
-    public ResponseEntity<Clothes> createAd(@RequestParam("file") MultipartFile adsImages, @RequestParam("retailer_name") String retailer_name, @RequestParam("goodName") String name, @RequestParam("description") String description, @RequestParam("category") String category, @RequestParam("brand") String brand) {
+    public ResponseEntity<Clothes> createAd(@RequestParam("file") MultipartFile adsImages, @RequestParam("retailer_name") String retailer_name, @RequestParam("goodName") String name, @RequestParam("description") String description, @RequestParam("category") String category, @RequestParam("brand") String brand, @RequestParam("price") int price, @RequestParam("gender") String gender) {
         String uploadDirectory = "src/main/resources/static/clothes/";
         String adsImagesString = "";
 
@@ -71,7 +81,7 @@ public class RetailerInfoController {
 
         // Save the adsImagesString in your database
         // You can also associate it with other data in your Ads object
-        return new ResponseEntity<Clothes>(clothesService.createClothes(name, retailer_name, adsImagesString, description,category,brand), HttpStatus.CREATED);
+        return new ResponseEntity<Clothes>(clothesService.createClothes(name, retailer_name, adsImagesString, description ,category, brand, price, gender), HttpStatus.CREATED);
     }
 
 }

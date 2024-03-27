@@ -9,6 +9,8 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
+
 /**
  * The RetailerInfoService class to handle the business logic
  * @author Zhikai Hu
@@ -40,6 +42,26 @@ public class RetailerInfoService {
             return false;
         } else {
             return retailerInfo.getPassword().equals(password);
+        }
+    }
+
+    /**
+     * The method to check if the retailer can successfully sign up
+     * @param username the username of the retailer
+     * @param password the password of the retailer
+     * @return boolean variable to indicate if the retailer can successfully sign up
+     */
+    public boolean checkSignUp(String username, String password) {
+        RetailerInfo retailerInfo = retailerInfoRepository.findRetailerInfoByUsername(username).orElse(null);
+        if (retailerInfo == null) {
+            RetailerInfo newRetailerInfo = new RetailerInfo();
+            newRetailerInfo.setUsername(username);
+            newRetailerInfo.setPassword(password);
+//            newRetailerInfo.setClothes(new HashMap<>());
+            retailerInfoRepository.save(newRetailerInfo);
+            return true;
+        } else {
+            return false;
         }
     }
 
