@@ -119,8 +119,10 @@ const Login = () => {
 
         <div className="login-footer-left">
 
+          <button className="login-footer-button" onClick={() => navigate("/")}>Home</button>
           <button className="login-footer-button" onClick={() => {window.location.href = 'https://g202319.github.io/project/';}}>About Us</button>
           <button className="login-footer-button">Privacy Policy</button>
+          <button className="login-footer-button" onClick={() => {navigate("/sign_up")}}>Sign Up</button>
         </div>
 
 

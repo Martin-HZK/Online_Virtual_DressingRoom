@@ -14,7 +14,8 @@ import NonLoginLayout from './components/NonLoginLayout';
 import Home from './pages/home/Home';
 import RetailerHome from './pages/retailer_pages/retailer_home/RetailerHome';
 import RetailerNonLoginLayout from './components/RetailerNonLoginLayout';
-import UploadGoods from './pages/retailer_pages/upload_goods/UploadGoods';
+import {UploadGoods} from './pages/retailer_pages/upload_goods/UploadGoods';
+import SignUp from './pages/signUp/SignUp';
 // import UploadGoods from './pages/retailer_pages/upload_goods/UploadGoods';
 function App() {
 
@@ -48,6 +49,7 @@ function App() {
         <Routes>
             <Route path="/" element={<LoginLayout/>}>
               <Route index element={<Login/>}></Route>
+              <Route path="/sign_up" element={<SignUp/>}></Route>
               <Route element={<NonLoginLayout/>}>
                 <Route path="/home" element={<Home/>}></Route>
                 <Route path="/uploadimage" element={<UploadImage/>}></Route>

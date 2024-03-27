@@ -20,6 +20,18 @@
 }
 
 .input-container {
+    margin-bottom: 10px; /* 在输入框容器下方增加 20px 的间距 */
+  }
+  
+  .radio-container {
+    margin-top: 10px; /* 在单选按钮容器上方增加 20px 的间距 */
+  }
+  
+  .signup-button-container {
+    margin-top: 10px; /* 在按钮容器上方增加 20px 的间距 */
+  }
+
+.input-container {
     position: relative;
 }
 .input-container input {
@@ -50,13 +62,19 @@
 
   .radio-container {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
   
   .radio-container label {
     display: flex;
     align-items: center;
+    color: white; /* 单选框文字颜色 */
   }
   
   .radio-container input[type='radio'] {
@@ -70,4 +88,66 @@
     height: 12px;
     border-radius: 50%;
     background-color: #007bff; /* 修改选中时的颜色 */
+}
+
+.signUp-form-container button {
+    width: 500px;
+    
+    font-size: 16px; /* 按钮文字大小 */
+    padding: 15px 20px; /* 按钮内的填充 */
+    border-radius: 5px; /* 按钮边角的圆滑度 */
+    border: none; /* 去除边框 */
+    background-color: #FB646B; /* 按钮背景颜色 */
+    color: white; /* 文字颜色 */
+    cursor: pointer; /* 鼠标悬停时的光标形状 */
+    border-radius: 90px; 
   }
+  
+.signUp-form-container button:hover {
+background-color: #b3002a; /* 鼠标悬停时按钮的背景颜色 */
+}
+
+.signup-button-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.login-footer {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .login-footer-left {
+    position: absolute;
+    left: 40px; /* 右边距 */
+    bottom: 40px; /* 下边距 */
+    display: flex;
+    flex-direction: row;
+    gap: 8px; /* 设置按钮之间的间距 */
+  }
+  
+  .login-footer button {
+    width: 200px;
+    font-size: 16px; /* 按钮文字大小 */
+    background-color: rgba(255, 255, 255, 0);
+    padding: 15px 20px; /* 按钮内的填充 */
+    border-radius: 0.5px; /* 按钮边角的圆滑度 */
+    border: none; /* 去除边框 */
+    color: white; /* 文字颜色 */
+    cursor: pointer; /* 鼠标悬停时的光标形状 */
+    border-radius: 90px; 
+  
+  }
+  
+  .login-footer button:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* 鼠标悬停时按钮的背景颜色*/
+  }
+  
+.all-rights {
+    position: absolute;
+    color: #ffffff;
+    right: 40px; /* 右边距 */
+    bottom: 40px; /* 下边距 */
+    font-size: 14px; /* 字体大小 */
+    }

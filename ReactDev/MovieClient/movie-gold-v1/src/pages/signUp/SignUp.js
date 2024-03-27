@@ -3,6 +3,7 @@ import { useState } from 'react';
 import './SignUp.css'
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import api from '../../api/axiosConfig';
+import { useNavigate } from 'react-router-dom';
 const SignUp = () => {
     const [formData, setFormData] = useState({
         username: '',
@@ -11,7 +12,7 @@ const SignUp = () => {
     })
 
     const [accountType, setAccountType] = useState('user');
-
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -36,10 +37,15 @@ const SignUp = () => {
         }
             
         try {
-          const response = await api.post(url, formData);
-          console.log('Server response:', response.data);
-          if (response.data === true) {
-            alert('Sign Up success!');
+            const response = await api.post(url, formData);
+            console.log('Server response:', response.data);
+            if (response.data === true) {
+            // the logic is to ask the user to login again
+            alert('Sign Up success!Jumping to the login page!');
+
+            navigate('/');
+        
+
         } else {
             alert('Sign Up failed! Your username may have been taken!');
         }
@@ -59,7 +65,7 @@ const SignUp = () => {
   return (
     <div className='signUp-page-container'>
         <div className='signUp-form-container'>
-            <h1>Sign Up</h1>
+            {/* <h1>Sign Up</h1> */}
             <form onSubmit={handleSubmit}>
             <div className='input-container'>
                 <i className='fa-solid fa-user'></i>
@@ -117,11 +123,29 @@ const SignUp = () => {
             </label>
             </div>
 
-
-            <button type='submit'>Sign Up</button>
+            <div className='signup-button-container'>
+                <button type='submit'>Sign Up</button>
+            </div>
             </form>
             
         </div>
+
+        <div className="login-footer">
+
+        <div className="login-footer-left">
+
+            <button className="login-footer-button" onClick={() => navigate("/")}>Home</button>
+            <button className="login-footer-button" onClick={() => {window.location.href = 'https://g202319.github.io/project/';}}>About Us</button>
+            <button className="login-footer-button">Privacy Policy</button>
+            <button className="login-footer-button" onClick={() => {navigate("/sign_up")}}>Sign Up</button>
+        </div>
+
+
+        <div className="all-rights">
+        2023 GRPTeam. All Rights Reserved
+        </div>
+
+      </div>
     </div>
   )
 }
