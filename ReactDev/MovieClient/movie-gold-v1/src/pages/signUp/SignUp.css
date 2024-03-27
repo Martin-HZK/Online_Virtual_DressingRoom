@@ -1,0 +1,73 @@
+.signUp-page-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-image: url('../../bg.jpg'); /* 更新为你的背景图片路径*/
+    background-size: cover;
+   
+}
+
+.signUp-form-container {
+    height: 100vh; /* 视口高度 */
+    
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+.input-container {
+    position: relative;
+}
+.input-container input {
+    margin-top: 5px; /* 输入框和其标签文字之间的间隔 */
+    width: 500px; /* 输入框的宽度 */
+    /*padding: 15px; /* 输入框内的填充，让文字输入时更舒适 */
+    padding: 15px 40px 15px 60px; 
+    border: 1px solid #858585; /* 输入框的边框 */
+    border-radius: 90px; /* 输入框边角的圆滑度 */
+    font-size: 16px; /* 输入框文字大小 */
+    color: white; /* 输入框文字颜色 */
+    background-color: rgba(255, 255, 255, 0.1); /* 0.5 是透明度值，范围为 0 到 1，0 表示完全透明，1 表示完全不透明 */
+}
+
+.input-container i {
+    position: absolute;
+    left: 30px; /* 调整图标距离左侧的间距 */
+    top: 50%; /* 使图标垂直居中 */
+    transform: translateY(-40%); /* 调整垂直居中效果 */
+    font-size: 17px; /* 调整图标大小 */
+    color: #ffffff; /* 调整图标颜色 */
+  }
+  
+  input::placeholder {
+    color: #ffffff; /* 设置占位符文本的颜色 */
+    font-style: italic; /* 设置占位符文本的字体样式 */
+  }
+
+  .radio-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .radio-container label {
+    display: flex;
+    align-items: center;
+  }
+  
+  .radio-container input[type='radio'] {
+    margin-right: 5px;
+  }
+  
+  .radio-container input[type='radio']:checked + span::before {
+    content: '';
+    display: block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #007bff; /* 修改选中时的颜色 */
+  }
