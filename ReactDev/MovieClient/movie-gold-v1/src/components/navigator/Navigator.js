@@ -11,6 +11,7 @@ const Navigator = () => {
         if (confirmLogout) {
             // Perform logout action here
             console.log("User confirmed logout");
+            localStorage.clear();
             navigator('/');
         } else {
             console.log("User canceled logout");
@@ -57,14 +58,14 @@ const Navigator = () => {
                 Upload Image
             </NavText>
         </NavItem> */}
-        <NavItem eventKey="bodyfeature">
+        {/* <NavItem eventKey="bodyfeature">
             <NavIcon>
                 <i className="fa fa-fw fa-male" style={{ fontSize: '1.75em' }} />
             </NavIcon>
             <NavText>
                 Body Feature
             </NavText>
-        </NavItem>
+        </NavItem> */}
         
         <NavItem eventKey="dressingroom">
             <NavIcon>
