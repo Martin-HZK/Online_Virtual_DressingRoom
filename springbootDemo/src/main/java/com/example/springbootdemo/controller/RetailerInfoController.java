@@ -6,6 +6,7 @@ import com.example.springbootdemo.repository.RetailerInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -50,6 +51,11 @@ public class RetailerInfoController {
     @PostMapping("/signup")
     public ResponseEntity<Boolean> signup(@RequestBody Map<String, String> signUpInfo) {
         return new ResponseEntity<Boolean>(retailerInfoService.checkSignUp(signUpInfo.get("username"), signUpInfo.get("password")), HttpStatus.CREATED);
+    }
+
+    @PostMapping("/edit_profile")
+    public ResponseEntity<Boolean> editProfile(@RequestBody Map<String, String> editInfo) {
+        return new ResponseEntity<Boolean>(retailerInfoService.editProfile(editInfo.get("originalUsername"), editInfo.get("username"), editInfo.get("password")), HttpStatus.CREATED);
     }
 
     /**

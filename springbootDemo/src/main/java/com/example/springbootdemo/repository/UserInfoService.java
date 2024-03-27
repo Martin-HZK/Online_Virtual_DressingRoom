@@ -2,6 +2,7 @@ package com.example.springbootdemo.repository;
 
 import com.example.springbootdemo.model.UserInfo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
 /**
@@ -49,5 +50,6 @@ public class UserInfoService {
         } else {
             return false;
         }
+
     }
 }

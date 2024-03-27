@@ -80,4 +80,16 @@ public class RetailerInfoService {
         }
     }
 
+    public boolean editProfile(String originalUsername, String username, String password) {
+        RetailerInfo retailerInfo = retailerInfoRepository.findRetailerInfoByUsername(originalUsername).orElse(null);
+        if (retailerInfo == null) {
+            return false;
+        } else {
+            retailerInfo.setUsername(username);
+            retailerInfo.setPassword(password);
+            retailerInfoRepository.save(retailerInfo);
+            return true;
+        }
+    }
+
 }
