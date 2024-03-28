@@ -141,18 +141,6 @@ const Login = () => {
 
       
     </div>
-
-// {/* <div className="login-container">
-//   <form className="login-form">
-//     <input type="text" placeholder="User Name" value={username} onChange={handleUsernameChange} />
-//     <input type="password" placeholder="Password" value={password} onChange={handlePasswordChange}/>
-    
-//     <button type="submit" onClick={handleLogin}>GET STARTED</button>
-//     <div className="login-footer">
-//       Start with your T-Mall/Taobao account?
-//     </div>
-//   </form>
-// </div> */}
   )
 }
 

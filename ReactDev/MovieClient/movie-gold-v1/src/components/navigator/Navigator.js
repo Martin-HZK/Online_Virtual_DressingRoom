@@ -50,22 +50,6 @@ const Navigator = () => {
                 Home
             </NavText>
         </NavItem>
-        {/* <NavItem eventKey="uploadimage">
-            <NavIcon>
-                <i className="fa-solid fa-image-portrait" style={{ fontSize: '1.5em' }} />
-            </NavIcon>
-            <NavText>
-                Upload Image
-            </NavText>
-        </NavItem> */}
-        {/* <NavItem eventKey="bodyfeature">
-            <NavIcon>
-                <i className="fa fa-fw fa-male" style={{ fontSize: '1.75em' }} />
-            </NavIcon>
-            <NavText>
-                Body Feature
-            </NavText>
-        </NavItem> */}
         
         <NavItem eventKey="dressingroom">
             <NavIcon>
@@ -75,14 +59,6 @@ const Navigator = () => {
                 Dressing Room
             </NavText>
         </NavItem>
-        {/* <NavItem eventKey="shoppingcart">
-            <NavIcon>
-                <i className="fa fa-fw fa-shopping-cart" style={{ fontSize: '1.5em' }} />
-            </NavIcon>
-            <NavText>
-                Shopping Cart
-            </NavText>
-        </NavItem> */}
         <NavItem eventKey="airecommendation">
             <NavIcon>
                 <i className="fa-solid fa-robot" style={{ fontSize: '1.5em' }} />

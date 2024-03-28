@@ -1,8 +1,12 @@
-import React, {useEffect, useRef, useState} from 'react'
+import React, {useEffect, useRef, useState, useContext} from 'react'
 import './Home.css'
 import OriginAvatar from '../../avatar.png'
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import { Button, Modal } from "rsuite";
+// import { Button, Modal } from "rsuite";
+import { Modal, Form, Input, Button } from 'antd';
+import api from '../../api/axiosConfig';
+
+import { UserContext } from '../../userContextProvider/UserContextProvider';
 
 const Home = () => {
   const hiddenFileInput = useRef(null);
@@ -23,16 +27,58 @@ const Home = () => {
     }
   }
 
-  // useEffect(() => {
-  //   console.log("Home component");
-  // },[])
-
   const [open, setOpen] = useState(false); 
     const [overflow, setOverflow] = useState(false); 
     const handleOpen = () => setOpen(true); 
     const handleClose = () => setOpen(false);
 
+    const [editModalVisible, setEditModalVisible] = useState(false);
+    const { globUsername, setGlobUsername } = useContext(UserContext);
+    const [originalUsername, setOriginalUsername] = useState(globUsername);
+    // const [username, setUsername] = useState('martin');
+    const [itemNumber, setItemNumber] = useState(0); // TODO: this should be fetched from the backend
+    const [password, setPassword] = useState('*********');
 
+    const handleEditProfile = () => {
+      // setOriginalUsername(username);
+      setOriginalUsername(globUsername);
+      setEditModalVisible(true);
+    };
+  
+    const handleSaveProfile = async() => {
+      // 在这里添加保存修改的逻辑，例如发送请求到后端保存用户名和密码
+      console.log('The original username is: ' + originalUsername)
+      console.log('The global username is: ' + globUsername)
+
+
+      try {
+        const response = await api.post('/api/v1/edit_profile', {
+          originalUsername: originalUsername,
+          username: globUsername,
+          password: password
+        });
+
+        console.log(response.data);
+        if (response.data == true)
+          alert('Identification changed successfully');
+        else
+          alert('Identification changed failed');
+      } catch(error) {
+        console.error(error);
+      }
+
+      // 保存完毕后关闭编辑模态框
+      setEditModalVisible(false);
+      // alert('Identification changed successfully');
+    };
+  
+    const handleCancelEdit = () => {
+      // 取消编辑，恢复原始用户名和密码
+    
+      setGlobUsername(originalUsername);
+      setPassword('*********');
+      setEditModalVisible(false);
+    };
 
   return (
     <div className="profile">
@@ -55,38 +101,47 @@ const Home = () => {
       <article className="profile-information">
         <hr />
         <section className="profile-information-section">
-          <h3>Email</h3><p>samsnottingham4@gmail.com</p>
+          <h3>Username</h3><p>{globUsername}</p>
         </section>
         <hr />
         <section className="profile-information-section">
-          <h3>Password</h3><p>*********</p>
+          <h3>Password</h3><p>{password}</p>
           </section>
+
         <hr />
-        <section className="profile-information-section">
-          <h3>Fullname</h3>
-          <p>Martin</p>
-        </section>
-        <hr />
-        <section className="profile-information-section">
-          <h3>Address</h3>
-          <p>N/A</p></section>
-        <hr />
-        <section className="profile-information-section">
-          <h3>Number</h3>
-          <p>N/A</p></section>
-          <hr />
       </article>
               
-        <section className="profile-buttons">
-          <button type="button" className="active-button-style">Edit profile</button>
-          <button type="button" className="passive-button-style">Delete account</button>
+      <section className="profile-buttons">
+          <button type="button" className="active-button-style" onClick={handleEditProfile}>Edit profile</button>
         </section>
       </div>
 
+      <Modal
+        title="Edit Profile"
+        visible={editModalVisible}
+        onCancel={handleCancelEdit}
+        footer={[
+          <Button key="cancel" onClick={handleCancelEdit}>
+            Cancel
+          </Button>,
+          <Button key="save" type="primary" onClick={handleSaveProfile}>
+            Save
+          </Button>,
+        ]}
+      >
+        <Form layout="vertical">
+          <Form.Item label="Username">
+            <Input value={globUsername} onChange={(e) => setGlobUsername(e.target.value)} />
+          </Form.Item>
+          <Form.Item label="Password">
+            <Input.Password value={password} onChange={(e) => setPassword(e.target.value)} />
+          </Form.Item>
+        </Form>
+      </Modal>
 
 
 
-      <Modal overflow={overflow} 
+      {/* <Modal overflow={overflow} 
             open={open} onClose={handleClose}> 
           <Modal.Header> 
               <Modal.Title>GeeksforGeeks</Modal.Title> 
@@ -102,7 +157,7 @@ const Home = () => {
                   Cancel 
               </Button> 
           </Modal.Footer> 
-      </Modal> 
+      </Modal>  */}
     </div>
   )
 }
