@@ -90,6 +90,11 @@ public class RetailerInfoController {
         return new ResponseEntity<Clothes>(clothesService.createClothes(name, retailer_name, adsImagesString, description ,category, brand, price, gender), HttpStatus.CREATED);
     }
 
+    /**
+     * The GetMapping to get the number of items of a retailer
+     * @param retailer_name the name of the retailer
+     * @return the number of items of the retailer
+     */
     @GetMapping("/get_item_number/{retailer_name}")
     public ResponseEntity<Integer> getItemNumber(@PathVariable String retailer_name) {
         return new ResponseEntity<Integer>(retailerInfoService.getItemNumber(retailer_name), HttpStatus.CREATED);

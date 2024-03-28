@@ -1,8 +1,8 @@
-import React , {useState} from 'react'
+import React , {useEffect, useState} from 'react'
 import './DressingRoom.css'
 import SearchBar from '../../components/searchBar/SearchBar'
 import UserCart from '../../components/userCart/UserCart'
-import ShowCourse from '../../components/showCourseComponent/ShowCourse'
+import ShowCourse from '../../components/showCourse/ShowCourse'
 import 'rsuite/dist/rsuite.min.css'
 import { Button, Modal } from "rsuite";
 
@@ -105,6 +105,7 @@ const DressingRoom = () => {
     const handleClose = () => setOpen(false);
 
 
+  const [personImage, setPersonImage] = useState('https://cdn.pixabay.com/photo/2023/05/30/08/34/apple-8027938_1280.jpg');
 
 
 
@@ -112,30 +113,6 @@ const DressingRoom = () => {
 
 
   return (
-        
-    // <div className='dressingroom_container'>
-    //   <div className='items_container'>
-    //     <SearchBar/>
-    //     <main className="App-main">
-    //             <ShowCourse
-    //                 courses={courses}
-    //                 filterCourseFunction={filterCourseFunction}
-    //                 addCourseToCartFunction={addCourseToCartFunction}
-    //             />
- 
-    //             <UserCart
-    //                 cartCourses={cartCourses}
-    //                 deleteCourseFromCartFunction={deleteCourseFromCartFunction}
-    //                 totalAmountCalculationFunction={
-    //                     totalAmountCalculationFunction
-    //                 }
-    //                 setCartCourses={setCartCourses}
-    //             />
-    //         </main>
-    //     </div>
-
-    //   <div className='model_container'>This is model</div>
-    // </div>
     <div className="dressingroom_container">
       <div className='items_container'>
             <SearchBar searchCourse={searchCourse} 
@@ -161,7 +138,7 @@ const DressingRoom = () => {
                     <Modal overflow={overflow} 
                          open={open} onClose={handleClose}> 
                         <Modal.Header> 
-                            <Modal.Title>GeeksforGeeks</Modal.Title> 
+                            <Modal.Title>Shopping Cart</Modal.Title> 
                         </Modal.Header> 
                         <Modal.Body> 
                           <UserCart
@@ -185,7 +162,9 @@ const DressingRoom = () => {
                 </div> 
       </div>
 
-      <div className='model_container'>This is model</div>
+      <div className='model_container'>
+        <img className= 'ClothesChanged_image' src={personImage}></img>
+      </div>
     </div>
   )
 }

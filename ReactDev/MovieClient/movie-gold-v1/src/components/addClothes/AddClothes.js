@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './AddClothes.css'
-import { useState } from 'react';
+import { useState,useContext } from 'react';
 import api from '../../api/axiosConfig';
-
+import { MyContext } from '../../pages/retailer_pages/upload_goods/UploadGoods';
 const AddClothes = () => {
     const [file, setFile] = useState();
     const [goodName, setGoodName] = useState("");
@@ -11,8 +11,10 @@ const AddClothes = () => {
     const [brand, setBrand] = useState("");
     const [retailer_name, setRetailerName] = useState("user3");
     const [imageUrl, setImageUrl] = useState(null);
-
-
+    const [price, setPrice] = useState(0);
+    const [gender, setGender] = useState("male");
+    const {actualGoods, setActualGoods} = useContext(MyContext); // this is to get the actual goods list and the setGoodsList function
+    
     const onFileChange = (event) => {
         // Updating the state
         
@@ -32,6 +34,8 @@ const AddClothes = () => {
     formData.append("description", description);
     formData.append("category", category);
     formData.append("brand", brand);
+    formData.append("price", price);
+    formData.append("gender", gender)
     try{
         const response = await api.post("/api/v1/retailer/upload_clothes", formData);
         console.log(response);
@@ -42,6 +46,8 @@ const AddClothes = () => {
         setCategory("");
         setBrand("");
         setImageUrl(null);
+        setPrice(0);
+        setGender("");
     } catch(err) {
         console.log(err);
         alert("Failed to upload goods");
@@ -64,6 +70,11 @@ const AddClothes = () => {
         setBrand(event.target.value);
     }
 
+    // useEffect(() => {
+
+    //     console.log('The goods is updated');
+  
+    //   }, [actualGoods]);
 
 
 
@@ -143,6 +154,26 @@ const AddClothes = () => {
                                 onChange={handleGoodsBrandChange}
                             />
                         
+                        </div>
+
+                        <div className='chunk'>
+                        <label>Price</label>
+                            <input
+                                type='number'
+                                placeholder='Price'
+                                value={price}
+                                onChange={(e) => setPrice(e.target.value)}
+                            />
+                        </div>
+
+                        <div className='chunk'>
+                            <label>Recommend gender</label>
+                            <input
+                                type='text'
+                                placeholder='male/female'
+                                value={gender}
+                                onChange={(e) => setGender(e.target.value)}
+                            />
                         </div>
 
                             <button className='upload-button' onClick={onFileUpload}>Upload</button>

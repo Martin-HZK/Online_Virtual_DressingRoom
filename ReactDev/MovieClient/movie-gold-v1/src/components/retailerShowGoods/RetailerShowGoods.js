@@ -1,11 +1,14 @@
 import React from 'react'
 import './RetailerShowGoods.css'
-import { useState } from 'react';
+import { useState,useContext } from 'react';
 import Modal from 'react-modal';
 import axios from 'axios';
-const RetailerShowGoods = ({ courses, 
-  filterCourseFunction, 
+import { MyContext } from '../../pages/retailer_pages/upload_goods/UploadGoods';
+const RetailerShowGoods = ({
+    //  courses, 
+//   filterCourseFunction, 
   addCourseToCartFunction }) => {
+    const {actualGoods, setActualGoods, filterCourseFunction} = useContext(MyContext); // this is to get the actual goods list and the setGoodsList function
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [selectedImage, setSelectedImage] = useState(null);
     const openModal = (product) => {
@@ -20,7 +23,7 @@ const RetailerShowGoods = ({ courses,
     const handleReturnButtonClick = () => {
         closeModal(); // 关闭弹窗
         // 在这里添加返回的逻辑，比如返回上一页或者其他操作
-      };
+    }
     const [file, setFile] = useState();
 
     const onFileChange = (event) => {
@@ -31,6 +34,7 @@ const RetailerShowGoods = ({ courses,
     }
 
 
+    // this is the part for testing yang's API
 
     const handleClothesUpload = async() => {
         // const formData = new FormData();
@@ -79,6 +83,8 @@ const RetailerShowGoods = ({ courses,
     //         ]
     //     }
     // ]);
+
+    const prefixPath = '../../../../../../springbootDemo/'
     
 return (
   <div className="product-list">
@@ -88,17 +94,29 @@ return (
               </p>
           ) : (
                filterCourseFunction.map((product) => (
-                  <div className="product" key={product.id}>
-                      <img src={product.image} alt={product.name} />
-                      <h2>{product.name}</h2>
-                      <p>Price: ₹{product.price}</p>
-                      <button
-                          className="add-to-cart-button"
-                          onClick={() => addCourseToCartFunction(product)}
-                      >
-                          Add to Shopping Cart
-                      </button>
-                  </div>
+                //   <div className="product" key={product.id}>
+                //       <img src={product.image} alt={product.name} />
+                //       <h2>{product.name}</h2>
+                //       <p>Price: ₹{product.price}</p>
+                //       <button
+                //           className="add-to-cart-button"
+                //           onClick={() => addCourseToCartFunction(product)}
+                //       >
+                //           Add to Shopping Cart
+                //       </button>
+                //   </div>
+                    <div className='product' key={product.link}>
+                        <img src={prefixPath+product.link} alt={product.name} />
+                        <h2>{product.clothes_name}</h2>
+                        <p>Price: ₹{product.price}</p>
+                        <button
+                            className="add-to-cart-button"
+                            onClick={() => addCourseToCartFunction(product)}
+                        >
+                            Add to Shopping Cart
+                        </button>
+                    </div>
+
               ))
           )}
           <Modal className="custom-modal" isOpen={modalIsOpen} onRequestClose={closeModal}>

@@ -57,7 +57,6 @@ const ShowCourse = ({ courses,
             onClick={closeModal}
             />
             <div className="footer-container">
-            {/* 返回按钮 */}
                 <button onClick={handleReturnButtonClick}>Close</button>
             </div>
         </Modal>

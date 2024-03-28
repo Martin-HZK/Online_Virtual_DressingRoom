@@ -51,8 +51,8 @@ const SearchBar = ({ searchCourse, courseSearchUserFunction }) => {
              <h1>Select Your Clothes!</h1>
              <div className="search-bar">
                  <input
-                     type="text"
                      placeholder="Search for GFG Products..."
+                     type="text"
                      value={searchCourse}
                      onChange={courseSearchUserFunction}
                  />

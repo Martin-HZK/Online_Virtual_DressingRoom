@@ -5,16 +5,18 @@ import './UploadGoods.css'
 import 'rsuite/dist/rsuite.min.css'
 import { Button, Modal } from "rsuite";
 import RetailerShowGoods from '../../../components/retailerShowGoods/RetailerShowGoods';
-import ShowCourse from '../../../components/showCourseComponent/ShowCourse';
+import ShowCourse from '../../../components/showCourse/ShowCourse';
 import SearchBar from '../../../components/searchBar/SearchBar';
 import AddClothes from '../../../components/addClothes/AddClothes';
 import SpinLoader from '../../../components/spinLoader/SpinLoader';
 import {ProgressBar} from 'react-loader-spinner';
+import { UserContext } from '../../../userContextProvider/UserContextProvider';
 
 const MyContext = createContext();
 
 const UploadGoods = () => {
   
+    const { globUsername, setGlobUsername } = useContext(UserContext);
 
     const [open, setOpen] = useState(false); 
     const [overflow, setOverflow] = useState(false); 
@@ -78,32 +80,24 @@ const UploadGoods = () => {
     const [searchCourse, setSearchCourse] = useState('');
     
     const [actualGoods, setActualGoods] = useState([]);
-    const [retailer_name, setRetailerName] = useState('Zhangqian') // we temporarily set the retailer name as Zhangqian
-    // TODO: get the retailer name from the session!!!
+    // const [retailer_name, setRetailerName] = useState(globUsername) // we set it to the global username
 
-    useEffect(() => {
+    // the useEffect in the parent component is used for generating the goods once
+    // the child component's useEffect is used for updating the goods list
+   
 
-      const fetchData = async () => {
-        try {
-          console.log('useEffect');
-          const response = await api.get(`/api/v1/getAllClothesByRetailer/${retailer_name}`);
-          setActualGoods(response.data);
-          console.log(response.data);
-        } catch (error) {
-          console.error('Error fetching data:', error);
-        }
-      };
-    
-      fetchData(); 
-    }, []);
   
     const addClothes = (clothes) => {
       setActualGoods([...actualGoods, clothes]);
     }
 
-    const filterCourseFunction = courses.filter((course) =>
-    course.name.toLowerCase().includes(searchCourse.toLowerCase())
-  );
+    // const filterCourseFunction = courses.filter((course) =>
+    //   course.name.toLowerCase().includes(searchCourse.toLowerCase())
+    // );
+    const filterCourseFunction = actualGoods.filter((course) =>
+      course.clothes_name.toLowerCase().includes(searchCourse.toLowerCase())
+    );
+
     // this will not be used here
     const addCourseToCartFunction = (GFGcourse) => {
         const alreadyCourses = cartCourses
@@ -136,54 +130,64 @@ const UploadGoods = () => {
     };
   
 
+    useEffect(() => {
+
+      const fetchData = async () => {
+        try {
+          console.log('useEffect');
+          console.log('This is the retailer' + globUsername);
+          const response = await api.get(`/api/v1/getAllClothesByRetailer/${globUsername}`);
+          setActualGoods(response.data);
+          console.log(response.data);
+        } catch (error) {
+          console.error('Error fetching data:', error);
+        }
+      };
+    
+      fetchData(); 
+    }, []);
     
   
   return (
       <div className='upload-container'>
+          <MyContext.Provider value={{actualGoods, setActualGoods,filterCourseFunction}}>
 
-        <div className='items_container'>
-         <SearchBar searchCourse={searchCourse} 
-                    courseSearchUserFunction={courseSearchUserFunction} />
-            <div className='show-goods-container'>
-                <RetailerShowGoods
-                    courses={courses}
-                    filterCourseFunction={filterCourseFunction}
-                    addCourseToCartFunction={addCourseToCartFunction}
-                />
-            </div>
-        </div>
+          <div className='items_container'>
+          <SearchBar searchCourse={searchCourse} 
+                      courseSearchUserFunction={courseSearchUserFunction} />
+              <div className='show-goods-container'>
+                  {/* <RetailerShowGoods
+                      courses={courses}
+                      filterCourseFunction={filterCourseFunction}
+                      addCourseToCartFunction={addCourseToCartFunction}
+                  /> */}
+                  <RetailerShowGoods
+                      // courses={actualGoods}
+                      // filterCourseFunction={filterCourseFunction}
+                      addClothes={addClothes}
+                  />
+              </div>
+          </div>
 
-        <div className='add_container'>
-          <MyContext.Provider value={{actualGoods, setActualGoods}}>
-            <AddClothes />
-          </MyContext.Provider>
-            <ProgressBar
-              visible={true}
-              height="80"
-              width="80"
-              color="#4fa94d"
-              ariaLabel="progress-bar-loading"
-              wrapperStyle={{}}
-              wrapperClass=""
-            />
-            {/* <SpinLoader /> */}
+          <div className='add_container'>
+              <AddClothes />
+              <ProgressBar
+                visible={true}
+                height="80"
+                width="80"
+                color="#4fa94d"
+                ariaLabel="progress-bar-loading"
+                wrapperStyle={{}}
+                wrapperClass=""
+              />
+              {/* <SpinLoader /> */}
 
-        </div>
+          </div>
+
+        </MyContext.Provider>
 
       </div>
       
-      
-//     <div>
-//         <input
-//             style={{ display: "none" }}// accept=".zip,.rar"
-//             ref={inputFile}
-//             onChange={onFileChange}
-//             type="file"
-//         />
-//         <div className="button" onClick={onFileUpload}>
-//             Upload
-//         </div>
-//   </div>
     
   );
 }

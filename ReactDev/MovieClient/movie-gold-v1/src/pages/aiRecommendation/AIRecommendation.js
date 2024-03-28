@@ -1,5 +1,5 @@
 import React from 'react'
-import UploadGoods from '../retailer_pages/upload_goods/UploadGoods'
+import { UploadGoods } from '../retailer_pages/upload_goods/UploadGoods'
 
 const AIRecommendation = () => {
   return (

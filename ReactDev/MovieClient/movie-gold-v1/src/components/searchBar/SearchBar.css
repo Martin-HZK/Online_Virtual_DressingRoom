@@ -31,3 +31,10 @@
     margin-right: 10px;
     color: #6cc24a;
 }
+
+h1 {
+    font-size: 0.8rem;
+    /* color: #323754; */
+    /* margin: 10px 0; */
+    text-align: center;
+}

@@ -57,7 +57,7 @@ const RetailerHome = () => {
     const { globUsername, setGlobUsername } = useContext(UserContext);
     const [originalUsername, setOriginalUsername] = useState(globUsername);
     // const [username, setUsername] = useState('martin');
-    const [itemNumber, setItemNumber] = useState(0); // TODO: this should be fetched from the backend
+    const [itemNumber, setItemNumber] = useState(null); // TODO: this should be fetched from the backend
     const [password, setPassword] = useState('*********');
 
     const handleEditProfile = () => {
