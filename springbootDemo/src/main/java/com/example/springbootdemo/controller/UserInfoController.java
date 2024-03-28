@@ -41,4 +41,14 @@ public class UserInfoController {
     public ResponseEntity<Boolean> signup(@RequestBody Map<String, String> signUpInfo) {
         return new ResponseEntity<Boolean>(userInfoService.checkSignUp(signUpInfo.get("username"), signUpInfo.get("password")), HttpStatus.CREATED);
     }
+
+    /**
+     * The PostMapping to check if the user can successfully edit profile
+     * @param editInfo original username, new username, and new password in mapping
+     * @return boolean variable to indicate if the user can successfully edit profile
+     */
+    @PostMapping("/edit_profile")
+    public ResponseEntity<Boolean> editProfile(@RequestBody Map<String, String> editInfo) {
+        return new ResponseEntity<Boolean>(userInfoService.editProfile(editInfo.get("originalUsername"), editInfo.get("username"), editInfo.get("password")), HttpStatus.CREATED);
+    }
 }

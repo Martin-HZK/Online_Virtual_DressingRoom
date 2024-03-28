@@ -51,4 +51,16 @@ public class UserInfoService {
             return false;
         }
     }
+
+    public boolean editProfile(String originalUsername, String username, String password) {
+        UserInfo userInfo = userInfoRepository.findUserInfoByUsername(originalUsername).orElse(null);
+        if (userInfo == null) {
+            return false;
+        } else {
+            userInfo.setUsername(username);
+            userInfo.setPassword(password);
+            userInfoRepository.save(userInfo);
+            return true;
+        }
+    }
 }
