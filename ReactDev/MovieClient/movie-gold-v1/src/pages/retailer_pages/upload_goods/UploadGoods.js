@@ -9,7 +9,7 @@ import ShowCourse from '../../../components/showCourse/ShowCourse';
 import SearchBar from '../../../components/searchBar/SearchBar';
 import AddClothes from '../../../components/addClothes/AddClothes';
 import SpinLoader from '../../../components/spinLoader/SpinLoader';
-import {ProgressBar} from 'react-loader-spinner';
+import { ProgressBar } from 'react-loader-spinner';
 import { UserContext } from '../../../userContextProvider/UserContextProvider';
 
 const MyContext = createContext();
