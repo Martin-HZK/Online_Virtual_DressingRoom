@@ -50,6 +50,5 @@ public class UserInfoService {
         } else {
             return false;
         }
-
     }
 }

@@ -39,6 +39,9 @@ public class RetailerInfo {
      */
     private Map<String, String> clothes;
 
+    public Map<String, String> getClothes() {
+        return clothes;
+    }
 
 
     /**

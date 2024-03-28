@@ -4,12 +4,11 @@ import com.example.springbootdemo.model.RetailerInfo;
 import io.micrometer.common.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.aggregation.ArrayOperators;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
-
-import java.util.HashMap;
 
 /**
  * The RetailerInfoService class to handle the business logic
@@ -80,6 +79,13 @@ public class RetailerInfoService {
         }
     }
 
+    /**
+     * The method to edit the retailer's profile
+     * @param originalUsername the original username of the retailer
+     * @param username the new username of the retailer
+     * @param password the new password of the retailer
+     * @return boolean variable to indicate if the retailer can successfully edit the profile
+     */
     public boolean editProfile(String originalUsername, String username, String password) {
         RetailerInfo retailerInfo = retailerInfoRepository.findRetailerInfoByUsername(originalUsername).orElse(null);
         if (retailerInfo == null) {
@@ -89,6 +95,20 @@ public class RetailerInfoService {
             retailerInfo.setPassword(password);
             retailerInfoRepository.save(retailerInfo);
             return true;
+        }
+    }
+
+    /**
+     * The method to get the number of retailer's clothes
+     * @param retailer_name the name of the retailer
+     * @return the clothes of the retailer
+     */
+    public Integer getItemNumber(String retailer_name) {
+        RetailerInfo retailerInfo = retailerInfoRepository.findRetailerInfoByUsername(retailer_name).orElse(null);
+        if (retailerInfo == null) {
+            return 0;
+        } else {
+            return retailerInfo.getClothes().size();
         }
     }
 
