@@ -73,6 +73,7 @@
     max-width: 200px;
     max-height: 200px;
     width: 200px;
+    object-fit: cover;
     /* height: 500px; */
     margin-top: 20px;
     margin-bottom: 20px;
