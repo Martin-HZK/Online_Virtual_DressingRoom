@@ -3,13 +3,15 @@ import './AddClothes.css'
 import { useState,useContext } from 'react';
 import api from '../../api/axiosConfig';
 import { MyContext } from '../../pages/retailer_pages/upload_goods/UploadGoods';
+import { UserContext } from '../../userContextProvider/UserContextProvider';
 const AddClothes = () => {
     const [file, setFile] = useState();
     const [goodName, setGoodName] = useState("");
     const [description, setDescription] = useState("");
     const [category, setCategory] = useState("");
     const [brand, setBrand] = useState("");
-    const [retailer_name, setRetailerName] = useState("user3");
+    const { globUsername, setGlobUsername } = useContext(UserContext);
+    // const [retailer_name, setRetailerName] = useState("user3");
     const [imageUrl, setImageUrl] = useState(null);
     const [price, setPrice] = useState(0);
     const [gender, setGender] = useState("male");
@@ -32,7 +34,8 @@ const AddClothes = () => {
     const formData = new FormData();
 
     formData.append("file", file);
-    formData.append("retailer_name", retailer_name);
+    // formData.append("retailer_name", retailer_name);
+    formData.append("retailer_name", globUsername);
     formData.append("goodName", goodName);
     formData.append("description", description);
     formData.append("category", category);
