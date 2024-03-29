@@ -1,0 +1,27 @@
+.slider {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .slider button {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin: 0 20px;
+    font-size: 24px;
+  }
+  
+  .slider img {
+    max-width: 80%;
+    max-height: 600px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  /* 这些是可选的，根据需要调整 */
+  .slider button:hover {
+    background-color: #f0f0f0;
+  }

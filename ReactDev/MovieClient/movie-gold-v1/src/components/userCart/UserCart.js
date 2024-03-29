@@ -17,6 +17,7 @@ const UserCart = ({
         console.log("selected");
     }
 
+    // testing yang's API
     const handleClothesUpload = async() => {
         const formData = new FormData();
         formData.append('file', file);

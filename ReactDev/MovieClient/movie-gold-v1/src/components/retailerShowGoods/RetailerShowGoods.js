@@ -48,6 +48,8 @@ const RetailerShowGoods = ({
             ]
         }
             
+        console.log(file.name.replace(/(.*)\..+$/, "$1"))
+        
         try {
             const response = await axios.post('http://localhost:8000/TryOns', myData, {
             headers: {
@@ -59,20 +61,8 @@ const RetailerShowGoods = ({
             console.error(error);
         }
     }
-    const handleGet = () => {
-            // StableVITON_Weixin_Image_20240301162842_00096_00
-            const response = axios.get('http://localhost:8000/TryOns/', {
-                headers: {
-                    'Authorization': 'Bearer YOUR_TOKEN_HERE'
-                }
-            })
-            .then(response => {
-                console.log(response.data);
-            })
-            .catch(error => {
-                console.error(error);
-            });
-    }
+
+    
 
     const discardGoods = async(product) => {
         console.log(product);
@@ -186,7 +176,6 @@ return (
             onClick={handleClothesUpload}
             >Upload</button>
 
-            <button onClick = {handleGet}>Get</button>
 
       
       </div>

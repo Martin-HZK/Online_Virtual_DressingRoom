@@ -5,7 +5,11 @@ import UserCart from '../../components/userCart/UserCart'
 import ShowCourse from '../../components/showCourse/ShowCourse'
 import 'rsuite/dist/rsuite.min.css'
 import { Button, Modal } from "rsuite";
+import ImageSlider from '../../components/imageSlider/ImageSlider'
+import api from '../../api/axiosConfig'
 import { UserContext } from '../../userContextProvider/UserContextProvider'
+
+const UserMyContext = React.createContext();
 
 const DressingRoom = () => {
 
@@ -62,6 +66,7 @@ const DressingRoom = () => {
   const [cartCourses, setCartCourses] = useState([]);
   const [searchCourse, setSearchCourse] = useState('');
   
+  const [actualGoods, setActualGoods] = useState([]);
 
   const addCourseToCartFunction = (GFGcourse) => {
     const alreadyCourses = cartCourses
@@ -94,8 +99,11 @@ const DressingRoom = () => {
       setSearchCourse(event.target.value);
   };
 
-  const filterCourseFunction = courses.filter((course) =>
-      course.name.toLowerCase().includes(searchCourse.toLowerCase())
+  // const filterCourseFunction = courses.filter((course) =>
+  //     course.name.toLowerCase().includes(searchCourse.toLowerCase())
+  // );
+  const filterCourseFunction = actualGoods.filter((course) =>
+      course.clothes_name.toLowerCase().includes(searchCourse.toLowerCase())
   );
 
 
@@ -105,7 +113,41 @@ const DressingRoom = () => {
     const handleClose = () => setOpen(false);
 
 
-  const [personImage, setPersonImage] = useState('https://cdn.pixabay.com/photo/2023/05/30/08/34/apple-8027938_1280.jpg');
+  // const [personImage, setPersonImage] = useState('https://cdn.pixabay.com/photo/2023/05/30/08/34/apple-8027938_1280.jpg');
+
+  // below are the connection to Yang's clothes swapping backend
+
+  const getSwappwedClothes = () => {
+    // StableVITON_Weixin_Image_20240301162842_00096_00
+    const response = axios.get('http://localhost:8000/TryOns/', {
+        headers: {
+            'Authorization': 'Bearer YOUR_TOKEN_HERE'
+        }
+    })
+    .then(response => {
+        console.log(response.data);
+    })
+    .catch(error => {
+        console.error(error);
+    });
+}
+
+
+
+
+  useEffect(() => {
+    const fetchData = async() => {
+      try {
+        const response = await api.get('api/v1/getAllClothes');
+        setActualGoods(response.data);
+        console.log(response.data);
+      } catch (error) {
+        console.log('Error fetching goods:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
 
 
@@ -114,14 +156,20 @@ const DressingRoom = () => {
 
   return (
     <div className="dressingroom_container">
+      <UserMyContext.Provider value={{actualGoods, setActualGoods, filterCourseFunction}}>
       <div className='items_container'>
             <SearchBar searchCourse={searchCourse} 
                              courseSearchUserFunction=
                                  {courseSearchUserFunction} />
             <main className="App-main">
-                <ShowCourse
+                {/* <ShowCourse
                     courses={courses}
                     filterCourseFunction={filterCourseFunction}
+                    addCourseToCartFunction={addCourseToCartFunction}
+                /> */}
+                <ShowCourse
+                    // courses={actualGoods}
+                    // filterCourseFunction={filterCourseFunction}
                     addCourseToCartFunction={addCourseToCartFunction}
                 />
  
@@ -163,10 +211,15 @@ const DressingRoom = () => {
       </div>
 
       <div className='model_container'>
-        <img className= 'ClothesChanged_image' src={personImage}></img>
+        {/* <img className= 'ClothesChanged_image' src={personImage}></img> */  }
+        <button onClick = {getSwappwedClothes}>Get</button>
+
+        <ImageSlider images={courses.map(course => course.image)} />
       </div>
+
+      </UserMyContext.Provider>
     </div>
   )
 }
 
-export default DressingRoom
+export {DressingRoom, UserMyContext} 
