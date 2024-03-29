@@ -5,7 +5,7 @@ import UserCart from '../../components/userCart/UserCart'
 import ShowCourse from '../../components/showCourse/ShowCourse'
 import 'rsuite/dist/rsuite.min.css'
 import { Button, Modal } from "rsuite";
-
+import { UserContext } from '../../userContextProvider/UserContextProvider'
 
 const DressingRoom = () => {
 
@@ -61,7 +61,7 @@ const DressingRoom = () => {
 
   const [cartCourses, setCartCourses] = useState([]);
   const [searchCourse, setSearchCourse] = useState('');
-
+  
 
   const addCourseToCartFunction = (GFGcourse) => {
     const alreadyCourses = cartCourses

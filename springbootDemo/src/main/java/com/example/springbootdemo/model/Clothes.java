@@ -29,6 +29,11 @@ public class Clothes {
     private String clothes_name;
 
     /**
+     * The clothes ID
+     */
+    private String clothes_ID;
+
+    /**
      * The name of the retailer who uploaded the clothes
      */
     private String retailerName;
@@ -68,8 +73,9 @@ public class Clothes {
      * @param clothes_name clothes name
      * @param link the path to the clothes
      */
-    public Clothes(String clothes_name, String retailer_name, String link, String description, String category, String brand, int price, String gender) {
+    public Clothes(String clothes_name, String clothes_ID, String retailer_name, String link, String description, String category, String brand, int price, String gender) {
         this.clothes_name = clothes_name;
+        this.clothes_ID = clothes_ID;
         this.retailerName = retailer_name; // this retailer info need to be further passed in
         this.link = link;
         this.description = description;

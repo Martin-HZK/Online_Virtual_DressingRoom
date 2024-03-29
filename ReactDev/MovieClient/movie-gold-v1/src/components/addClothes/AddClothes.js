@@ -7,6 +7,7 @@ import { UserContext } from '../../userContextProvider/UserContextProvider';
 const AddClothes = () => {
     const [file, setFile] = useState();
     const [goodName, setGoodName] = useState("");
+    const [clothes_ID, setClothesID] = useState("");
     const [description, setDescription] = useState("");
     const [category, setCategory] = useState("");
     const [brand, setBrand] = useState("");
@@ -21,6 +22,7 @@ const AddClothes = () => {
         // Updating the state
         console.log('Image uploading...')
         setFile(event.target.files[0]);
+        setClothesID(event.target.files[0].name.replace(/(.*)\..+$/, "$1"));
         console.log('Image uploaded successfully!')
         setImageUrl(URL.createObjectURL(event.target.files[0]));
     };
@@ -31,6 +33,7 @@ const AddClothes = () => {
     formData.append("file", file);
     // formData.append("retailer_name", retailer_name);
     formData.append("retailer_name", globUsername);
+    formData.append("clothes_name", clothes_name);
     formData.append("goodName", goodName);
     formData.append("description", description);
     formData.append("category", category);
@@ -43,6 +46,7 @@ const AddClothes = () => {
         alert("The file is successfully uploaded");
         setFile(null);
         setGoodName("");
+        setClothesName("");
         setDescription("");
         setCategory("");
         setBrand("");

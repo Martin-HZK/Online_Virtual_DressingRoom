@@ -99,8 +99,8 @@ public class ClothesService {
      * @param brand the brand of the clothes
      * @return Clothes
      */
-    public Clothes createClothes(String clothes_name, String retailer_name, String link, String description, String category, String brand, int price, String gender) {
-        Clothes clothes = new Clothes(clothes_name, retailer_name, link, description, category, brand, price, gender);
+    public Clothes createClothes(String clothes_name, String clothes_ID, String retailer_name, String link, String description, String category, String brand, int price, String gender) {
+        Clothes clothes = new Clothes(clothes_name, clothes_ID, retailer_name, link, description, category, brand, price, gender);
         clothesRepository.save(clothes);
         return clothes;
     }

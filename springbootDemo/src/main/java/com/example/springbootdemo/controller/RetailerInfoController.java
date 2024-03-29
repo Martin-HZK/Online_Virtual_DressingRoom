@@ -69,7 +69,7 @@ public class RetailerInfoController {
      * @return updated clothes
      */
     @PostMapping("/upload_clothes")
-    public ResponseEntity<Clothes> createAd(@RequestParam("file") MultipartFile adsImages, @RequestParam("retailer_name") String retailer_name, @RequestParam("goodName") String name, @RequestParam("description") String description, @RequestParam("category") String category, @RequestParam("brand") String brand, @RequestParam("price") int price, @RequestParam("gender") String gender) {
+    public ResponseEntity<Clothes> createAd(@RequestParam("file") MultipartFile adsImages, @RequestParam("retailer_name") String retailer_name, @RequestParam("goodName") String name, @RequestParam("clothes_ID") String clothes_ID, @RequestParam("description") String description, @RequestParam("category") String category, @RequestParam("brand") String brand, @RequestParam("price") int price, @RequestParam("gender") String gender) {
         String uploadDirectory = "src/main/resources/static/clothes/";
         String adsImagesString = "";
 
@@ -87,7 +87,7 @@ public class RetailerInfoController {
 
         // Save the adsImagesString in your database
         // You can also associate it with other data in your Ads object
-        return new ResponseEntity<Clothes>(clothesService.createClothes(name, retailer_name, adsImagesString, description ,category, brand, price, gender), HttpStatus.CREATED);
+        return new ResponseEntity<Clothes>(clothesService.createClothes(name, clothes_ID, retailer_name, adsImagesString, description ,category, brand, price, gender), HttpStatus.CREATED);
     }
 
     /**
