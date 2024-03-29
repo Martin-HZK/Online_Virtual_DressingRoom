@@ -7,7 +7,7 @@ import Login from './pages/login/Login';
 import UploadImage from './pages/uploadimage/UploadImage';
 import Navigator from './components/navigator/Navigator';
 import ShoppingCart from './pages/shoppingCart/ShoppingCart';
-import DressingRoom from './pages/dressingRoom/DressingRoom';
+import {DressingRoom} from './pages/dressingRoom/DressingRoom';
 import BodyFeature from './pages/bodyFeature/BodyFeature';
 import AIRecommendation from './pages/aiRecommendation/AIRecommendation';
 import NonLoginLayout from './components/NonLoginLayout';

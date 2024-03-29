@@ -48,6 +48,8 @@ const RetailerShowGoods = ({
             ]
         }
             
+        console.log(file.name.replace(/(.*)\..+$/, "$1"))
+        
         try {
             const response = await axios.post('http://localhost:8000/TryOns', myData, {
             headers: {
@@ -59,6 +61,7 @@ const RetailerShowGoods = ({
             console.error(error);
         }
     }
+
     const handleGet = () => {
             // StableVITON_Weixin_Image_20240301162842_00096_00
             const response = axios.get('http://localhost:8000/TryOns/', {
