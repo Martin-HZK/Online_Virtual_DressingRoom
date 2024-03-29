@@ -15,7 +15,7 @@ const AddClothes = () => {
     const [imageUrl, setImageUrl] = useState(null);
     const [price, setPrice] = useState(0);
     const [gender, setGender] = useState("male");
-    const {actualGoods, setActualGoods} = useContext(MyContext); // this is to get the actual goods list and the setGoodsList function
+    const {actualGoods, setActualGoods, fetchGoods} = useContext(MyContext); // this is to get the actual goods list and the setGoodsList function
     
     const onFileChange = (event) => {
         // Updating the state
@@ -54,6 +54,7 @@ const AddClothes = () => {
         setImageUrl(null);
         setPrice(0);
         setGender("");
+        fetchGoods();
     } catch(err) {
         console.log(err);
         alert("Failed to upload goods");

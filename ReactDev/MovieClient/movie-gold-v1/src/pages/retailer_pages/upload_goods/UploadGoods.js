@@ -128,6 +128,16 @@ const UploadGoods = () => {
     const courseSearchUserFunction = (event) => {
         setSearchCourse(event.target.value);
     };
+
+    // this is for real-time refresh
+    const fetchGoods = async () => {
+      try {
+        const response = await api.get(`/api/v1/getAllClothesByRetailer/${globUsername}`);
+        setActualGoods(response.data);
+      } catch (error) {
+        console.error('Error fetching goods:', error);
+      }
+    };
   
 
     useEffect(() => {
@@ -150,7 +160,7 @@ const UploadGoods = () => {
   
   return (
       <div className='upload-container'>
-          <MyContext.Provider value={{actualGoods, setActualGoods,filterCourseFunction}}>
+          <MyContext.Provider value={{actualGoods, setActualGoods,filterCourseFunction, fetchGoods}}>
 
           <div className='items_container'>
           <SearchBar searchCourse={searchCourse} 
@@ -171,7 +181,7 @@ const UploadGoods = () => {
 
           <div className='add_container'>
               <AddClothes />
-              <ProgressBar
+              {/* <ProgressBar
                 visible={true}
                 height="80"
                 width="80"
@@ -179,7 +189,7 @@ const UploadGoods = () => {
                 ariaLabel="progress-bar-loading"
                 wrapperStyle={{}}
                 wrapperClass=""
-              />
+              /> */}
               {/* <SpinLoader /> */}
 
           </div>
