@@ -5,6 +5,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 // import { Button, Modal } from "rsuite";
 import { Modal, Form, Input, Button } from 'antd';
 import api from '../../api/axiosConfig';
+import axios from 'axios';
 
 import { UserContext } from '../../userContextProvider/UserContextProvider';
 
@@ -80,6 +81,30 @@ const Home = () => {
       setEditModalVisible(false);
     };
 
+    const [file, setFile] = useState(null);
+
+    const onFileChange = (event) => {
+        setFile(event.target.files[0]);
+        console.log("selected");
+    }
+
+    // testing yang's API
+    const handleClothesUpload = async() => {
+      const formData = new FormData();
+      formData.append('file', file);
+          
+      try {
+          const response = await axios.post('http://localhost:8000/uploadImage', formData, {
+          headers: {
+              'Content-Type': 'multipart/form-data',
+          },
+          });
+          console.log( response.data);
+      } catch (error) {
+          console.error(error);
+      }
+  };
+
   return (
     <div className="profile">
       <div className="profile-container">
@@ -113,6 +138,22 @@ const Home = () => {
               
       <section className="profile-buttons">
           <button type="button" className="active-button-style" onClick={handleEditProfile}>Edit profile</button>
+          <input
+            id="fileInput"
+            name="fileInput"
+            type="file"
+            style={{ display: "none" }}
+            accept=".jpg" // accepting only jpg
+            onChange={onFileChange}
+            ></input>
+            <button
+            className="active-button-style"
+            onClick={() => {
+                document.getElementById("fileInput").click();
+            }}
+            >Select file</button>
+          <button type="button" className="active-button-style" onClick={handleClothesUpload}>Upload Clothes</button>
+
         </section>
       </div>
 

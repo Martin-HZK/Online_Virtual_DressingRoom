@@ -112,7 +112,27 @@ const DressingRoom = () => {
     const handleClose = () => setOpen(false);
 
 
-  const [personImage, setPersonImage] = useState('https://cdn.pixabay.com/photo/2023/05/30/08/34/apple-8027938_1280.jpg');
+  // const [personImage, setPersonImage] = useState('https://cdn.pixabay.com/photo/2023/05/30/08/34/apple-8027938_1280.jpg');
+
+  // below are the connection to Yang's clothes swapping backend
+
+  const getSwappwedClothes = () => {
+    // StableVITON_Weixin_Image_20240301162842_00096_00
+    const response = axios.get('http://localhost:8000/TryOns/', {
+        headers: {
+            'Authorization': 'Bearer YOUR_TOKEN_HERE'
+        }
+    })
+    .then(response => {
+        console.log(response.data);
+    })
+    .catch(error => {
+        console.error(error);
+    });
+}
+
+
+
 
   useEffect(() => {
     const fetchData = async() => {
@@ -190,7 +210,9 @@ const DressingRoom = () => {
       </div>
 
       <div className='model_container'>
-        {/* <img className= 'ClothesChanged_image' src={personImage}></img> */}
+        {/* <img className= 'ClothesChanged_image' src={personImage}></img> */  }
+        <button onClick = {getSwappwedClothes}>Get</button>
+
         <ImageSlider images={courses.map(course => course.image)} />
       </div>
 
