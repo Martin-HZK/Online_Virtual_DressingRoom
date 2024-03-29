@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './RetailerShowGoods.css'
 import { useState,useContext } from 'react';
 import Modal from 'react-modal';
@@ -74,6 +74,42 @@ const RetailerShowGoods = ({
             });
     }
 
+    const discardGoods = async(product) => {
+        console.log(product);
+        try {
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    useEffect(() => {
+        console.log('This will show the all actual goods');
+        console.log(actualGoods);
+    }, []);
+
+    // function convertImagePath(imagePath) {
+    //     // 假设后端服务运行在 http://localhost:8080
+    //     const baseUrl = "http://localhost:8080";
+    //     // 提取相对路径中的具体路径部分，即去掉 `src/main/resources/static/`
+    //     const relativePath = imagePath.replace('src/main/resources/static/', '');
+    //     console.log(`${baseUrl}/${relativePath}`);
+    //     // 构造完整的URL
+    //     return `${baseUrl}/${relativePath}`;
+    // }
+    function convertImagePath(imagePath) {
+        // 假设后端服务运行在 http://localhost:8080
+        const baseUrl = "http://localhost:8080";
+        // 提取相对路径中的具体路径部分，即去掉 `src/main/resources/static/`
+        let relativePath = imagePath.replace('src/main/resources/static/', '');
+        
+        // 如果结尾有逗号，则去除
+        if (relativePath.endsWith(',')) {
+            relativePath = relativePath.slice(0, -1);
+        }
+    
+        // 构造完整的URL
+        return `${baseUrl}/${relativePath}`;
+    }
     // const [uploadClothesTest, setUploadClothesTest] = useState([
     //     {
     //         "Image_Name": "string",
@@ -84,8 +120,6 @@ const RetailerShowGoods = ({
     //     }
     // ]);
 
-    const prefixPath = '../../../../../../springbootDemo/'
-    
 return (
   <div className="product-list">
           {filterCourseFunction.length === 0 ? (
@@ -106,14 +140,15 @@ return (
                 //       </button>
                 //   </div>
                     <div className='product' key={product.link}>
-                        <img src={prefixPath+product.link} alt={product.name} />
+                        <img src= {convertImagePath(product.link)} alt='Unknown' />
                         <h2>{product.clothes_name}</h2>
                         <p>Price: ₹{product.price}</p>
                         <button
                             className="add-to-cart-button"
-                            onClick={() => addCourseToCartFunction(product)}
+                            // onClick={() => addCourseToCartFunction(product)}
+                            onClick={() => discardGoods(product)}
                         >
-                            Add to Shopping Cart
+                            Discontinued products
                         </button>
                     </div>
 

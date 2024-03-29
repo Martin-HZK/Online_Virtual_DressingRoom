@@ -23,11 +23,6 @@ const AddClothes = () => {
         setFile(event.target.files[0]);
         console.log('Image uploaded successfully!')
         setImageUrl(URL.createObjectURL(event.target.files[0]));
-        // console.log('This is the URL'+URL.createObjectURL(event.target.files[0]))
-        // console.log(event.target.files[0]);
-        // console.log('This is the imgURL' + imageUrl)
-    //   setFile({ file: event.target.files[0] });
-    //   console.log(event.target.files[0]);
     };
 
   const onFileUpload = async () => {
