@@ -17,10 +17,13 @@ const AddClothes = () => {
     
     const onFileChange = (event) => {
         // Updating the state
-        
+        console.log('Image uploading...')
         setFile(event.target.files[0]);
+        console.log('Image uploaded successfully!')
         setImageUrl(URL.createObjectURL(event.target.files[0]));
-        console.log(event.target.files[0]);
+        // console.log('This is the URL'+URL.createObjectURL(event.target.files[0]))
+        // console.log(event.target.files[0]);
+        // console.log('This is the imgURL' + imageUrl)
     //   setFile({ file: event.target.files[0] });
     //   console.log(event.target.files[0]);
     };
@@ -76,6 +79,8 @@ const AddClothes = () => {
   
     //   }, [actualGoods]);
 
+    // useEffect(() => {
+    // }, [imageUrl]);
 
 
   return (
@@ -102,15 +107,16 @@ const AddClothes = () => {
                             </div>
                             
                             <input
-                                id="fileInput"
+                                id="GoodsUpload"
                                 name="file"
                                 type="file"
                                 style={{ display: "none" }}
                                 accept=".jpg" // accepting only the jpg file
                                 onChange={onFileChange}
                             />
-                            <button className='select-button' onClick={() => document.getElementById('fileInput').click()}>Select File</button>
-                         
+
+                            <button className='select-button' onClick={() => document.getElementById('GoodsUpload').click()}>Select File</button>
+                            
                          <div className='chunk'>
                         <label>Goods Name</label>
 
