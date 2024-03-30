@@ -81,7 +81,7 @@ const DressingRoom = () => {
     } else {
         setCartCourses([...cartCourses, {product: GFGcourse, quantity: 1}]);
     }
-};
+  };
 
   const deleteCourseFromCartFunction = (GFGCourse) => {
       const updatedCart = cartCourses

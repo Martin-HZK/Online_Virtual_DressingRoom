@@ -19,13 +19,24 @@ const UserContextProvider = ({ children }) => {
     return savedGlobUsername || ""; // 如果localStorage中没有，则默认为空字符串
   });
 
+  const [globClothesID, setGlobClothesID] = useState(() => {
+    const savedGlobClothesID = localStorage.getItem('globClothesID');
+    return savedGlobClothesID || ""; // 如果localStorage中没有，则默认为空字符串
+  });
+
+
   useEffect(() => {
     // 每当 globUsername 更新时，将其保存到 localStorage
     localStorage.setItem('globUsername', globUsername);
   }, [globUsername]);
 
+  useEffect(() => {
+    // 每当 globClothesID 更新时，将其保存到 localStorage
+    localStorage.setItem('globClothesID', globClothesID);
+  }, [globClothesID]);
+
   return (
-    <UserContext.Provider value={{ globUsername, setGlobUsername }}>
+    <UserContext.Provider value={{ globUsername, setGlobUsername, globClothesID, setGlobClothesID}}>
       {children}
     </UserContext.Provider>
   );

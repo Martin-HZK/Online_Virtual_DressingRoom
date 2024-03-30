@@ -8,6 +8,7 @@ import api from '../../api/axiosConfig';
 import axios from 'axios';
 
 import { UserContext } from '../../userContextProvider/UserContextProvider';
+import { set } from 'rsuite/esm/utils/dateUtils';
 
 const Home = () => {
   const hiddenFileInput = useRef(null);
@@ -34,7 +35,7 @@ const Home = () => {
     const handleClose = () => setOpen(false);
 
     const [editModalVisible, setEditModalVisible] = useState(false);
-    const { globUsername, setGlobUsername } = useContext(UserContext);
+    const { globUsername, setGlobUsername, globClothesID, setGlobClothesID } = useContext(UserContext);
     const [originalUsername, setOriginalUsername] = useState(globUsername);
     // const [username, setUsername] = useState('martin');
     const [itemNumber, setItemNumber] = useState(0); // TODO: this should be fetched from the backend
@@ -85,6 +86,7 @@ const Home = () => {
 
     const onFileChange = (event) => {
         setFile(event.target.files[0]);
+        setGlobClothesID(event.target.files[0].name.replace(/(.*)\..+$/, "$1"));
         console.log("selected");
     }
 
