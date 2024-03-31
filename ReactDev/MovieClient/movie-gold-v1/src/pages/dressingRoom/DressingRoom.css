@@ -1,78 +1,69 @@
-.dressingroom_container{
+/* 全局样式设置，确保页面填满整个屏幕 */
+html, body, #root {
+    height: 100%;
+    margin: 0;
+}
+
+.dressingroom_container {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    flex:1;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: flex-start; /* 调整对齐方式以防止内容溢出 */
     background-color: #F5F5F5;
     text-align: center;
- 
-    height: 100%;
-
-    /* padding:100px 50px; */
+    padding: 2rem; /* 增加内边距以增加边缘空间 */
+    gap: 2rem; /* 增加子元素之间的间隙 */
+    box-sizing: border-box;
+    max-width: 100vw;
+    max-height: 100vh;
+    overflow: auto; /* 添加滚动以适应内容 */
 }
 
-.items_container{
+
+
+/* 下面是对按钮、图片和模态框的美化 */
+.button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+.product img, .custom-modal img {
+    border-radius: 10px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+ .custom-modal {
+    transition: transform 0.3s ease-in-out;
+}
+
+.product:hover, .custom-modal:hover {
+    transform: scale(1.05);
+}
+
+/* ... 其他样式保持不变 ... */
+
+.items_container {
     width: 60%;
-    height: 100%;
-    max-height: 847px;
-    margin-right: 20px;
-    margin-left: 64px;
-    margin-top: 0px;
+    height: calc(100vh - 60px); /* 假设标题和页脚高度一共是60px */
+    overflow-y: auto; /* 允许内容垂直滚动 */
     display: flex;
-    flex-direction: column; /* 设置主轴方向为垂直（从上到下） */
+    gap:5rem;
+    /* flex-direction: row; */
+    flex-direction: column;
 }
 
-.model_container{
+.model_container {
     width: 40%;
-    height: 100%;
-    margin-left: 10px;
-} 
-
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #ffffff;
-    height: 100%;
-}
- 
-.App-header {
-    /* background-color: #6cc24a; */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    color: rgb(0, 0, 0);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    width: 100%;
-    padding-left: 20px;
-    padding-right: 20px;
-    height: 175px;
-}
- 
-.App-main {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
+    height: calc(100vh - 60px); /* 与左侧高度相同 */
+    overflow-y: auto; /* 如果需要的话，也可以垂直滚动 */
 }
 
-.shopping-venue {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    /* background-color: #F5F5F5;
-    text-align: center;
-    padding:100px 50px; */
-}
-
-.ClothesChanged_image {
-    max-width: 200px;
-    max-height: fit-content;
-}

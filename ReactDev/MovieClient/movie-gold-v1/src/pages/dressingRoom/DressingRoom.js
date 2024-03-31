@@ -212,7 +212,7 @@ const DressingRoom = () => {
 
       <div className='model_container'>
         {/* <img className= 'ClothesChanged_image' src={personImage}></img> */  }
-        <button onClick = {getSwappwedClothes}>Get</button>
+        {/* <button onClick = {getSwappwedClothes}>Get</button> */}
 
         <ImageSlider images={courses.map(course => course.image)} />
       </div>
