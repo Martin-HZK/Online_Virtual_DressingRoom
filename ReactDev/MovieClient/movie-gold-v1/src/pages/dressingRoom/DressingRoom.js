@@ -113,7 +113,6 @@ const DressingRoom = () => {
     const handleClose = () => setOpen(false);
 
 
-  // const [personImage, setPersonImage] = useState('https://cdn.pixabay.com/photo/2023/05/30/08/34/apple-8027938_1280.jpg');
 
   // below are the connection to Yang's clothes swapping backend
 
@@ -199,21 +198,12 @@ const DressingRoom = () => {
                           />
                         </Modal.Body> 
                         <Modal.Footer> 
-                            <Button onClick={handleClose} appearance="primary"> 
-                                Ok 
-                            </Button> 
-                            <Button onClick={handleClose} appearance="subtle"> 
-                                Cancel 
-                            </Button> 
                         </Modal.Footer> 
                     </Modal> 
                 </div> 
       </div>
 
       <div className='model_container'>
-        {/* <img className= 'ClothesChanged_image' src={personImage}></img> */  }
-        {/* <button onClick = {getSwappwedClothes}>Get</button> */}
-
         <ImageSlider images={courses.map(course => course.image)} />
       </div>
 

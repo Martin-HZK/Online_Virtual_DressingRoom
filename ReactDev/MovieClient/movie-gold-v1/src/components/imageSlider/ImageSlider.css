@@ -31,3 +31,7 @@
 .slider-controls button:hover {
   background-color: #ccc; /* 悬停时背景色变化 */
 }
+.placeholder-message {
+  color: #333; /* 文字颜色 */
+  font-size: 18px; /* 文字大小 */
+}

@@ -1,28 +1,26 @@
 import React, { useState } from 'react';
-import './ImageSlider.css'; 
-const ImageSlider = ({ images }) => {
+import './AISlider.css'; 
+const AISlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const goToPrevious = () => {
     const isFirstImage = currentIndex === 0;
-    const newIndex = isFirstImage ? images.length - 1 : currentIndex - 1;
+    const newIndex = isFirstImage ? Nimages.length - 1 : currentIndex - 1;
     setCurrentIndex(newIndex);
   };
 
   const goToNext = () => {
-    const isLastImage = currentIndex === images.length - 1;
+    const isLastImage = currentIndex === Nimages.length - 1;
     const newIndex = isLastImage ? 0 : currentIndex + 1;
     setCurrentIndex(newIndex);
   };
 
   const [Nimages, setNImages] = useState([
-    'Images/1_768x1024_08015_00.png',
-    'Images/1_768x1024_08015_00.png',
-    'Images/1_768x1024_11001_00.png',
-    'Images/1_768x1024_13973_00.png',  
-    'Images/1_768x1024_13987_00.png',
-    'Images/1_768x1024_14096_00.png'
-    
+    'clothes/00259_00.jpg',
+    'clothes/00260_00.jpg',
+    'clothes/00261_00.jpg',
+    'clothes/00272_00.jpg',
+    'clothes/00273_00.jpg',
   ]);
 
 
@@ -43,4 +41,4 @@ const ImageSlider = ({ images }) => {
     );
 };
 
-export default ImageSlider;
+export default AISlider;

@@ -7,7 +7,7 @@ const NonLoginLayout = () => {
     <main>
     <Navigator/>
     <Outlet />
-    <Loading/>
+    {/* <Loading/> */}
   </main>
   )
 }

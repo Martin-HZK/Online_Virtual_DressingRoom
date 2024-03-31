@@ -154,7 +154,7 @@ const Home = () => {
                 document.getElementById("fileInput").click();
             }}
             >Select file</button>
-          <button type="button" className="active-button-style" onClick={handleClothesUpload}>Upload Clothes</button>
+          <button type="button" className="active-button-style" onClick={handleClothesUpload}>Upload</button>
 
         </section>
       </div>

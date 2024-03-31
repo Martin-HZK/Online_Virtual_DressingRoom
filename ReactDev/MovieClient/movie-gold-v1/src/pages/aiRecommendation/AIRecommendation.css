@@ -1,0 +1,8 @@
+.aiRecommendation-container {
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    height: 100vh; /* 占满整个视口高度 */
+    width: 100vw; /* 占满整个视口宽度 */
+    background-color: #f4f4f4; /* 背景色，根据需要调整 */
+}

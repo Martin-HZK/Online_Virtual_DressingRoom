@@ -77,7 +77,7 @@
 }
  
 .cart-item .item-actions button {
-    background-color: #6cc24a;
+    background-color: #323754;
     border: none;
     color: white;
     padding: 8px 15px;
@@ -89,7 +89,7 @@
 }
  
 .cart-item .item-actions button:hover {
-    background-color: #449e30;
+    background-color: #323754;
 }
  
 .cart-item .quantity {
@@ -203,4 +203,13 @@
  
 .checkout-section .checkout-button:hover {
     background-color: #4c5cb6;
+}
+
+.upload-button {
+    background-color: #5D7285;
+    color: white;
+    border-radius: 20px;
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-weight: bold;
 }

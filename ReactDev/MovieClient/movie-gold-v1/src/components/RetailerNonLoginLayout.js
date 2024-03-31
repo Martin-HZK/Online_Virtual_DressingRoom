@@ -7,7 +7,7 @@ const RetailerNonLoginLayout = () => {
     <main>
     <RetailerNavigator/>
     <Outlet />
-    <Loading/>
+    {/* <Loading/> */}
   </main>
   )
 }

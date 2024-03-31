@@ -25,6 +25,11 @@ const ImageSlider = ({ images }) => {
     
   ]);
 
+  // const [Nimages, setNImages] = useState([
+  
+    
+  // ]);
+
 
   return (
     // <div className="slider">
@@ -33,14 +38,27 @@ const ImageSlider = ({ images }) => {
     // <img src={Nimages[currentIndex]} alt="slider-img" />
     //   <button onClick={goToNext}>&gt;</button>
     // </div>
-      <div className="slider">
-        <img src={Nimages[currentIndex]} alt="slider-img" />
-        <div className="slider-controls">
-          <button onClick={goToPrevious}>&lt;</button>
-          <button onClick={goToNext}>&gt;</button>
-        </div>
+      // <div className="slider">
+      //   <img src={Nimages[currentIndex]} alt="slider-img" />
+      //   <div className="slider-controls">
+      //     <button onClick={goToPrevious}>&lt;</button>
+      //     <button onClick={goToNext}>&gt;</button>
+      //   </div>
+      // </div> {Nimages.length > 0 ? (
+        <div className="slider">
+        {Nimages.length > 0 ? (
+          <>
+            <img src={Nimages[currentIndex]} alt="slider-img" />
+            <div className="slider-controls">
+              <button onClick={goToPrevious}>&lt;</button>
+              <button onClick={goToNext}>&gt;</button>
+            </div>
+          </>
+        ) : (
+          <div className="placeholder-message">Select Clothes to Try On</div>
+        )}
       </div>
-    );
+  );
 };
 
 export default ImageSlider;
