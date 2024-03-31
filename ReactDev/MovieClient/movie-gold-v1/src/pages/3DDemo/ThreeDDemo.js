@@ -19,7 +19,7 @@ const ThreeDDemo = () => {
             <source src="/OriginThreeD.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-          <p className="video-description">Original Video - Explore the untouched style.</p>
+          <p className="video-description">Original Video</p>
         </div>
 
         <div className="video-item">
