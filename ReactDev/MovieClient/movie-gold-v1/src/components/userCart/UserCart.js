@@ -157,15 +157,15 @@ const UserCart = ({
                 ₹{totalAmountCalculationFunction()}
             </p>
         </div>
-        <button
+        {/* <button
             className="checkout-button"
             disabled={cartCourses.length === 0 || 
             totalAmountCalculationFunction() === 0}
         >
             Proceed to Payment
-        </button>
+        </button> */}
 
-        <input
+        {/* <input
             id="fileInput"
             name="fileInput"
             type="file"
@@ -179,11 +179,11 @@ const UserCart = ({
             onClick={() => {
                 document.getElementById("fileInput").click();
             }}
-            >Select file</button>
+            >Select file</button> */}
         <button
             className="upload-button"
             onClick={handleClothesUpload}
-            >Upload</button>
+            >Upload for Swapping!</button>
 
 
     </div>

@@ -58,7 +58,19 @@ const Navigator = () => {
             <NavText>
                 Dressing Room
             </NavText>
+            
         </NavItem>
+        
+        <NavItem eventKey="ThreeDDemo">
+            <NavIcon>
+                <i className="fa-solid fa-person-running" style={{ fontSize: '1.5em' }} />
+                
+            </NavIcon>
+            <NavText>
+                3D Demo
+            </NavText>
+        </NavItem>
+
         <NavItem eventKey="airecommendation">
             <NavIcon>
                 <i className="fa-solid fa-robot" style={{ fontSize: '1.5em' }} />

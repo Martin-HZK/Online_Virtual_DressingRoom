@@ -17,6 +17,7 @@ import RetailerNonLoginLayout from './components/RetailerNonLoginLayout';
 import {UploadGoods} from './pages/retailer_pages/upload_goods/UploadGoods';
 import SignUp from './pages/signUp/SignUp';
 import { UserContextProvider } from './userContextProvider/UserContextProvider';
+import ThreeDDemo from './pages/3DDemo/ThreeDDemo';
 // import UploadGoods from './pages/retailer_pages/upload_goods/UploadGoods';
 function App() {
 
@@ -58,6 +59,7 @@ function App() {
                 <Route path="/uploadimage" element={<UploadImage/>}></Route>
                 <Route path='/bodyfeature' element={<BodyFeature/>}></Route>
                 <Route path='/dressingroom' element={<DressingRoom/>}></Route>
+                <Route path='ThreeDDemo' element={<ThreeDDemo/>}></Route>
                 {/* <Route path='/shoppingcart' element={<ShoppingCart/>}></Route> */}
                 <Route path='/airecommendation' element={<AIRecommendation/>}></Route>
               </Route>

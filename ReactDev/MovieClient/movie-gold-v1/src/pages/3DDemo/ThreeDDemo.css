@@ -1,0 +1,46 @@
+.showcase-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* 使容器占满整个视口高度 */
+    max-width: 2560px;
+    margin: auto;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #282c34; /* 深色背景 */
+  }
+  
+  .main-title {
+    color: #61dafb; /* 蓝色调，感觉科技感 */
+    margin-bottom: 30px;
+  }
+  
+  .videos-container {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+  }
+  
+  .video-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  video {
+    width: 800px; /* 视频宽度，根据需要调整 */
+    height: 450px; /* 视频高度，根据需要调整 */
+    border-radius: 15px; /* 视频圆角 */
+    outline: none; /* 移除焦点轮廓 */
+    border: 3px solid #61dafb; /* 边框颜色 */
+  }
+  
+  .video-description {
+    color: #FFF; /* 描述文字颜色 */
+    font-size: 18px;
+    margin-top: 15px;
+    text-align: center;
+    max-width: 90%;
+  }
+  
