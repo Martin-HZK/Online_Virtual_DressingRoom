@@ -58,15 +58,16 @@ const ShowCourse = ({
                     <div className="product" key={product.id}>
                         <img src={convertImagePath(product.link)} 
                             alt='Unknown'
-                            onClick={() => openModal(product.image)}
+                            // onClick={() => openModal(product.image)}
+                            onClick = {() => openModal(convertImagePath(product.link))}
                         />
-                        <h2>{product.name}</h2>
+                        <h2>{product.clothes_name}</h2>
                         <p>Price: ₹{product.price}</p>
                         <button
                             className="add-to-cart-button"
                             onClick={() => addCourseToCartFunction(product)}
                         >
-                            Add to Shopping Cart
+                            Add to Cart
                         </button>
                     </div>
                 ))
@@ -74,9 +75,9 @@ const ShowCourse = ({
 
         <Modal className="custom-modal" isOpen={modalIsOpen} onRequestClose={closeModal}>
             <img
-            src={selectedImage}
-            alt="Large Image"
-            onClick={closeModal}
+                src={selectedImage}
+                alt="Large Image"
+                onClick={closeModal}
             />
             <div className="footer-container">
                 <button onClick={handleReturnButtonClick}>Close</button>

@@ -1,106 +1,95 @@
-.product-list {
-    flex: 2;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    max-height: 500px;
-
-    overflow: scroll; 
-    /* height: 8%;  */
-    /* background-color: aqua;  */
-    /* border: 1px black solid;  */
-    /* padding: 2%;  */
-    /* width: 300px;  */
-    /* margin: 0 auto;  */
-    /* white-space: nowrap;  */
-    font-size: large; 
-    
-    /* padding-right: 5px */
-}
- 
 .product {
-    background-color: rgb(255, 245, 245);
-    border: 1px solid #1b4e1f;
-    border-radius: 10%;
-    padding: 10px 40px;
-    text-align: center;
-    width: 20%;
-    height: 10%;
-    transition: transform 0.2s ease-in-out;
-    cursor: pointer;
-    overflow: hidden;
-    position: relative;
-    justify-content: center; /* 水平居中 */
-    align-items: center; /* 垂直居中 */
+    display: flex; /* 使用flex布局 */
+    flex-direction: column; /* 子元素垂直堆叠 */
+    justify-content: center; /* 垂直居中 */
+    align-items: center; /* 水平居中 */
+    text-align: center; /* 文本居中 */
+    height: auto; /* 产品高度自适应 */
+    width: 100%; /* 产品宽度填满容器宽度 */
+    margin-bottom: 1rem; /* 产品间距 */
+    padding: 1rem; /* 内边距 */
+    box-sizing: border-box; /* 包含padding和border在内的总宽度和总高度 */
+    background-color: #ffffff; /* 背景色 */
+    border-radius: 50px; /* 边角圆滑 */
+    transition: box-shadow 0.3s, transform 0.3s; /* 过渡效果 */
 }
- 
-.product:hover {
-    transform: translateY(-5px) scale(1.03);
-}
- 
+
 .product img {
-    max-width: 50px;
-    max-height: 50px; 
-    /*150px before*/
-    /* Increased image size */
+    width: 100px; /* 调整图像尺寸以适应不同的设备 */
     height: auto;
-    margin-bottom: 10px;
-    border-radius: 50%;
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
-    /* Enhanced box shadow */
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    /* Added box shadow transition */
+    margin-bottom: 15px;
+    /* 移除了transform属性，因为现在不需要放大效果 */
 }
- 
-.product:hover img {
-    transform: scale(1.1);
-    z-index: 1;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
-    /* Enhanced box shadow on hover */
-}
- 
+
 .product h2 {
-    font-size: 1rem;
-    margin: 10px 0;
-    width: 100px;
-    color: #323754;
+    margin: 0.5rem 0; /* 为标题添加上下外边距 */
+    font-size: 1rem; /* 字体大小 */
 }
- 
+
 .product p {
-    font-size: 0.8rem;
-    color: #777;
-    margin: 5px 0;
+    margin: 0.5rem 0; /* 为价格段落添加上下外边距 */
+    font-size: 0.9rem; /* 字体大小 */
 }
 
 .product button {
-    font-size: 0.6rem;
-    /* width: 100px; */
+    padding: 0.5rem 1rem; /* 增加按钮的填充 */
+    margin-top: 1rem; /* 与价格段落分开一点 */
+    font-size: 0.9rem; /* 字体大小 */
+    border: none; /* 移除边框 */
+    background-color: #4CAF50; /* 绿色背景 */
+    color: white; /* 白色文字 */
+    cursor: pointer; /* 鼠标悬停时显示指针 */
+    border-radius: 0.25rem; /* 圆角边框 */
+    transition: background-color 0.3s; /* 渐变背景色 */
+}
+
+.product:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* 悬浮时的阴影效果 */
+    transform: translateY(-10px); /* 向上移动 */
 }
 
 .custom-modal {
-    /* display: flex; */
-    position: relative;
+    display: flex;
     justify-content: center; /* 水平居中 */
     align-items: center; /* 垂直居中 */
-    margin-top: 100px;
-    width: 70%;
-    height: 70%;
-    margin: auto;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #fff;
+    position: fixed; /* 固定位置 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 1); /* 半透明背景 */
+    z-index: 1000; /* 确保在最上层 */
+    padding: 2rem; /* 避免贴近边缘 */
 }
+
 .custom-modal img {
-
-max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
+    max-width: 90%; /* 限制图片的最大宽度 */
+    max-height: 80vh; /* 限制图片的最大高度，确保不会超过视窗 */
+    object-fit: contain; /* 确保图片比例不失真 */
 }
 
-.footer-container {
-    position: absolute;
-    bottom: 10px; /* 距离底部的距离 */
-    right: 10px; /* 距离右侧的距离 */
-    padding: 10px; /* 设置内边距 */
-    background-color: #f0f0f0; /* 设置背景色 */
-  }
+.custom-modal .footer-container {
+    display: flex;
+    justify-content: flex-end; /* 将按钮对齐到底部右侧 */
+    padding: 1rem;
+}
+
+.custom-modal .footer-container button {
+    padding: 0.5rem 1rem; /* 增加按钮的填充 */
+    margin-top: 1rem; /* 与图片分开一点 */
+    font-size: 1rem; /* 增加字体大小 */
+    border: none; /* 移除边框 */
+    background-color: #5D7285;
+    color: white; /* 白色文字 */
+    cursor: pointer; /* 鼠标悬停时显示指针 */
+    border-radius: 0.25rem; /* 圆角边框 */
+    transition: background-color 0.3s; /* 渐变背景色 */
+}
+
+.custom-modal .footer-container button:hover {
+    background-color: #5D7285; /* 按钮悬停时变色 */
+}
+
+.custom-modal .footer-container button:focus {
+    outline: none; /* 点击时移除轮廓 */
+}
