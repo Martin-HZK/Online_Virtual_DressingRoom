@@ -1,0 +1,34 @@
+
+.slider {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 水平居中 */
+    justify-content: center; /* 现在添加垂直居中 */
+    height: 100%; /* 设定一个高度 */
+  }
+  
+  .slider img {
+    width: 80%; /* 图片宽度占容器宽度的百分比 */
+    height: auto; /* 图片高度自适应 */
+    margin-bottom: 20px; /* 与控制按钮有间隔 */
+  }
+  
+  .slider-controls {
+    display: flex;
+    justify-content: center; /* 控制按钮水平居中 */
+    gap: 10px; /* 按钮之间的间隙 */
+  }
+  
+  .slider-controls button {
+    cursor: pointer; /* 鼠标悬停时显示手形图标 */
+    padding: 10px; /* 按钮内边距 */
+    font-size: 16px; /* 文字大小 */
+    background-color: #ddd; /* 背景色 */
+    border: none; /* 移除边框 */
+    border-radius: 5px; /* 边框圆角 */
+  }
+  
+  .slider-controls button:hover {
+    background-color: #ccc; /* 悬停时背景色变化 */
+  }
+  
