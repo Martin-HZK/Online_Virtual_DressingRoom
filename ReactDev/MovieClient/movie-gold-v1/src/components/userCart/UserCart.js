@@ -1,3 +1,23 @@
+/*
+ * GPL License
+ * Version 3, 29 June 2007
+ *
+ * Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
+ * Author: Zhikai Hu
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
 import React from 'react'
 import './UserCart.css'
 import axios from 'axios'
@@ -12,16 +32,8 @@ const UserCart = ({
     const { globClothesID, setGlobClothesID } = useContext(UserContext);
     console.log(globClothesID);
     console.log('hi')
-    // console.log(cartCourses);
     const ids = cartCourses.map(item => item.product.clothes_ID);
-    // const ids = cartCourses.map(item => item.clothes_ID);
-    // console.log(ids[0])
     console.log(ids);
-
-    // console.log(cartCourses.map(item => item.clothes_ID || 'ID not found'));
-
-    // const [file, setFile] = useState(null);
-
     const onFileChange = (event) => {
         setFile(event.target.files[0]);
         console.log("selected");
@@ -58,7 +70,6 @@ const UserCart = ({
             // "Clothes_ID": ids
         }
             
-        // console.log(file.name.replace(/(.*)\..+$/, "$1"))
         
         try {
             const response = await axios.post('http://localhost:8000/TryOns/', myData, {
@@ -76,7 +87,6 @@ const UserCart = ({
 
         try {
             const url = `http://localhost:8000/TryOns/${id}`;
-        // 发送GET请求
             const response = await axios.get(url, { responseType: 'blob' });
         } catch (error) {
             console.error(error);
@@ -157,29 +167,6 @@ const UserCart = ({
                 ₹{totalAmountCalculationFunction()}
             </p>
         </div>
-        {/* <button
-            className="checkout-button"
-            disabled={cartCourses.length === 0 || 
-            totalAmountCalculationFunction() === 0}
-        >
-            Proceed to Payment
-        </button> */}
-
-        {/* <input
-            id="fileInput"
-            name="fileInput"
-            type="file"
-            style={{ display: "none" }}
-            accept=".jpg" // accepting only jpg
-            onChange={onFileChange}
-            ></input>
-
-        <button
-            className="select-button"
-            onClick={() => {
-                document.getElementById("fileInput").click();
-            }}
-            >Select file</button> */}
         <button
             className="upload-button"
             onClick={handleClothesUpload}

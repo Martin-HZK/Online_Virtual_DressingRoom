@@ -1,9 +1,27 @@
+/*
+ * GPL License
+ * Version 3, 29 June 2007
+ *
+ * Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
+ * Author: Zhikai Hu
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
 import React from 'react'
 import './ShowCourse.css'
 import { useState, useContext, useEffect } from 'react';
 import Modal from 'react-modal';
-// import Modal from "rsuite";
-// import 'rsuite/dist/rsuite.min.css'
 import { set } from 'rsuite/esm/utils/dateUtils';
 import { UserMyContext } from '../../pages/dressingRoom/DressingRoom';
 const ShowCourse = ({ 
@@ -23,22 +41,18 @@ const ShowCourse = ({
         setModalIsOpen(false);
     }
     const handleReturnButtonClick = () => {
-        closeModal(); // 关闭弹窗
-        // 在这里添加返回的逻辑，比如返回上一页或者其他操作
+        closeModal(); 
+
       };
 
     function convertImagePath(imagePath) {
-        // 假设后端服务运行在 http://localhost:8080
         const baseUrl = "http://localhost:8080";
-        // 提取相对路径中的具体路径部分，即去掉 `src/main/resources/static/`
         let relativePath = imagePath.replace('src/main/resources/static/', '');
-        
-        // 如果结尾有逗号，则去除
+
         if (relativePath.endsWith(',')) {
             relativePath = relativePath.slice(0, -1);
         }
 
-        // 构造完整的URL
         return `${baseUrl}/${relativePath}`;
     }
 

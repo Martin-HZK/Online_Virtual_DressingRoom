@@ -1,3 +1,23 @@
+/*
+ * GPL License
+ * Version 3, 29 June 2007
+ *
+ * Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
+ * Author: Zhikai Hu
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
 import React from 'react'
 import { useState } from 'react';
 import './SignUp.css'
@@ -40,7 +60,6 @@ const SignUp = () => {
             const response = await api.post(url, formData);
             console.log('Server response:', response.data);
             if (response.data === true) {
-            // the logic is to ask the user to login again
             alert('Sign Up success!Jumping to the login page!');
 
             navigate('/');
@@ -65,7 +84,6 @@ const SignUp = () => {
   return (
     <div className='signUp-page-container'>
         <div className='signUp-form-container'>
-            {/* <h1>Sign Up</h1> */}
             <form onSubmit={handleSubmit}>
             <div className='input-container'>
                 <i className='fa-solid fa-user'></i>

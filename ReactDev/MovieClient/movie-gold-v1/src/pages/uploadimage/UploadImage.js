@@ -2,7 +2,7 @@ import { Button } from '@mui/material';
 import './UploadImage.css';
 import { useState, useRef } from 'react'
 import React from 'react'
-import WebCam from '../../components/webCam/WebCam';
+
 const UploadImage = () => {
     console.log("UploadImage component");
   
@@ -42,16 +42,6 @@ const UploadImage = () => {
       <div className='container'>
         <form className='uploadimage-container'>
         <WebCam/>
-        {/* <input
-          style={{ display: "none" }}
-          // accept=".zip,.rar"
-          ref={inputFile}
-          onChange={uploadImage}
-          type="file"
-        />
-        <div className="button" onClick={onButtonClick}>
-          Upload
-        </div> */}
         </form>
       </div>
     </div>

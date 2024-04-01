@@ -1,3 +1,23 @@
+/*
+ * GPL License
+ * Version 3, 29 June 2007
+ *
+ * Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
+ * Author: Zhikai Hu
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
 import React, { useEffect, useState } from "react";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
@@ -5,48 +25,7 @@ import api from "../../api/axiosConfig";
 import "./SearchBar.css";
 
 const SearchBar = ({ searchCourse, courseSearchUserFunction }) => {
-   //  const [myOptions, setMyOptions] = useState([]);
-   // function getData() {
-      
-   //    fetch("http://localhost:8080/api/v1/getAllClothes")
-   //    .then((response) => {
-   //       return response.json();
-   //    })
-   //    .then((res) => {
-   //       // console.log(res);
-   //       for (var i = 0; i < res.length; i++) {
-   //          if (!myOptions.some((obj) => obj.label == res[i].clothes_name)) {
-               
-   //             // create an object with a label
-   //             let object = {
-   //                label: res[i].clothes_name,
-   //                userName: res[i].category,
-                  
-   //             };
-   //             myOptions.push(object);
-   //          }
-   //       }
-
-   //    }); 
-
-      
-   // }
-   // useEffect(() => getData(), [myOptions]);
   return (
-      // <div>
-      //    <Autocomplete
-      //       Style = {{ width: 400 }}
-      //       autoComplete
-      //       autoHighlight
-      //       freeSolo
-      //       options = {myOptions}
-      //       renderInput = {(data) => (
-      //          <TextField {...data} variant = "outlined" label = "Search for your clothes"/>
-      //       )}
-      //    />
-      // </div>
-
-      
          <header className="App-header">
              <h1>Select Your Clothes!</h1>
              <div className="search-bar">
@@ -60,8 +39,6 @@ const SearchBar = ({ searchCourse, courseSearchUserFunction }) => {
 
              </div>
          </header>
-     
-    
   )
 }
 

@@ -6,7 +6,6 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import { UserContext } from "../../userContextProvider/UserContextProvider";
 
 const Login = () => {
-  // 使用 useState 创建 state 变量来管理输入的用户名和密码
   const { setGlobUsername } = useContext(UserContext);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -17,19 +16,15 @@ const Login = () => {
     setChecked(!checked);
   }
 
-  // 处理用户名输入变化
   const handleUsernameChange = (e) => {
     setUsername(e.target.value);
   };
 
-  // 处理密码输入变化
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
 
-  // 处理登录按钮点击事件
   const handleLogin = async() => {
-    // 在这里可以处理登录逻辑，使用 username 和 password 的值
     console.log("Username:", username);
     console.log("Password:", password);
     const loginInfo = {
@@ -59,7 +54,6 @@ const Login = () => {
   };
 
   const handleRetailerLogin = async() => {
-    // 在这里可以处理登录逻辑，使用 username 和 password 的值
     console.log("Username:", username);
     console.log("Password:", password);
     const loginInfo = {
@@ -114,14 +108,12 @@ const Login = () => {
         </label>
       </div>
       
-      {/* 登录按钮，点击时触发 handleLogin 函数 */}
       <div className="login-button-container">
         <button onClick={handleLogin}>User Login</button>
         <button onClick={handleRetailerLogin}>Retailer Login</button>
       </div>
 
       <div className="login-footer">
-
         <div className="login-footer-left">
 
           <button className="login-footer-button" onClick={() => navigate("/")}>Home</button>
@@ -129,17 +121,11 @@ const Login = () => {
           <button className="login-footer-button">Privacy Policy</button>
           <button className="login-footer-button" onClick={() => {navigate("/sign_up")}}>Sign Up</button>
         </div>
-
-
         <div className="all-rights">
         2023 GRPTeam. All Rights Reserved
         </div>
-
       </div>
       </div>
-
-
-      
     </div>
   )
 }

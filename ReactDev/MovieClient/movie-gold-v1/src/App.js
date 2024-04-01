@@ -6,9 +6,8 @@ import { BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
 import Login from './pages/login/Login';
 import UploadImage from './pages/uploadimage/UploadImage';
 import Navigator from './components/navigator/Navigator';
-import ShoppingCart from './pages/shoppingCart/ShoppingCart';
+
 import {DressingRoom} from './pages/dressingRoom/DressingRoom';
-import BodyFeature from './pages/bodyFeature/BodyFeature';
 import AIRecommendation from './pages/aiRecommendation/AIRecommendation';
 import NonLoginLayout from './components/NonLoginLayout';
 import Home from './pages/home/Home';
@@ -18,7 +17,6 @@ import {UploadGoods} from './pages/retailer_pages/upload_goods/UploadGoods';
 import SignUp from './pages/signUp/SignUp';
 import { UserContextProvider } from './userContextProvider/UserContextProvider';
 import ThreeDDemo from './pages/3DDemo/ThreeDDemo';
-// import UploadGoods from './pages/retailer_pages/upload_goods/UploadGoods';
 function App() {
 
   const [movies, setMovies] = useState();
@@ -47,9 +45,7 @@ function App() {
   
   return (
     <UserContextProvider>
-    <div className="App">
-      {/* <Navigator/> */}
-      
+    <div className="App">      
         <Routes>
             <Route path="/" element={<LoginLayout/>}>
               <Route index element={<Login/>}></Route>
@@ -57,10 +53,8 @@ function App() {
               <Route element={<NonLoginLayout/>}>
                 <Route path="/home" element={<Home/>}></Route>
                 <Route path="/uploadimage" element={<UploadImage/>}></Route>
-                <Route path='/bodyfeature' element={<BodyFeature/>}></Route>
                 <Route path='/dressingroom' element={<DressingRoom/>}></Route>
                 <Route path='ThreeDDemo' element={<ThreeDDemo/>}></Route>
-                {/* <Route path='/shoppingcart' element={<ShoppingCart/>}></Route> */}
                 <Route path='/airecommendation' element={<AIRecommendation/>}></Route>
               </Route>
 
