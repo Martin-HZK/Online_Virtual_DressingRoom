@@ -66,6 +66,14 @@ Run the app
 npm start
 ```
 
+* IvCam installation and configuration
+
+We use the IvCam for the customer to take real time full-body image.<br>
+Install IvCam via the link [IvCam](https://www.e2esoft.com/ivcam/)<br>
+Please configure the ivcam with the mobile phone ip address to connect for image taking.
+
+
+
 
 ## Reference
 
