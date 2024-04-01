@@ -1,16 +1,28 @@
+/*
+ * GPL License
+ * Version 3, 29 June 2007
+ *
+ * Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
+ * Author: Zhikai Hu
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
 import React from 'react'
-// import vidoe from '../../../public/ThreeDDemo.mp4'
 import './ThreeDDemo.css'
 const ThreeDDemo = () => {
     
     return (
-        // <div>
-        //     <video width="320" height="240" controls>
-        //         <source src="/ThreeDDemo.mp4" type="video/mp4" />
-        //         {/* <source src="movie.ogg" type="video/ogg" /> */}
-        //         您的浏览器不支持 Video 标签。
-        //     </video>
-        // </div>
         <div className="showcase-container">
       <h1 className="main-title">Welcome to the Future of Fashion</h1>
       <div className="videos-container">
@@ -32,7 +44,7 @@ const ThreeDDemo = () => {
       </div>
     </div>
     )
-    // return <div>3DDemo</div>
+
 }
 
 export default ThreeDDemo
