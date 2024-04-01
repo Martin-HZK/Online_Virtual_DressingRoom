@@ -53,6 +53,11 @@ public class RetailerInfoController {
         return new ResponseEntity<Boolean>(retailerInfoService.checkSignUp(signUpInfo.get("username"), signUpInfo.get("password")), HttpStatus.CREATED);
     }
 
+/**
+     * The PostMapping to check if the retailer can successfully edit profile
+     * @param editInfo the original username, new username, and new password mapping
+     * @return boolean variable to indicate if the retailer can successfully edit profile
+     */
     @PostMapping("/edit_profile")
     public ResponseEntity<Boolean> editProfile(@RequestBody Map<String, String> editInfo) {
         return new ResponseEntity<Boolean>(retailerInfoService.editProfile(editInfo.get("originalUsername"), editInfo.get("username"), editInfo.get("password")), HttpStatus.CREATED);

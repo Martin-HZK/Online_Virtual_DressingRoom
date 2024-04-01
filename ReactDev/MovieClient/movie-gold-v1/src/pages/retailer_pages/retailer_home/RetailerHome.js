@@ -73,7 +73,7 @@ const RetailerHome = () => {
 
 
       try {
-        const response = await api.post('/api/v1/retailer/edit_profile/', {
+        const response = await api.post('/api/v1/retailer/edit_profile', {
           originalUsername: originalUsername,
           username: globUsername,
           password: password

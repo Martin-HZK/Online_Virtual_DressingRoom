@@ -1,5 +1,6 @@
 package com.example.springbootdemo.repository;
 
+import com.example.springbootdemo.model.Clothes;
 import com.example.springbootdemo.model.RetailerInfo;
 import io.micrometer.common.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -94,6 +95,11 @@ public class RetailerInfoService {
             retailerInfo.setUsername(username);
             retailerInfo.setPassword(password);
             retailerInfoRepository.save(retailerInfo);
+
+            Query query = new Query(Criteria.where("retailerName").is(originalUsername));
+            Update update = new Update().set("retailerName", username);
+            mongoTemplate.updateMulti(query, update, Clothes.class);
+
             return true;
         }
     }
