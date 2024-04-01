@@ -21,8 +21,8 @@ const RetailerShowGoods = ({
         setModalIsOpen(false);
     }
     const handleReturnButtonClick = () => {
-        closeModal(); // 关闭弹窗
-        // 在这里添加返回的逻辑，比如返回上一页或者其他操作
+        closeModal();
+   
     }
     const [file, setFile] = useState();
 
@@ -30,38 +30,7 @@ const RetailerShowGoods = ({
         setFile(event.target.files[0]);
         console.log(file.name) // this is for testing or uploaded file
         console.log(file.name.replace(/(.*)\..+$/, "$1"));
-        // console.log("selected");
     }
-
-
-    // this is the part for testing yang's API
-
-    const handleClothesUpload = async() => {
-        // const formData = new FormData();
-        // formData.append('file', file);
-
-        const myData = {
-            "Image_Name": "Weixin_Image_20240301162842", // this file is for testing, should match the actual name!
-            "Model_Type": "StableVITON",  // HRVITON ORF StableVITON
-            "Clothes_ID": [
-                file.name.replace(/(.*)\..+$/, "$1")
-            ]
-        }
-            
-        console.log(file.name.replace(/(.*)\..+$/, "$1"))
-        
-        try {
-            const response = await axios.post('http://localhost:8000/TryOns', myData, {
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            });
-            console.log( response.data);
-        } catch (error) {
-            console.error(error);
-        }
-    }
-
     
 
     const discardGoods = async(product) => {
@@ -79,15 +48,26 @@ const RetailerShowGoods = ({
 
 
     function convertImagePath(imagePath) {
-        const baseUrl = "http://localhost:8080";
-        let relativePath = imagePath.replace('src/main/resources/static/', '');
+        // console.log(imagePath);
+        // const baseUrl = "http://localhost:8080";
+        // let relativePath = imagePath.replace('src/main/resources/static/', '');
 
-        if (relativePath.endsWith(',')) {
-            relativePath = relativePath.slice(0, -1);
-        }
-    
- 
-        return `${baseUrl}/${relativePath}`;
+        // if (relativePath.endsWith(',')) {
+        //     relativePath = relativePath.slice(0, -1);
+        // }
+
+    //     const matches = /\/([^\/]+)\.jpg,$/.exec(imagePath);
+    //     if (matches && matches[1]) {
+    //         console.log('cloth/' + matches[1] + '.jpg');
+    //         return 'cloth/' + matches[1] + '.jpg';
+    //     }
+    //    return ''
+
+        const fullFilename = imagePath.split('/').pop();
+
+        const match = fullFilename.match(/(\d+_\d+)\.jpg/);
+
+        return  match ? "cloth/" + match[1] + ".jpg" : '';
     }
     // const [uploadClothesTest, setUploadClothesTest] = useState([
     //     {

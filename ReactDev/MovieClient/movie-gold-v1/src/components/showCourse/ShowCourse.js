@@ -46,14 +46,27 @@ const ShowCourse = ({
       };
 
     function convertImagePath(imagePath) {
-        const baseUrl = "http://localhost:8080";
-        let relativePath = imagePath.replace('src/main/resources/static/', '');
+        // const baseUrl = "http://localhost:8080";
+        // let relativePath = imagePath.replace('src/main/resources/static/', '');
 
-        if (relativePath.endsWith(',')) {
-            relativePath = relativePath.slice(0, -1);
-        }
+        // if (relativePath.endsWith(',')) {
+        //     relativePath = relativePath.slice(0, -1);
+        // }
 
-        return `${baseUrl}/${relativePath}`;
+        // return `${baseUrl}/${relativePath}`;
+    //     const matches = /\/([^\/]+)\.jpg,$/.exec(imagePath);
+    //     if (matches && matches[1]) {
+    //         console.log('cloth/' + matches[1] + '.jpg');
+    //         return 'cloth/' + matches[1] + '.jpg';
+    //     }
+    //    return '';
+    const fullFilename = imagePath.split('/').pop();
+
+        const match = fullFilename.match(/(\d+_\d+)\.jpg/);
+
+        
+        return match ? "cloth/" +  match[1] + ".jpg" : '';
+
     }
 
     useEffect(() => {
