@@ -61,13 +61,11 @@ const RetailerHome = () => {
     const [password, setPassword] = useState('*********');
 
     const handleEditProfile = () => {
-      // setOriginalUsername(username);
       setOriginalUsername(globUsername);
       setEditModalVisible(true);
     };
   
     const handleSaveProfile = async() => {
-      // 在这里添加保存修改的逻辑，例如发送请求到后端保存用户名和密码
       console.log('The original username is: ' + originalUsername)
       console.log('The global username is: ' + globUsername)
 

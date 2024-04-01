@@ -49,9 +49,10 @@ const UserCart = ({
         // const formData = new FormData();
         // formData.append('file', file);
 
+        console.log(globClothesID);
         const myData = {
-            // "Image_Name": globClothesID, // this file is for testing, should match the actual name!
-            "image_name": "20240331_150720", // this file is for testing, should match the actual name!
+            "image_name": globClothesID, // this file is for testing, should match the actual name!
+            // "image_name": "20240331_150720", // this file is for testing, should match the actual name!
             "model_type": "StableVITON",  // HRVITON ORF StableVITON
             // "clothes_ids": ids
             "clothes_ids": ['00006_00']
@@ -94,6 +95,33 @@ const UserCart = ({
 
         return `${baseUrl}/${relativePath}`;
     }
+
+    const getRecommendedClothes = async() => {
+        try {
+            const response = await axios.post('http://localhost:5000/api/recommendationdata', 
+                
+                {
+                    "clothes_name": "Men's Denim Jacket",
+                    "retailerName": "Zara",
+                    "description": "Classic denim jacket for men",
+                    "category": "Jackets",
+                    "brand": "DenimCo",
+                    "price": 200,
+                    "gender": "Male",
+                    "link": "src/path",
+                    "clothes_ID": "01127_00"
+                }
+            )
+            // console.log(response.data);
+            
+            navigate('/airecommendation', { state: response.data })
+        } catch (error) {
+            console.log('error')
+            console.error(error);
+        }
+    }
+
+
 
 
 
@@ -141,7 +169,7 @@ const UserCart = ({
             </p>
         </div>
         <div className="checkout-buttons">
-        <button className="upload-button" onClick={() => {navigate('/airecommendation')}}>AI Recommendation</button>
+        <button className="upload-button" onClick={getRecommendedClothes}>AI Recommendation</button>
         <button
             className="upload-button"
             onClick={handleClothesUpload}
