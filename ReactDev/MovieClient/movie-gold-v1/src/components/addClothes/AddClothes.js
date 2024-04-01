@@ -84,35 +84,8 @@ const AddClothes = () => {
         setBrand(event.target.value);
     }
 
-    // useEffect(() => {
-
-    //     console.log('The goods is updated');
-  
-    //   }, [actualGoods]);
-
-    // useEffect(() => {
-    // }, [imageUrl]);
-
-
   return (
     <div className='upload-goods-container' > 
-                    {/* <span>Modal with Overflow </span>  */}
-                    {/* <i className="fa fa-fw fa-shopping-cart" style={{ fontSize: '1.5em' }} />
-                    <Button onClick={handleOpen}>Open</Button>  */}
-
-  
-                    {/* <Modal overflow={overflow} 
-                         open={open} onClose={handleClose}> 
-                        <Modal.Header> 
-                            <Modal.Title>Upload Your Goods!</Modal.Title> 
-                        </Modal.Header> 
-                        <Modal.Body className='modal-body'> */}
-                          {/* <input
-                                name="file"
-                                type="file"
-                                style={{ display: "none" }}// accept=".zip,.rar"
-                                onChange={onFileChange}
-                            /> */}
                             <div className="image-container">
                                 <img src={imageUrl} alt="Upload Your Goods Here!" />
                             </div>
@@ -195,16 +168,6 @@ const AddClothes = () => {
 
                             <button className='upload-button' onClick={onFileUpload}>Upload</button>
 
-                        {/* </Modal.Body> 
-                        <Modal.Footer> 
-                            <Button onClick={handleClose} appearance="primary"> 
-                                Ok 
-                            </Button> 
-                            <Button onClick={handleClose} appearance="subtle"> 
-                                Cancel 
-                            </Button> 
-                        </Modal.Footer> 
-                    </Modal>  */}
                 </div> 
   )
 }

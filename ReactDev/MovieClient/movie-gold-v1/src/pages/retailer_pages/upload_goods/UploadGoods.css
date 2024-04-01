@@ -1,93 +1,24 @@
 .upload-container {
   display: flex;
   flex-direction: row;
+  align-items: flex-start; /* 顶部对齐 */
+  justify-content: space-around; /* 平均分布 */
+  height: calc(100vh - 60px); /* 减去顶部导航栏的高度，如果有的话 */
+  padding: 20px;
+}
+
+.items_container {
+  width: 60%;
+  overflow-y: auto; /* 如果商品多的话能够滚动 */
+  margin-left: 80px; /* 根据导航栏宽度调整 */
+}
+
+.add_container {
+  width: 35%; /* 减小宽度以适应屏幕 */
+  display: flex;
+  flex-direction: column;
   align-items: center; /* 水平居中 */
-  justify-content: center; /* 垂直居中 */
-  height: 100vh; /* 设置容器高度为视口的100%，使容器占据整个视口 */
-  gap: 20px; /* 设置容器内子元素之间的间隔 */
-  margin-left: 10px;
-}
-/* .search-bar-container {
-  margin-top: 150px;
-  width:60%;
-} */
-
-.items_container{
-  width: 60%;
-  height: 100%;
-  margin-right: 20px;
-  margin-left: 64px;
-  margin-top: 0px;
-  display: flex;
-  flex-direction: column; /* 设置主轴方向为垂直（从上到下） */
-}
-
-/* .items_container {
-  width: 60%;
-  height: 100%;
-  margin-right: 20px;
-  margin-left: 64px;
-  display: flex;
-  flex-direction: column;
-} */
-
-.add_container{
-  width: 40%;
-  height: 100%;
-  margin-left: 10px;
-} 
-
-/* .show-goods-container {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-} */
-
-.show-goods-container {
-  flex-grow: 1; /* 使容器占据可用空间 */
-  overflow: auto; /* 如果内容超出容器大小，显示滚动条 */
-  margin-bottom: 10px; /* 根据需要调整 */
-  height: calc(100% - 20px); /* 举例，根据实际需要调整 */
-}
-.show-goods-container::-webkit-scrollbar-thumb {
-  border-radius: 5px; /* 设置滑块的圆角 */
-  background-image: linear-gradient(45deg, #81ecec 0%, #6c5ce7 100%); /* 设置滑块的背景为渐变色 */
-}
-
-.show-goods-container::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px grey; /* 轨道内部添加阴影效果 */
-  border-radius: 10px; /* 设置轨道的圆角 */
-}
-.upload-goods-container {
-    /* display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between; */
-}
-
-.upload-container input,
-.upload-container button {
-  margin-bottom: 10px;
-}
-
-.modal-body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  padding: 20px;
-  /* background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
-}
-
-label {
-  width: '150px';
-  display: 'flex';
-  align-items: left;
-  margin-right: 10px;
+  padding: 20px; /* 内边距 */
+  border-left: 1px solid #ccc; /* 与商品列表分割线 */
+  overflow-y: auto; /* 如果表单内容多的话能滚动 */
 }

@@ -81,11 +81,6 @@ const UploadGoods = () => {
     
     const [actualGoods, setActualGoods] = useState([]);
     // const [retailer_name, setRetailerName] = useState(globUsername) // we set it to the global username
-
-    // the useEffect in the parent component is used for generating the goods once
-    // the child component's useEffect is used for updating the goods list
-   
-
   
     const addClothes = (clothes) => {
       setActualGoods([...actualGoods, clothes]);
@@ -181,16 +176,6 @@ const UploadGoods = () => {
 
           <div className='add_container'>
               <AddClothes />
-              {/* <ProgressBar
-                visible={true}
-                height="80"
-                width="80"
-                color="#4fa94d"
-                ariaLabel="progress-bar-loading"
-                wrapperStyle={{}}
-                wrapperClass=""
-              /> */}
-              {/* <SpinLoader /> */}
 
           </div>
 

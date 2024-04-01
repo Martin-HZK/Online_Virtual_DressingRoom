@@ -77,27 +77,16 @@ const RetailerShowGoods = ({
         console.log(actualGoods);
     }, []);
 
-    // function convertImagePath(imagePath) {
-    //     // 假设后端服务运行在 http://localhost:8080
-    //     const baseUrl = "http://localhost:8080";
-    //     // 提取相对路径中的具体路径部分，即去掉 `src/main/resources/static/`
-    //     const relativePath = imagePath.replace('src/main/resources/static/', '');
-    //     console.log(`${baseUrl}/${relativePath}`);
-    //     // 构造完整的URL
-    //     return `${baseUrl}/${relativePath}`;
-    // }
+
     function convertImagePath(imagePath) {
-        // 假设后端服务运行在 http://localhost:8080
         const baseUrl = "http://localhost:8080";
-        // 提取相对路径中的具体路径部分，即去掉 `src/main/resources/static/`
         let relativePath = imagePath.replace('src/main/resources/static/', '');
-        
-        // 如果结尾有逗号，则去除
+
         if (relativePath.endsWith(',')) {
             relativePath = relativePath.slice(0, -1);
         }
     
-        // 构造完整的URL
+ 
         return `${baseUrl}/${relativePath}`;
     }
     // const [uploadClothesTest, setUploadClothesTest] = useState([
@@ -118,17 +107,6 @@ return (
               </p>
           ) : (
                filterCourseFunction.map((product) => (
-                //   <div className="product" key={product.id}>
-                //       <img src={product.image} alt={product.name} />
-                //       <h2>{product.name}</h2>
-                //       <p>Price: ₹{product.price}</p>
-                //       <button
-                //           className="add-to-cart-button"
-                //           onClick={() => addCourseToCartFunction(product)}
-                //       >
-                //           Add to Shopping Cart
-                //       </button>
-                //   </div>
                     <div className='product' key={product.link}>
                         <img src= {convertImagePath(product.link)} alt='Unknown' />
                         <h2>{product.clothes_name}</h2>
@@ -156,28 +134,6 @@ return (
             </div>
         </Modal>
 
-        <input
-            id="fileInput"
-            name="fileInput"
-            type="file"
-            style={{ display: "none" }}
-            accept=".jpg" // accepting only jpg
-            onChange={onFileChange}
-            ></input>
-
-        <button
-            className="select-button"
-            onClick={() => {
-                document.getElementById("fileInput").click();
-            }}
-            >Select file</button>
-        <button
-            className="upload-button"
-            onClick={handleClothesUpload}
-            >Upload</button>
-
-
-      
       </div>
       
 )
