@@ -41,9 +41,10 @@ Create the `.env` file in this directory using vim or other text editor. Paste t
 ``` text
 MONGO_DATABASE="vdr-api-db"
 MONGO_USER="manunitedhzk7"
-MONGO_PASSWORD="p3JmLIQEnnHoFrR4"
-MONGO_CLUSTER="cluster0.vlgriap.mongodb.net"
+MONGO_PASSWORD="*****"
+MONGO_CLUSTER="*****"
 ```
+> If you want to have access to the database, please contact me!
 
 * Frontend React Project
 
@@ -100,19 +101,10 @@ Elkin: clothes recommendation system<br>
 
 ---
 
-## Appendix
+## Notation
 
-### Usage of installed node.js dependencies(Partly)
+> This repository only include the work done by Zhikai, so some of the HTTP request for the 2D virtual tryon and AI recommendation are unavailable.
+> All the contributions in the repo are done by Zhikai according to the task distribution. The commits of the other contributor is also created by Zhikai but on its teammates computer.
 
-***Install command***: `npm install dependency_name`(*Hint*: `install` is the same as `i`)
 
-1. **axios**:
-2. **bootstrap**: enable us to use bootstrp for  layout and styling purposes
-3. **react-bootstrap**: enable us to use the bootstrap related components for ...
-4. **@fortawesome/react-fontawesome**: enable us to easily install font awsome icons within react application
-5. **@fortawesome/free-solid-svg-icons**
-6. **react-player** : play with movie trailer
-7. **react-router-dom**
-8. **@mui/material @emotion/react @emotion/styled**
-9. **react-material-ui-carousel**
 
